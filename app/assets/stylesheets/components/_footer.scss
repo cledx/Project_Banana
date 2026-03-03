@@ -1,0 +1,33 @@
+.footer {
+  background-color: $surface;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-main {
+  margin-bottom: 1rem;
+}
+
+.footer-brand {
+  font-weight: 600;
+  color: $text-primary;
+  font-size: 1rem;
+}
+
+.footer-links a {
+  color: $text-secondary;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: $primary;
+}
+
+.footer-meta {
+  font-size: 0.85rem;
+  color: $text-muted;
+}
