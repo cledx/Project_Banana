@@ -16,3 +16,12 @@ $border-radius:    0.5rem;
 $border-radius-lg: 0.75rem;
 $border-radius-xl: 1rem;
 $border-radius-xxl: 1.5rem;
+
+// Inputs
+$input-border-radius: $border-radius;
+$input-border-color: rgba($text-secondary, 0.2);
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($primary, 0.2);
+
+$form-label-font-weight: 500;
+$form-label-color: $text-secondary;
