@@ -19,10 +19,10 @@ User.destroy_all
 # ============================================================
 
 USERS_DATA = [
-  ["koji@lewagon.com",      "Koji the Quiet"],
-  ["katherine@lewagon.com", "Katherine the Stinky"],
+  ["koji@lewagon.com",      "Koji the Wise"],
+  ["katherine@lewagon.com", "Katherine the Nicest"],
   ["glau@lewagon.com",      "Glau the Nice"],
-  ["carlos@lewagon.com",    "Carlos the Magnificent"]
+  ["karlos@lewagon.com",    "Charlos the kraykray"]
 ]
 
 ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"]
@@ -122,9 +122,9 @@ puts "Creating users..."
   DayTemplate.create!(
     user: user,
     day_name: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"].sample,
-    breakfast: [nil, 1, 2, 3].sample,
-    lunch:     [nil, 1, 2, 3].sample,
-    dinner:    [nil, 1, 2, 3].sample
+    breakfast: [0, 1, 2, 3].sample,
+    lunch:     [0, 1, 2, 3].sample,
+    dinner:    [0, 1, 2, 3].sample
   )
 
   # ----------------------------------------------------------
