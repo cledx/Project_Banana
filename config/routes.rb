@@ -13,4 +13,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :weeks, only: [:create, :show] do
+    resources :days, only: [:show, :create, :edit, :update, :destroy]
+  end
+
+  resources :recipes, only: [:show]
+
+  resources :shopping_items, only: [:index, :update]
+
+  # resources :settings, only: [:show, :edit]
+  get "/settings", to: "users#settings", as: :settings
+  patch "/settings", to: "users#update_settings"
 end
