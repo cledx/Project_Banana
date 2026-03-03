@@ -1,1 +1,19 @@
 <h1>weeks show</h1>
+
+<%= week_calendar(number_of_weeks: 2, events: @week.days, attribute: :date )  do |date, day| %>
+    <% if day.first %>
+      <%= link_to week_day_path(@week, day.first) do %>
+        <h3><%= day.first.date.strftime("%e") %></h3>
+      <% end %>
+      <% day.first.dishes.each do |dish| %>
+        <ul>
+        <%= link_to dish_path(dish) do %>
+          <li><%= dish.recipe.name %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    <% else %>
+      <%= date.strftime("%e") %>
+    <% end %>
+  <% end %>
+<%= link_to "Shopping list", week_shopping_items_path(@week) %>

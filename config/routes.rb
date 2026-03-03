@@ -15,11 +15,10 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :weeks, only: [:create, :show] do
-    resources :days, only: [:show, :create, :edit, :update, :destroy] do
-      resources :dishes, only: [:show]
-    end
+    resources :days, only: [:show, :create, :edit, :update, :destroy]
     resources :shopping_items, only: [:index]
   end
+  resources :dishes, only: [:show, :update]
 
   resources :shopping_items, only: [:update]
   resources :recipes, only: [:show]

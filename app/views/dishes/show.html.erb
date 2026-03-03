@@ -5,6 +5,11 @@
 <p>Portions: <%= @dish.portions %></p>
 <p>Cooktime: <%= @dish.recipe.cooktime/60 %> mins</p>
 <p>Cuisine: <%= @dish.recipe.cuisine %></p>
+<ul>
+<% @dish.recipe.recipe_items.each do |item| %>
+  <li><%= item.ingredient.name %></li>
+<% end %>
+</ul>
 <p>Instructions: <%= @dish.recipe.instructions %></p>
 
-<%= link_to "Dishes", week_day_path(params[:day_id]) %>
+<%= link_to "Dishes", week_day_path(@dish.day.week, @dish.day) %>

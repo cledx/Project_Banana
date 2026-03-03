@@ -2,7 +2,7 @@
   <h1>Settings</h1>
 
   <%= simple_form_for @user, url: settings_path, method: :patch do |f| %>
-    <%= f.input :allergies %>
+    <%= f.input :allergies, as: :check_boxes, collection: User::ALL_ALLERGIES %>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>
 </div>

@@ -1,1 +1,11 @@
 <h1>days view</h1>
+
+<% @day.dishes.each do |dish| %>
+  <ul>
+    <%= link_to dish_path(dish) do %>
+      <li><%= dish.recipe.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Week show", week_path(@day.week) %>
