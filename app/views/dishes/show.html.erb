@@ -1,0 +1,10 @@
+<h1>Dish Show</h1>
+
+<p>Name: <%= @dish.recipe.name %></p>
+<p>Category: <%= @dish.category %></p>
+<p>Portions: <%= @dish.portions %></p>
+<p>Cooktime: <%= @dish.recipe.cooktime/60 %> mins</p>
+<p>Cuisine: <%= @dish.recipe.cuisine %></p>
+<p>Instructions: <%= @dish.recipe.instructions %></p>
+
+<%= link_to "Dishes", week_day_path(params[:day_id]) %>
