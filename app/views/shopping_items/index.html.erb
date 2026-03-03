@@ -1,7 +1,11 @@
 <h1>Shopping Items Index</h1>
 
-<% @shopping_items.each do |item| %>
-  <p>Name: <%= item.ingredient.name %> - Total: <%= item.total %> - Units: <%= item.unit %> - Purchased: <%= item.purchased %></p>
+<% @shopping_items.sort_by{|item| item.ingredient.name }.each do |item| %>
+  <%= simple_form_for item do |f| %>
+    <%= f.input :purchased %>
+    <p>Name: <%= item.ingredient.name %> - Total: <%= item.total %> - Units: <%= item.unit %> - Purchased: <%= item.purchased %></p>
+    <%= f.submit %>
+  <% end %>
 <% end %>
 
 <%= link_to "Week show", week_path(params[:week_id]) %>
