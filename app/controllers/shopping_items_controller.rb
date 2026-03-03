@@ -1,0 +1,2 @@
+class ShoppingItemsController < ApplicationController
+end
