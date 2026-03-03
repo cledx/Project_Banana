@@ -1,6 +1,10 @@
 .navbar-lewagon {
+  background-color: $surface;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +13,54 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon .nav-link {
+  color: $text-secondary;
+  font-weight: 500;
+  margin-right: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-lewagon .nav-link:hover {
+  color: $primary;
+}
+
+.navbar-lewagon .dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-lewagon .nav-link.active {
+  color: $primary;
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 0.9rem;
+  padding: 0.5rem;
+  min-width: 180px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown-item {
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  font-weight: 500;
+  color: $text-primary;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: $primary-light;
+  color: $primary;
+  transform: translateX(2px);
+}
+
+.dropdown-item:active {
+  background-color: rgba($primary, 0.15);
 }

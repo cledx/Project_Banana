@@ -23,8 +23,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body class="d-flex flex-column min-vh-100">
+    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+
+    <main class="flex-grow-1">
+      <%= yield %>
+    </main>
+
+
+    <%= render "shared/footer" %>
   </body>
 </html>
