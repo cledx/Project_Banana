@@ -32,7 +32,7 @@
             <h5><%= dish.recipe.name %></h5>
             <p>Ingredients:</p>
             <ul class="list mb-0">
-              <% dish.recipe.ingredients.each do |ingredient| %>
+              <% dish.recipe.ingredients.first(3).each do |ingredient| %>
                 <li><%= ingredient.name %></li>
               <% end %>
             </ul>
