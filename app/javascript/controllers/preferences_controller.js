@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="preferences"
 export default class extends Controller {
-  static targets = ["steps", "cuisines"]
+  static targets = ["steps", "cuisines", "allergies"]
   connect() {
     this.currentPage = 0
   }
@@ -20,8 +20,8 @@ export default class extends Controller {
   next() {
     if (this.currentPage === 0) {
       const checked = this.cuisinesTargets.filter(el => el.checked)
-      if (checked.length < 1 || checked.length > 3) {
-        alert("Please select up to 3 cuisines.")
+      if (checked.length < 1) {
+        alert("Select one or more")
         return
       }
     }
@@ -54,15 +54,6 @@ export default class extends Controller {
       })
       this.tomSelectInitialized2 = true
     }
-  }
-
-  limitCuisines() {
-    const checked = this.cuisinesTargets.filter(el => el.checked)
-    this.cuisinesTargets.forEach(el => {
-      if (!el.checked) {
-        el.disabled = checked.length >= 3
-      }
-    })
   }
 
   previous() {

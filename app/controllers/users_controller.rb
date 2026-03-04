@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[settings update_settings]
 
   def settings
+    @user.allergies = []
+    @user.preferred_cuisines = []
   end
 
   def update_settings
