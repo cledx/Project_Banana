@@ -33,14 +33,12 @@
 // Labels and Helpers
 
 .form-label {
-  font-size: 0.85rem;
   font-weight: $form-label-font-weight;
   color: $form-label-color;
   margin-bottom: 0.35rem;
 }
 
 .form-text {
-  font-size: 0.75rem;
   color: $text-muted;
 }
 
@@ -150,5 +148,30 @@
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// shopping-list
+
+.shopping-item-label {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.shopping-wrapper {
+  position: relative;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  asset-url("grocery-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 4rem 0;
+
+  .container {
+    position: relative;
+    z-index: 1;
   }
 }
