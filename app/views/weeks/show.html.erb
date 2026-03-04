@@ -7,14 +7,13 @@
       <%= link_to week_day_path(@week, day) do %>
         <h3><%= day.date.strftime("%e") %></h3>
       <% end %>
-
       <% ["breakfast", "lunch", "dinner"].each do |category| %>
         <h4><%= category.capitalize %></h4>
         <% dishes = day.dishes.select { |dish| dish.category == category } %>
         <div class="sortable-list" data-day_id="<%= day.id %>" data-category="<%= category %>">
           <% if dishes.any? %>
             <% dishes.each do |dish| %>
-              <div data-dish_id="<%= dish.id %>">
+              <div class="btn btn-outline-warning" data-dish_id="<%= dish.id %>">
                 <%= link_to dish_path(dish) do %>
                   <%= dish.recipe.name %>
                 <% end %>
