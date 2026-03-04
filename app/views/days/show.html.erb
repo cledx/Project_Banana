@@ -3,7 +3,9 @@
   <div class="container">
 
     <div class="banner-inner">
-      <h1 class="banner-title">Today</h1>
+      <h1 class="banner-title">
+        <%= @day.date.strftime("%A") %>
+      </h1>
       <p class="banner-subtitle">Check what you need to prepare!</p>
     </div>
 
