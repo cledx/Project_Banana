@@ -15,24 +15,13 @@
             <% dishes.each do |dish| %>
               <div class="card p-2 w-100" data-dish_id="<%= dish.id %>">
                 <%= link_to dish_path(dish), class: "nav-link" do %>
-                  <p class="m-0 card-title"><%= dish.recipe.name %></p>
+                  <p class="d-flex justify-content-between align-items-center m-0 card-title truncate-text"><%= dish.recipe.name %><i class="fa-solid fa-user-group"> <%= dish.portions %></i></p>
                 <% end %>
               </div>
             <% end %>
           <% end %>
         </div>
       <% end %>
-
-    <% else %>
-      <h4>Breakfast</h4>
-        <ul class="sortable-list">
-        </ul>
-      <h4>Lunch</h4>
-        <ul class="sortable-list">
-        </ul>
-      <h4>Dinner</h4>
-        <ul class="sortable-list">
-        </ul>
     <% end %>
   <% end %>
   <%= link_to "Shopping list", week_shopping_items_path(@week) %>
