@@ -4,7 +4,7 @@ class DishesController < ApplicationController
   end
 
   def update
-    # This is where we would update the dish, for a given day. 
+    # This is where we would update the dish, for a given day.
     @dish = Dish.find(params[:id])
     if @dish.update(dish_params)
       redirect_to week_day_path(@dish.day)
@@ -23,6 +23,6 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:recipe_id, :amount, :category)
+    params.require(:dish).permit(:recipe_id, :day_id, :portions, :category)
   end
 end
