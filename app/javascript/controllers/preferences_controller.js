@@ -21,7 +21,11 @@ export default class extends Controller {
     this.currentPage += 1
     this.showStep()
 
-    if (this.currentPage === 1 && !this.tomSelectInitialized) {
+    if (this.currentPage === 1) {
+      document.getElementById('steps-container').classList.remove('d-none')
+    }
+
+    if (this.currentPage === 2 && !this.tomSelectInitialized) {
       new TomSelect('#ingredients-select', {
         plugins: ['caret_position', 'input_autogrow'],
         create: true,
@@ -34,7 +38,7 @@ export default class extends Controller {
       this.tomSelectInitialized = true
     }
 
-    if (this.currentPage === 2 && !this.tomSelectInitialized2) {
+    if (this.currentPage === 3 && !this.tomSelectInitialized2) {
       new TomSelect('#dislike-ingredients', {
         plugins: ['caret_position', 'input_autogrow'],
         create: true,
@@ -47,7 +51,7 @@ export default class extends Controller {
       this.tomSelectInitialized2 = true
     }
 
-    if (this.currentPage === 4 && !this.tomSelectInitialized3) {
+    if (this.currentPage === 5 && !this.tomSelectInitialized3) {
       new TomSelect('#disease-select', {
         plugins: ['caret_position', 'input_autogrow'],
         create: true,
@@ -64,5 +68,9 @@ export default class extends Controller {
   previous() {
     this.currentPage -= 1
     this.showStep()
+
+    if (this.currentPage === 0) {
+      document.getElementById('steps-container').classList.add('d-none')
+    }
   }
 }
