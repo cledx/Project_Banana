@@ -74,4 +74,5 @@ group :test do
 end
 
 # added gems
+gem "ruby_llm"
 gem "simple_calendar"
