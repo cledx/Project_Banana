@@ -1,45 +1,27 @@
 .page-banner {
-  position: relative;
-  height: 220px;
-  display: flex;
-  align-items: center;
-  color: white;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  // imagem padrão
-  background-image: asset-url("grocery-bg.jpg");
-
-  // overlay
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.4)
-    );
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.45)
+    ),
+    asset-url("grocery-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    color: white;
   }
 
-  .container {
-    position: relative;
-    z-index: 1;
+  .banner-inner {
+    padding-left: 0;
   }
-}
 
-.banner-content {
-  max-width: 600px;
-}
-
-.banner-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.banner-subtitle {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
+  .banner-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .banner-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
