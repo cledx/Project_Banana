@@ -1,1 +1,19 @@
+<% content_for :body_class, "transparent-nav" %>
+<% content_for :navbar_class, "navbar-light-text" %>
 
+<div class="banner" style="position: relative; margin-top: -56px;">
+  <%= image_tag "landing_banner.jpg", class: "banner-img w-100", style: "height: 100vh; object-fit: cover;" %>
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(123, 174, 127, 0.3);"></div>
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-120%, -50%); z-index: 10; text-align: left; color: white;">
+    <h5 class="mb-2">For busy people who still want to cook</h5>
+    <p>Less planning</p>
+    <h5>A planner that creates recipes for your whole week</h5>
+    <h5>with one click</h5>
+    <%= link_to new_user_registration_path, class: "btn btn-primary shadow-sm text-light mt-5" do %>
+      Get Started <i class="fa-solid fa-caret-right"></i>
+    <% end %>
+  </div>
+  <div style="position: absolute; top: 40%; right: -10%; transform: translateY(-25%); z-index: 10; width: 60%;">
+    <%= image_tag "screenshot.jpg", class: "img-fluid shadow-lg rounded" %>
+  </div>
+</div>

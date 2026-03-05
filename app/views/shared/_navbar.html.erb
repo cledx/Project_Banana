@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield :navbar_class %>">
   <div class="container-fluid">
     <% if user_signed_in? %>
       <%= link_to week_path(current_user.weeks.last), class: "navbar-brand" do %>
@@ -18,12 +18,12 @@
             <%= link_to "Week Planner", week_path(current_user.weeks.last), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Shopping List", week_shopping_items_path(current_user.weeks.last) , class: "nav-link" %>
+            <%= link_to "Shopping List", week_shopping_items_path(current_user.weeks.last), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://i.pinimg.com/736x/6c/00/45/6c0045a2e6500365c3384011e42359cf.jpg", class: "avatar", alt: "dropdown menu" %>
-          </a>
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "https://i.pinimg.com/736x/6c/00/45/6c0045a2e6500365c3384011e42359cf.jpg", class: "avatar", alt: "dropdown menu" %>
+            </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Preferences", "#", class: "dropdown-item" %>

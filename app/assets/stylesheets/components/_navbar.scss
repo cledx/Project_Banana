@@ -64,3 +64,8 @@
 .dropdown-item:active {
   background-color: rgba($primary, 0.15);
 }
+
+.transparent-nav .navbar-light-text .nav-link,
+.transparent-nav .navbar-light-text .navbar-brand {
+  color: white !important;
+}

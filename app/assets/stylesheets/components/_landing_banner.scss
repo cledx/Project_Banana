@@ -1,0 +1,27 @@
+.transparent-nav .navbar {
+  background-color: transparent !important;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.transparent-nav .banner {
+  margin-top: -56px;
+}
+
+.banner p {
+  font-size: 64px;
+  font-family: "segoe-ui", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.banner h1,
+.banner h2,
+.banner h3,
+.banner h4,
+.banner h5,
+.banner h6 {
+  font-family: 'helvetica-neue', sans-serif;
+  font-size: 24px;
+}
