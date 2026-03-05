@@ -1,6 +1,6 @@
 <h1>Let's plan our meals for the week</h1>
 
-<div data-controller="sortable" id="calendar">
+<div data-controller="sortable portions" id="calendar">
   <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
     <h3><%= date.strftime("%e") %></h3>
     <% ["breakfast", "lunch", "dinner"].each do |category| %>
