@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :days, only: [:show, :create, :destroy]
     resources :shopping_items, only: [:index]
   end
-  resources :dishes, only: [:show, :update]
+  resources :dishes, only: [:show, :create, :update]
 
   resources :shopping_items, only: [:update]
   resources :recipes, only: [:show]

@@ -5,6 +5,10 @@ class DishesController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
+  def create
+    @dish = Dish.create(dish_params)
+  end
+
   def update
     # This is where we would update the dish, for a given day.
     @dish = Dish.find(params[:id])

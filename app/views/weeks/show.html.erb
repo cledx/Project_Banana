@@ -48,6 +48,22 @@
   <%= week_calendar(number_of_weeks: 2, events: @week.days, attribute: :date) do |date, day| %>
 
     <% day = day.first %>
+    <% if day %>
+      <%= link_to week_day_path(@week, day) do %>
+        <h3><%= day.date.strftime("%e") %></h3>
+      <% end %>
+      <% ["breakfast", "lunch", "dinner"].each do |category| %>
+        <p class="m-2"><%= category.capitalize %>:</p>
+        <% dishes = day.dishes.select { |dish| dish.category == category } %>
+        <div class="sortable-list" data-day_id="<%= day.id %>" data-category="<%= category %>">
+          <% if dishes.any? %>
+            <% dishes.each do |dish| %>
+              <div class="card p-2 w-100" data-dish_id="<%= dish.id %>">
+                <%= link_to dish_path(dish), class: "nav-link" do %>
+                  <p class="d-flex justify-content-between align-items-center m-0 card-title truncate-text"><%= dish.recipe.name %><i class="fa-solid fa-user-group"> <%= dish.portions %></i></p>
+                <% end %>
+              </div>
+            <% end %>
 
     <div class="calendar-day <%= 'today-highlight' if day&.date&.to_date == Date.current %>">
 
@@ -115,6 +131,8 @@
         </div>
 
       <% end %>
+    <% end %>
+  <% end %>
 
     </div>
 
@@ -133,3 +151,5 @@
 
 </div>
 </div>
+
+<%= link_to "Shopping list", week_shopping_items_path(@week) %>
