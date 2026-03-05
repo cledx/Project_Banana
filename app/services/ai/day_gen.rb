@@ -10,11 +10,10 @@ class Ai::DayGenerator
             week: @week
         })
         # This gets the day template for the user's day of the week.
-        day_template = @week.user.day_template.find_by(day_name: @date.strftime("%A"))
-        [day_template.breakfast, day_template.lunch, day_template.dinner].each_with_index do |dish_num, index|
-            if dish_num.present?
-                dish = Ai::DishGenerator.new(@day, dish_num, ["breakfast", "lunch", "dinner"][index])
-                dish.save
+        day_template = @week.user.day_templates.find_by(day_name: @date.strftime("%A"))
+        [day_template.breakfast, day_template.lunch, day_template.dinner].each_with_index do |portions, index|
+            if portions.present?
+                Ai::DishGenerator.new(@day, portions, ["breakfast", "lunch", "dinner"][index]).generate_dish
             end
         end
         @day.save
