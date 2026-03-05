@@ -1,12 +1,22 @@
 <h1>Let's plan our meals for the week</h1>
 
-<div data-controller="sortable portions" id="calendar">
+<div data-controller="sortable" id="calendar">
   <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
     <h3><%= date.strftime("%e") %></h3>
     <% ["breakfast", "lunch", "dinner"].each do |category| %>
       <p class="m-2"><%= category.capitalize %>:</p>
+        <div data-controller="portions">
+          <button data-action="click->portions#decrement">-</button>
+          <span data-portions-target="count">0</span>
+          <button data-action="click->portions#increment">+</button>
+          <i class="fa-solid fa-person"></i>
+        </div>
     <% end %>
   <% end %>
 </div>
 
-<%= link_to 'Generate meals', weeks_path, class: "btn btn-primary" %>
+<%= simple_form_for @week, url: weeks_path do |f| %>
+  <%= f.submit "Generate meals",
+        class: "btn btn-primary",
+        data: { turbo_submits_with: "<i class='fa-light fa-spinner fa-spin'></i>".html_safe } %>
+<% end %>
