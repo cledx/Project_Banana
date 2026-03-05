@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :weeks, only: [:create, :show] do
+  resources :weeks, only: [:create, :new, :show] do
     resources :days, only: [:show, :create, :destroy]
     resources :shopping_items, only: [:index]
   end

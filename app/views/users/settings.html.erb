@@ -1,8 +1,106 @@
-<div class="container">
-  <h1>Settings</h1>
+<div class="d-flex align-items-center flex-column pt-4">
+  <h1>Let's personalize your meals</h1>
+</div>
 
-  <%= simple_form_for @user, url: settings_path, method: :patch do |f| %>
-    <%= f.input :allergies, as: :check_boxes, collection: User::ALL_ALLERGIES %>
-    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+<div data-controller="preferences">
+  <%= form_with model: @user, url: settings_path, method: :patch do |f| %>
+
+    <%# step 0 %>
+    <div class="form-step col-10 mx-auto m-3 p-5" id="step-0" data-preferences-target="steps">
+      <div class="d-flex gap-2 mb-3 overflow-hidden justify-content-around text-wrap text-center">
+        <div class="d-flex flex-column align-items-center">
+          <%= image_tag "onb-1.jpg", class: "object-fit-cover rounded", style: "height: 240px; width: 320px;", alt: "food1" %>
+          <h5 class="mt-3" style="max-width: 240px">Customize the ingredients you want to cook with</h5>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <%= image_tag "onb-2.jpg", class: "object-fit-cover rounded", style: "height: 240px; width: 320px;", alt: "food2" %>
+          <h5 class="mt-3" style="max-width: 240px">Let us know if you have any dietary restrictions</h5>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <%= image_tag "onb-3.jpg", class: "object-fit-cover rounded", style: "height: 240px; width: 320px;", alt: "food3" %>
+          <h5 class="mt-3" style="max-width: 240px">Start generating your recipes</h5>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-5">
+        <%= link_to "Skip preferences", weeks_path, class: "btn btn-secondary" %>
+        <button type="button" class="btn btn-primary" data-action="click->preferences#next">Set preferences</button>
+      </div>
+    </div>
+
+    <%# steps 1-5 %>
+    <div class="col-4 d-none border border-primary mx-auto m-3 p-5" id="steps-container">
+
+      <%# step 1 %>
+      <div class="form-step d-none" id="step-1" data-preferences-target="steps">
+        <h2>What cuisines do you like?</h2>
+        <h3 class="mt-3 mb-2">Choose as many as you like</h3>
+        <div class="row">
+          <% cuisines = ["French", "Italian", "Japanese", "Mexican", "Indian", "Thai",
+                    "Chinese", "Mediterranean", "American", "Spanish"] %>
+          <% cuisines.each_with_index do |cuisine, index| %>
+            <div class="col-4 mb-3">
+              <%= f.check_box :preferred_cuisines, { class: "btn-check", id: "cuisine_#{cuisine}", include_hidden: false, data: { preferences_target: "cuisines", action: "change->preferences#limitCuisines" }, multiple: true, value: cuisine }, cuisine %>
+              <%= label_tag "cuisine_#{cuisine}", cuisine, class: "btn btn-outline-primary w-100 text-truncate" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="text-end">
+          <button type="button" class="btn btn-primary" data-action="click->preferences#next">Next</button>
+        </div>
+      </div>
+
+      <%# step 2 %>
+      <div class="form-step d-none" id="step-2" data-preferences-target="steps">
+        <h2 class="mt-3 mb-2">Any ingredients you like?</h2>
+        <h3 class="mt-3 mb-2">Type each and press Enter to add</h3>
+        <%= f.select :preferred_ingredients, [], {}, { class: "form-control", id: "ingredients-select", multiple: true } %>
+        <div class="d-flex justify-content-between mt-3">
+          <button type="button" class="btn btn-outline-primary" data-action="click->preferences#previous">Back</button>
+          <button type="button" class="btn btn-primary" data-action="click->preferences#next">Next</button>
+        </div>
+      </div>
+
+      <%# step 3 %>
+      <div class="form-step d-none" id="step-3" data-preferences-target="steps">
+        <h2 class="mt-3 mb-2">Any ingredients you <em>don't</em> like?</h2>
+        <h3 class="mt-3 mb-2">Type each and press Enter to add</h3>
+        <%= f.select :undesireable_ingredients, [], {}, { class: "form-control", id: "dislike-ingredients", multiple: true } %>
+        <div class="d-flex justify-content-between mt-3">
+          <button type="button" class="btn btn-outline-primary" data-action="click->preferences#previous">Back</button>
+          <button type="button" class="btn btn-primary" data-action="click->preferences#next">Next</button>
+        </div>
+      </div>
+
+      <%# step 4 %>
+      <div class="form-step d-none" id="step-4" data-preferences-target="steps">
+        <h2>Do you have any food allergies?</h2>
+        <h3 class="mt-3 mb-2">Choose as many as you like</h3>
+        <div class="row">
+          <% allergies = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"] %>
+          <% allergies.each_with_index do |allergy, index| %>
+            <div class="col-4 mb-3">
+              <%= f.check_box :allergies, { class: "btn-check", id: "allergy_#{allergy}", include_hidden: false, data: { preferences_target: "allergies" }, multiple: true, value: allergy }, allergy %>
+              <%= label_tag "allergy_#{allergy}", allergy, class: "btn btn-outline-primary w-100 text-truncate" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+          <button type="button" class="btn btn-outline-primary" data-action="click->preferences#previous">Back</button>
+          <button type="button" class="btn btn-primary" data-action="click->preferences#next">Next</button>
+        </div>
+      </div>
+
+      <%# step 5 %>
+      <div class="form-step d-none" id="step-5" data-preferences-target="steps">
+        <h2 class="mt-3 mb-2">Do you have any dietary restrictions?</h2>
+        <h3 class="mt-3 mb-2">Type each and press Enter to add</h3>
+        <%= f.select :disease, [], {}, { class: "form-control", id: "disease-select", multiple: true } %>
+        <div class="d-flex justify-content-between mt-3">
+          <button type="button" class="btn btn-outline-primary" data-action="click->preferences#previous">Back</button>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        </div>
+      </div>
+
+    </div>
   <% end %>
 </div>

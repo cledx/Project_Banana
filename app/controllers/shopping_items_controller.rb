@@ -11,15 +11,12 @@ class ShoppingItemsController < ApplicationController
     # I agree with the above but we only need one week for the demo so might not need to think about this.
     redirect_to root_path, alert: "You are not authorized to access this shopping list." if @week.user != current_user
     @shopping_items = @week.shopping_items.all
+    @items_remaining = @shopping_items.count { |i| !i.purchased }
   end
 
   def update
     @shopping_item = ShoppingItem.find(params[:id])
-    if @shopping_item.update(set_params)
-      redirect_to week_shopping_items_path(@shopping_item.week)
-    else
-      render :index, status: :unprocessable_entity
-    end
+    @shopping_item.update(set_params)
   end
 
   private

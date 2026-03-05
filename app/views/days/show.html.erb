@@ -19,9 +19,13 @@
 <div class="container mt-4">
   <div class="row">
 
+      <!-- Back -->
+      <div class="d-flex justify-content-between mb-1 p-1">
+        <%= link_to "‹ Back", week_path(current_user.weeks.last), class: "btn btn-ghost ms-2" %>
+      </div>
+
     <!-- Breakfast -->
     <div class="col-md-4">
-
       <div class="meal-column">
         <h4>Breakfast</h4>
       </div>

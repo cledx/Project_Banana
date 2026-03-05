@@ -81,3 +81,13 @@
     color: $primary;
   }
 }
+.btn-ghost-white {
+  background: transparent;
+  border: none;
+  color: white;
+
+  &:hover {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+  }
+}

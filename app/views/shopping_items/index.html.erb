@@ -5,12 +5,12 @@
 
       <!-- Back -->
       <div class="d-flex justify-content-between mb-1 p-1">
-        <%= link_to "‹ Back to Week", week_path(params[:week_id]), class: "btn-ghost" %>
+        <%= link_to "‹ Back to Week", week_path(current_user.weeks.last), class: "btn btn-ghost-white" %>
       </div>
 
       <!-- Card -->
       <div class="card mb-4">
-        <div class="card-body">
+        <div class="card-body" data-controller="shopping-list">
 
           <div class="d-flex justify-content-between align-items-center mb-2 p-2">
             <h4 class="card-title mb-2 mt-2">
@@ -18,8 +18,12 @@
               Shopping List
             </h4>
 
-            <span class="badge bg-primary">
-              <%= @shopping_items.count { |i| !i.purchased } %> remaining
+            <span class="badge <%= @items_remaining.positive? ? "bg-warning" : "bg-primary" %>" data-shopping-list-target="counter">
+              <% if @items_remaining.positive? %>
+                <%= @items_remaining %> remaining
+              <% else %>
+                Done
+              <% end %>
             </span>
           </div>
 
@@ -36,7 +40,7 @@
 
                         <%= f.check_box :purchased,
                                         class: "form-check-input me-2",
-                                        onchange: "this.form.submit();" %>
+                                        data: {action: "change->shopping-list#purchased", shopping_list_target: "checkboxes"} %>
 
                         <%= item.ingredient.name %> — <%= item.total %> <%= item.unit %>
 
