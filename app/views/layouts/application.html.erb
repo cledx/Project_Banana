@@ -25,7 +25,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="d-flex flex-column min-vh-100">
+  <body class="d-flex flex-column min-vh-100 <%= yield :body_class %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
