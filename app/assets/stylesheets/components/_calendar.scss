@@ -1,0 +1,90 @@
+#calendar .simple-calendar .today {
+  background: transparent;
+}
+#calendar .simple-calendar table {
+  border: 1px solid $text-muted;
+  padding: 0.2rem;
+  border-radius: 16px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+#calendar .simple-calendar th,
+#calendar .simple-calendar td {
+  border: none;
+
+}
+
+#calendar {
+  margin-top: 24px;
+}
+
+.calendar-day {
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+// highlight
+
+.today-highlight {
+  background-color: $primary-light;
+  border: 2px solid $primary;
+}
+
+// day header
+
+.day-number {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+// meal section
+
+.meal-header {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+// meal card
+.meal-card {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  }
+}
+
+// empty states
+.empty-meal {
+  min-height: 40px;
+  border: 1px dashed #ddd;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// empty day
+.empty-day {
+  background: #fafafa;
+  border: 1px dashed #eee;
+  min-height: 40px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
