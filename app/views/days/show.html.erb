@@ -30,7 +30,7 @@
         <%= link_to dish_path(dish), class: "text-decoration-none" do %>
           <div class="card p-3 mb-3">
             <h5><%= dish.recipe.name %></h5>
-            <p>Ingredients:</p>
+            <p class="mb-0">Ingredients:</p>
             <ul class="list mb-0">
               <% dish.recipe.ingredients.each do |ingredient| %>
                 <li><%= ingredient.name %></li>
@@ -52,7 +52,7 @@
         <%= link_to dish_path(dish), class: "text-decoration-none" do %>
           <div class="card p-3 mb-3">
             <h5><%= dish.recipe.name %></h5>
-            <p>Ingredients:</p>
+            <p class="mb-0">Ingredients:</p>
             <ul class="list mb-0">
               <% dish.recipe.ingredients.each do |ingredient| %>
                 <li><%= ingredient.name %></li>
@@ -74,7 +74,7 @@
         <%= link_to dish_path(dish), class: "text-decoration-none" do %>
           <div class="card p-3 mb-3">
             <h5><%= dish.recipe.name %></h5>
-            <p>Ingredients:</p>
+            <p class="mb-0">Ingredients:</p>
             <ul class="list mb-0">
               <% dish.recipe.ingredients.each do |ingredient| %>
                 <li><%= ingredient.name %></li>
@@ -87,6 +87,7 @@
 
   </div>
 </div>
+
 <%= simple_form_for Dish.new do |f| %>
   <%= f.association :recipe %>
   <%= f.input :portions %>

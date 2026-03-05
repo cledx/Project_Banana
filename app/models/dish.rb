@@ -36,12 +36,18 @@ class Dish < ApplicationRecord
 
   def update_shopping_items
     recipe.recipe_items.each do |recipe_item|
+      total_amount = recipe_item.amount * portions
       existing_item = week.shopping_items.find { |item| item.ingredient == recipe_item.ingredient }
-
-      existing_item.update(total: existing_item.total + recipe_item.amount)
+      existing_item.update(total: existing_item.total + total_amount)
     end
   end
 
   def destroy_shopping_items
+    recipe.recipe_items.each do |recipe_item|
+      total_amount = recipe_item.amount * portions
+      existing_item = week.shopping_items.find { |item| item.ingredient == recipe_item.ingredient }
+      existing_item.update(total: existing_item.total - total_amount)
+      existing_item.destroy if existing_item.total.zero?
+    end
   end
 end
