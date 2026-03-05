@@ -24,3 +24,4 @@ class SearchRecipesTool < RubyLLM::Tool
       "No recipe found with ingredient '#{main_ingredient}' and cuisine '#{cuisine}'."
     end
   end
+end

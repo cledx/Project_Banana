@@ -1,13 +1,14 @@
-class Ai::RecipeGenerator
+class Ai::RecipeGen
     def initialize(cuisine, main_ingredient)
         @cuisine = cuisine
         @main_ingredient = main_ingredient
     end
 
     def generate_recipe
-        @rubyllm = RubyLLM.new.chat
-        .with_tool(SearchIngredientsTool, SearchRecipesTool)
-        .with_instruction(prompt_gen)
+        @rubyllm = RubyLLM.chat
+        .with_tool(SearchIngredientsTool)
+        .with_tool(SearchRecipesTool)
+        .with_instructions(prompt_gen)
         .with_schema(Ai::Schemas::RecipeSchema)
         response = @rubyllm.ask("Generate a recipe for #{@main_ingredient} in #{@cuisine} cuisine.")
         parsed_response = JSON.parse(response, symbolize_names: true)

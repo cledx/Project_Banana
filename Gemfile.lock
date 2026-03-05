@@ -493,6 +493,7 @@ DEPENDENCIES
   rails (~> 8.1.2)
   rubocop-rails-omakase
   ruby_llm
+  ruby_llm-schema
   sassc-rails
   selenium-webdriver
   simple_calendar
