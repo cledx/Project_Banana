@@ -9,6 +9,10 @@ class WeeksController < ApplicationController
     redirect_to root_path, alert: "You are not authorized to access this week." if @week.user != current_user
   end
 
+  def new
+    @week = Week.new
+  end
+
   def create
     @week = Week.new
     week_generation

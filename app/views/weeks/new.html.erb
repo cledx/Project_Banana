@@ -1,1 +1,10 @@
-<h2>week generation</h2>
+<h1>Week Generation</h1>
+
+<div data-controller="sortable" id="calendar">
+  <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
+    <h3><%= date.strftime("%e") %></h3>
+    <% ["breakfast", "lunch", "dinner"].each do |category| %>
+      <p class="m-2"><%= category.capitalize %>:</p>
+    <% end %>
+  <% end %>
+</div>
