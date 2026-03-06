@@ -8,7 +8,7 @@ class Dish < ApplicationRecord
   after_commit :update_items
 
   def update_items
-    puts "Updating items for dish: #{id}"
+    # puts "Updating items for dish: #{id}"
     ingredients_hash = {}
     week.dishes.each do |dish|
       portions = dish.portions
@@ -19,7 +19,7 @@ class Dish < ApplicationRecord
     end
 
     ingredients_hash.each do |(ingredient, total)|
-      p ingredient
+      # p ingredient
       existing_item = week.shopping_items.find { |item| item.ingredient == ingredient }
       if existing_item
         existing_item.update(total: total)
