@@ -11,44 +11,46 @@ export default class extends Controller {
         animation: 150,
         onEnd: async function (evt) {
           const dish = evt.item.dataset.dish_id;
-          console.log(dish);
-
           const category = evt.to.dataset.category;
           const oldCategory = evt.from.dataset.category
           const newDay = evt.to.dataset.day_id;
           const previousDay = evt.from.dataset.day_id;
           const newCategory = evt.to;
           const previousCategory = evt.from;
-          console.log(previousCategory);
-
           const currentDay = document.querySelector(".today-highlight").id
           const name = evt.item.dataset.recipe_name;
 
           if (newDay === currentDay) {
             const today = document.querySelector(`#${category}`)
-            today.outerHTML = `<a class="text-decoration-none" href="/dishes/${dish}">
-                                <div class="card p-3 w-100 meal-card" id="${category}">
-                                  <p class="meal-category">${category.charAt(0).toUpperCase() + category.slice(1)}</p>
-                                  <h5 class="card-title">${name}</h5>
-                                </div>
-                              </a>`
+            today.outerHTML = `
+            <a class="text-decoration-none" href="/dishes/${dish}">
+              <div class="card p-3 w-100 meal-card" id="${category}">
+                <p class="meal-category">${category.charAt(0).toUpperCase() + category.slice(1)}</p>
+                <h5 class="card-title">${name}</h5>
+              </div>
+            </a>
+            `
             if (previousDay === currentDay) {
-              document.querySelector(`#${oldCategory}`).outerHTML = `<div id = "${previousCategory.dataset.category}">
-                                                                      <div class="card p-3 w-100 meal-card">
-                                                                        <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
-                                                                        <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
-                                                                      </div>
-                                                                    </div>`
+              document.querySelector(`#${oldCategory}`).outerHTML = `
+              <div id = "${previousCategory.dataset.category}">
+                <div class="card p-3 w-100 meal-card">
+                  <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
+                  <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
+                </div>
+              </div>
+              `
             }
           } else if (previousDay === currentDay && newDay !== currentDay) {
             const today = document.querySelector(`#${oldCategory}`)
 
-            today.outerHTML = `<div id = "${previousCategory.dataset.category}">
-                                <div class="card p-3 w-100 meal-card">
-                                  <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
-                                  <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
-                                </div>
-                              </div>`
+            today.outerHTML = `
+            <div id = "${previousCategory.dataset.category}">
+              <div class="card p-3 w-100 meal-card">
+                <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
+                <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
+              </div>
+            </div>
+            `
           }
 
 

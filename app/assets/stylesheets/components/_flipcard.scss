@@ -1,0 +1,69 @@
+.flipcard {
+  perspective: 800px;
+}
+
+.clicked > #flipcard {
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+#flipcard {
+  position: relative;
+  transition-property: transform;
+  transition-duration: 1.5s;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: auto;
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.front {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: $border-radius-lg;
+}
+
+.front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 1;
+}
+
+.front-title {
+  position: absolute;
+  z-index: 2; // Above the gradient
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back {
+  transform: rotateY(180deg);
+
+  &:hover {
+    transform: rotateY(180deg);
+  }
+}
