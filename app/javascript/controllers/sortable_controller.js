@@ -32,12 +32,14 @@ export default class extends Controller {
                                   <h5 class="card-title">${name}</h5>
                                 </div>
                               </a>`
-            document.querySelector(`#${oldCategory}`).outerHTML = `<div id = "${previousCategory.dataset.category}">
-                                                                    <div class="card p-3 w-100 meal-card">
-                                                                      <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
-                                                                      <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
-                                                                    </div>
-                                                                  </div>`
+            if (previousDay === currentDay) {
+              document.querySelector(`#${oldCategory}`).outerHTML = `<div id = "${previousCategory.dataset.category}">
+                                                                      <div class="card p-3 w-100 meal-card">
+                                                                        <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
+                                                                        <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
+                                                                      </div>
+                                                                    </div>`
+            }
           } else if (previousDay === currentDay && newDay !== currentDay) {
             const today = document.querySelector(`#${oldCategory}`)
 
