@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" data-controller="sortable">
 
 <!-- Today Section -->
   <% if @today.present? %>
@@ -56,7 +56,7 @@
 
 <!-- Week Section -->
 
-  <div data-controller="sortable" id="calendar">
+  <div id="calendar">
     <%= week_calendar(number_of_weeks: 2, events: @week.days, attribute: :date) do |date, day| %>
 
       <% day = day.first %>

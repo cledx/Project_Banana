@@ -17,11 +17,14 @@ class DishesController < ApplicationController
       @new_dish = Ai::DishGen.new(@dish.day, @dish.portions, @dish.category).generate_dish
       @dish.update(recipe_id: @new_dish.recipe_id, category: @new_dish.category)
       @new_dish.destroy
-    else
+      redirect_to week_day_path(@dish.day.week, @dish.day)
+    elsif params[:new_id].present?
       @new_dish = Recipe.find(params[:new_id])
       @dish.update(recipe_id: @new_dish.id)
+      redirect_to week_day_path(@dish.day.week, @dish.day)
+    else
+      @dish.update(dish_params)
     end
-    redirect_to week_day_path(@dish.day.week, @dish.day)
   end
 
   def destroy
