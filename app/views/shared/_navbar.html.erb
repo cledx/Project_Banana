@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield :navbar_class %>">
+<nav class="navbar navbar-expand-sm navbar-lewagon <%= yield :navbar_class %>">
   <div class="container-fluid">
     <% if user_signed_in? %>
       <%= link_to week_path(current_user.weeks.last), class: "navbar-brand" do %>

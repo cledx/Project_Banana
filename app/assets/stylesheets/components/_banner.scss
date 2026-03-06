@@ -2,26 +2,29 @@
   background: linear-gradient(
     rgba(0, 0, 0, 0.55),
     rgba(0, 0, 0, 0.45)
-    ),
-    asset-url("grocery-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 160px;
-    display: flex;
-    align-items: center;
-    color: white;
-  }
+  ),
+  asset-url("grocery-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-top: 0;
+  padding-top: 56px;
+}
 
-  .banner-inner {
-    padding-left: 0;
-  }
+.banner-inner {
+  padding-left: 0;
+}
 
-  .banner-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0;
-  }
-  .banner-subtitle {
-    font-size: 1.1rem;
-    opacity: 0.9;
-  }
+.banner-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.banner-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
