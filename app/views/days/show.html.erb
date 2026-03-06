@@ -14,9 +14,19 @@
   </div>
 </div>
 
-<% breakfasts = @day.dishes.where(category: "breakfast") %>
-<% lunches    = @day.dishes.where(category: "lunch") %>
-<% dinners    = @day.dishes.where(category: "dinner") %>
+<% breakfasts = {
+  dishes: @day.dishes.where(category: "breakfast"),
+  name: "Breakfast"
+  } %>
+<% lunches    = {
+  dishes: @day.dishes.where(category: "lunch"),
+  name: "Lunch"
+  } %>
+<% dinners    = {
+  dishes: @day.dishes.where(category: "dinner"),
+  name: "Dinner"
+  } %>
+<% all_meals = [breakfasts, lunches, dinners] %>
 
 <div class="container mt-4">
   <div class="row">

@@ -144,37 +144,37 @@ puts "Creating users..."
       date: DateTime.now.beginning_of_week + day_index.days
     )
 
-    # rand(1..3).times do
-    #   recipe = recipe_records.sample
-    #   dish = Dish.create!(
-    #     day: day,
-    #     recipe: recipe,
-    #     portions: rand(1..3),
-    #     category: CATEGORIES.sample
-    #   )
+    rand(1..3).times do
+      recipe = recipe_records.sample
+      dish = Dish.create!(
+        day: day,
+        recipe: recipe,
+        portions: rand(1..3),
+        category: CATEGORIES.sample
+      )
 
       # Accumulate shopping totals
-      # recipe.recipe_items.each do |ri|
-      #   key = [ri.ingredient_id, ri.unit]
-      #   ingredient_totals[key][:amount] += ri.amount * dish.portions
-      #   ingredient_totals[key][:unit]    = ri.unit
-      #   ingredient_totals[key][:ingredient_id] = ri.ingredient_id
-      # end
-    # end
+      recipe.recipe_items.each do |ri|
+        key = [ri.ingredient_id, ri.unit]
+        ingredient_totals[key][:amount] += ri.amount * dish.portions
+        ingredient_totals[key][:unit]    = ri.unit
+        ingredient_totals[key][:ingredient_id] = ri.ingredient_id
+      end
+    end
   end
 
   # ----------------------------------------------------------
   # SHOPPING ITEMS (aggregated from week's dishes)
   # ----------------------------------------------------------
-  # ingredient_totals.each do |(_ingredient_id, _unit), data|
-  #   ShoppingItem.create!(
-  #     week: week,
-  #     ingredient_id: data[:ingredient_id],
-  #     total: data[:amount].round(2),
-  #     unit: data[:unit],
-  #     purchased: false
-  #   )
-  # end
+  ingredient_totals.each do |(_ingredient_id, _unit), data|
+    ShoppingItem.create!(
+      week: week,
+      ingredient_id: data[:ingredient_id],
+      total: data[:amount].round(2),
+      unit: data[:unit],
+      purchased: false
+    )
+  end
 
   # ----------------------------------------------------------
   # FAVORITES (1–5 random recipes)

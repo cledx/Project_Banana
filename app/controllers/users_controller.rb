@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 
   def update_settings
     if @user.update(user_params)
-      redirect_to new_user_registration_path
+      if @user.weeks.any?
+        redirect_to week_path(@user.weeks.last)
+      else
+        redirect_to new_week_path
+      end
     else
       render :settings, status: :unprocessable_entity
     end
@@ -21,7 +25,17 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:allergies, :disease, :preferred_cuisines, :preferred_ingredients,
-                                 :undesireable_ingredients)
+    permitted = params.require(:user).permit(
+      preferred_cuisines: [],
+      preferred_ingredients: [],
+      undesireable_ingredients: [],
+      allergies: [],
+      disease: []
+    )
+    %i[preferred_cuisines preferred_ingredients undesireable_ingredients allergies disease].each do |field|
+      permitted[field] = permitted[field].reject(&:blank?) if permitted[field]
+    end
+    puts "CLEANED PARAMS: #{permitted.inspect}" # check this in your server logs
+    permitted
   end
 end
