@@ -57,7 +57,17 @@ RECIPE_NAMES = [
   "Chicken Parmigiana", "Tofu Scramble", "Prawn Linguine", "Niçoise Salad"
 ]
 
-LOREM_INSTRUCTIONS = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Preheat pan over medium heat. Add oil and let it shimmer. Combine ingredients as listed and cook until golden. Season with salt and pepper to taste. Plate beautifully and serve immediately."
+LOREM_INSTRUCTIONS = "1. Preheat the oven to 200°C (400°F). Line a baking tray with parchment paper.
+2. In a large bowl, toss the chopped vegetables with olive oil, salt, and pepper until evenly coated.
+3. Spread the vegetables in a single layer on the prepared baking tray.
+4. Roast in the oven for 20–25 minutes, stirring once halfway through, until the vegetables are tender and lightly browned.
+5. While the vegetables roast, cook the quinoa according to the package instructions, then fluff with a fork and set aside.
+6. In a small bowl, whisk together the lemon juice, extra-virgin olive oil, minced garlic, and a pinch of salt to make the dressing.
+7. In a large serving bowl, combine the cooked quinoa, roasted vegetables, and chopped fresh herbs.
+8. Pour the dressing over the mixture and gently toss until everything is well coated.
+9. Taste and adjust seasoning with additional salt, pepper, or lemon juice if needed.
+10. Serve warm or at room temperature, optionally topped with crumbled feta or toasted nuts.
+"
 
 # ============================================================
 # INGREDIENTS (create all upfront so recipes can reference them)
@@ -103,10 +113,22 @@ end
 # ============================================================
 
 puts "Creating users..."
-4.times do |i|
+# 4.times do |i|
+#   user = User.create!(
+#     email:                  USERS_DATA[i][0],
+#     username:               USERS_DATA[i][1],
+#     password:               "123456",
+#     allergies:              ALL_ALLERGIES.sample(rand(0..2)),
+#     preferred_ingredients:  ALL_INGREDIENTS.sample(rand(2..5)),
+#     undesireable_ingredients: ALL_INGREDIENTS.sample(rand(2..5)),
+#     preferred_cuisines:     ALL_CUISINES.sample(rand(1..2)),
+#     disease:                [ALL_DISEASES.compact.sample, nil].sample(1).tap { |a| a.compact! }
+#   )
+# end
+
   user = User.create!(
-    email:                  USERS_DATA[i][0],
-    username:               USERS_DATA[i][1],
+    email:                  "doug_is_human@lewagon.com",
+    username:               "Doug the Human",
     password:               "123456",
     allergies:              ALL_ALLERGIES.sample(rand(0..2)),
     preferred_ingredients:  ALL_INGREDIENTS.sample(rand(2..5)),
@@ -114,19 +136,20 @@ puts "Creating users..."
     preferred_cuisines:     ALL_CUISINES.sample(rand(1..2)),
     disease:                [ALL_DISEASES.compact.sample, nil].sample(1).tap { |a| a.compact! }
   )
-
   puts "  Created user: #{user.username}"
 
   # ----------------------------------------------------------
   # DAY TEMPLATE
   # ----------------------------------------------------------
-  DayTemplate.create!(
-    user: user,
-    day_name: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"].sample,
-    breakfast: [0, 1, 2, 3].sample,
-    lunch:     [0, 1, 2, 3].sample,
-    dinner:    [0, 1, 2, 3].sample
-  )
+  ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day_name|
+    DayTemplate.create!(
+      user: user,
+      day_name: day_name,
+      breakfast: [0, 1, 2, 3].sample,
+      lunch:     [0, 1, 2, 3].sample,
+      dinner:    [0, 1, 2, 3].sample
+    )
+  end
 
   # ----------------------------------------------------------
   # WEEK → 7 DAYS → DISHES
@@ -169,35 +192,36 @@ puts "Creating users..."
   # ============================================================
   week_start = Date.today.beginning_of_week(:monday)
 
-  week = Week.create!(
-    user: user,
-    month: week_start.month
+  [week_start, week_start + 7.days].each do |start_date|
+    week = Week.create!(
+      user: user,
+      month: start_date.month
     )
 
     # Track ingredients needed across the week for shopping list
     ingredient_totals = Hash.new { |h, k| h[k] = { amount: 0.0, unit: nil } }
 
-
-  7.times do |day_index|
-    day = Day.create!(
-      week: week,
-      date: week_start + day_index.days  # use week_start instead of DateTime.now.beginning_of_week
-    )
-
-    rand(1..3).times do
-      recipe = recipe_records.sample
-      dish = Dish.create!(
-        day: day,
-        recipe: recipe,
-        portions: rand(1..3),
-        category: CATEGORIES.sample
+    7.times do |day_index|
+      day = Day.create!(
+        week: week,
+        date: start_date + day_index.days
       )
 
-      recipe.recipe_items.each do |ri|
-        key = [ri.ingredient_id, ri.unit]
-        ingredient_totals[key][:amount] += ri.amount * dish.portions
-        ingredient_totals[key][:unit]    = ri.unit
-        ingredient_totals[key][:ingredient_id] = ri.ingredient_id
+      rand(1..3).times do
+        recipe = recipe_records.sample
+        dish = Dish.create!(
+          day: day,
+          recipe: recipe,
+          portions: rand(1..3),
+          category: CATEGORIES.sample
+        )
+
+        recipe.recipe_items.each do |ri|
+          key = [ri.ingredient_id, ri.unit]
+          ingredient_totals[key][:amount] += ri.amount * dish.portions
+          ingredient_totals[key][:unit]    = ri.unit
+          ingredient_totals[key][:ingredient_id] = ri.ingredient_id
+        end
       end
     end
   end
@@ -213,15 +237,15 @@ puts "Creating users..."
   # ----------------------------------------------------------
   # SHOPPING ITEMS (aggregated from week's dishes)
   # ----------------------------------------------------------
-  ingredient_totals.each do |(_ingredient_id, _unit), data|
-    ShoppingItem.create!(
-      week: week,
-      ingredient_id: data[:ingredient_id],
-      total: data[:amount].round(2),
-      unit: data[:unit],
-      purchased: false
-    )
-  end
+  # ingredient_totals.each do |(_ingredient_id, _unit), data|
+  #   ShoppingItem.create!(
+  #     week: week,
+  #     ingredient_id: data[:ingredient_id],
+  #     total: data[:amount].round(2),
+  #     unit: data[:unit],
+  #     purchased: false
+  #   )
+  # end
 
   # ----------------------------------------------------------
   # FAVORITES (1–5 random recipes)
@@ -231,4 +255,3 @@ puts "Creating users..."
   end
 
   puts "✅ Seed complete!"
-end
