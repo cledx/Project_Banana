@@ -18,27 +18,39 @@
   <% if @today.present? %>
     <div class="today-section my-4">
 
-        <%= link_to week_day_path(@week, @today), class:"text-decoration-none" do %>
-        <h2>
-          Today
-          <i class="fa-solid fa-chevron-right fa-xs"></i>
-        </h2>
-        <% end %>
+      <%= link_to week_day_path(@week, @today), class:"text-decoration-none" do %>
+      <h2>
+        Today
+        <i class="fa-solid fa-chevron-right fa-xs"></i>
+      </h2>
+      <% end %>
 
 
       <div class="row">
-        <% @today.dishes.each do |dish| %>
+        <% meals = ["breakfast", "lunch", "dinner"] %>
+        <% meals.each do |name| %>
           <div class="col-md-4">
-            <%= link_to dish_path(dish), class: "text-decoration-none" do %>
-              <div class="card p-3 w-100 meal-card">
-                <p class="meal-category"><%= dish.category.capitalize %></p>
-                <h5 class="card-title"><%= dish.recipe.name %></h5>
-              </div>
-            <% end %>
+            <% meal = @today.dishes.where(category: name) %>
+              <% unless meal.empty? %>
+                <div id="<%= name %>">
+                  <%= link_to dish_path(meal[0]), class: "text-decoration-none" do %>
+                    <div class="card p-3 w-100 meal-card">
+                      <p class="meal-category"><%= meal[0].category.capitalize %></p>
+                      <h5 class="card-title"><%= meal[0].recipe.name %></h5>
+                    </div>
+                  <% end %>
+                </div>
+              <% else %>
+                <div id = "<%= name %>">
+                  <div class="card p-3 w-100 meal-card">
+                    <p class="meal-category"><%= name.capitalize %></p>
+                    <h5 class="card-title text-secondary">No meal for <%= name %></h5>
+                  </div>
+                </div>
+              <% end %>
           </div>
         <% end %>
       </div>
-
     </div>
   <% end %>
 
@@ -48,7 +60,7 @@
     <%= week_calendar(number_of_weeks: 2, events: @week.days, attribute: :date) do |date, day| %>
 
       <% day = day.first %>
-      <div class="calendar-day <%= 'today-highlight' if day&.date&.to_date == Date.current %>">
+      <div class="calendar-day <%= 'today-highlight' if day&.date&.to_date == Date.current %>" id="<%= day.id unless day.nil? %>">
         <% if day %>
           <!-- Header  -->
           <div class="day-header d-flex justify-content-between align-items-center mb-2">
@@ -71,7 +83,7 @@
                 <% if dishes.any? %>
                   <% dishes.each do |dish| %>
                     <div class="planner-card w-100 position-relative"
-                      data-dish_id="<%= dish.id %>">
+                      data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
                       <%= link_to dish_path(dish),
                                   class: "stretched-link text-decoration-none" do %>
                         <p class="m-0 card-title">
