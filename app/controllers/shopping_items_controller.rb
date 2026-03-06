@@ -1,6 +1,6 @@
 class ShoppingItemsController < ApplicationController
   def index
-    @week = Week.find(params[:week_id])
+    @week = Week.find(next_week_params)
     # This is to prevent users from accessing shopping lists that they don't own.
     # Similar to the week controller, we can do it this way, or we can just use the current_user method.
     # Maybe something like this:
@@ -23,5 +23,10 @@ class ShoppingItemsController < ApplicationController
 
   def set_params
     params.require(:shopping_item).permit(:purchased)
+  end
+
+  def next_week_params
+    week_index = current_user.weeks.index(week.find(params[:week_id])) + 1
+    @week = current_user.weeks[week_index]
   end
 end
