@@ -1,6 +1,7 @@
 class DaysController < ApplicationController
   before_action :set_day, only: %i[show]
   def show
+    @dishes = @day.dishes
     redirect_to root_path, alert: "You are not authorized to access this day." if @day.week.user != current_user
   end
 

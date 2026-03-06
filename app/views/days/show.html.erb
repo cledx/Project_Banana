@@ -7,6 +7,8 @@
         <%= @day.date.strftime("%A, %d %B") %>
       </h1>
       <p class="banner-subtitle">Check what you need to prepare!</p>
+        <%= link_to "‹ Previous day","#" , class: "text-decoration-none btn-ghost-white ms-2" %>
+        <%= link_to "Next day ›","#" , class: "text-decoration-none btn-ghost-white ms-2" %>
     </div>
 
   </div>
@@ -33,32 +35,36 @@
       <div class="d-flex justify-content-between mb-1 p-1">
         <%= link_to "‹ Back", week_path(current_user.weeks.last), class: "btn btn-ghost ms-2" %>
       </div>
-<% all_meals.each do |meal| %>
-    <!-- All Collapsed to One -->
-    <div class="col-md-4">
-      <div class="meal-column">
-        <h4><%= meal[:name] %></h4>
-      </div>
 
-      <% meal[:dishes].each do |dish| %>
-        <%= link_to dish_path(dish), class: "text-decoration-none" do %>
-          <div class="card p-3 mb-3">
-            <h5>
-              <%= dish.recipe.name %>
-              <%= link_to "(Regen)", dish_path(dish, new_id: "regenerate"), class: "ms-2 regen-link", data: { turbo_method: :patch, turbo_confirm: "Regenerate this dish?" } %>
-            </h5>
-            <p class="mb-0">Ingredients:</p>
-            <ul class="list mb-0">
-              <% dish.recipe.ingredients.each do |ingredient| %>
-                <li><%= ingredient.name %></li>
-              <% end %>
-            </ul>
+    <% ["breakfast", "lunch", "dinner"].each do |category| %>
+      <div class="col-md-4">
+        <div class="meal-column">
+          <h4><%= category.capitalize %></h4>
+        </div>
+
+        <% category_dishes = @dishes.select {|dish| dish.category == category} %>
+
+        <% category_dishes.each do |dish| %>
+          <div class="position-relative">
+            <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-dish-btn" do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+            <%= link_to dish_path(dish), class: "text-decoration-none" do %>
+              <div class="card p-3 mb-3">
+                  <h5><%= dish.recipe.name %></h5>
+                <p class="mb-0 text-muted">Ingredients:</p>
+                <ul class="list mb-0 text-muted">
+                  <% dish.recipe.ingredients.first(3).each do |ingredient| %>
+                    <li><%= ingredient.name %></li>
+                  <% end %>
+                </ul>
+                <%= "..." if dish.recipe.ingredients.count > 3 %>
+              </div>
+            <% end %>
           </div>
         <% end %>
-      <% end %>
-    </div>
-<% end %>
-
+      </div>
+    <% end %>
   </div>
 </div>
 
