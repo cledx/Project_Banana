@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield :navbar_class %>">
+<nav class="navbar navbar-expand-sm navbar-lewagon <%= yield :navbar_class %>">
   <div class="container-fluid">
     <% if user_signed_in? %>
       <%= link_to week_path(current_user.weeks.last), class: "navbar-brand" do %>
-        <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+        <%= image_tag "forkcast_navbar.png" %>
       <% end %>
     <% end %>
 
@@ -21,7 +21,7 @@
             <%= link_to "Shopping List", week_shopping_items_path(current_user.weeks.last), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://i.pinimg.com/736x/6c/00/45/6c0045a2e6500365c3384011e42359cf.jpg", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

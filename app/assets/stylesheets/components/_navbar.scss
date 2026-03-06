@@ -1,10 +1,20 @@
+.navbar {
+  background-color: transparent !important;
+  width: 100%;
+  z-index: 100;
+}
+
 .navbar-lewagon {
-  background-color: $surface;
+  background-color: transparent !important;
   padding: 0.75rem 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.transparent-nav .navbar {
+  position: absolute;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,11 +22,11 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  height: 40px;
 }
 
 .navbar-lewagon .nav-link {
-  color: $text-secondary;
+  color: $primary-light;
   font-weight: 500;
   margin-right: 1rem;
   transition: color 0.2s ease;
@@ -68,4 +78,15 @@
 .transparent-nav .navbar-light-text .nav-link,
 .transparent-nav .navbar-light-text .navbar-brand {
   color: white !important;
+}
+
+nav.navbar.navbar-lewagon {
+  position: absolute;
+  width: 100%;
+  --bs-navbar-bg: transparent;
+  background-color: transparent !important;
+}
+
+.page-banner {
+  margin-top: 0;  // remove the margin-top since navbar is now absolute
 }
