@@ -30,36 +30,44 @@
         </div>
       </div>
 
-      <div class="card mb-4">
-        <div class="card-body">
-          <h3 class="card-title h5 mb-3">
-            <i class="fa-solid fa-basket-shopping"></i> Ingredients
-          </h3>
-          <ul class="list mb-0">
-            <% @recipe.recipe_items.each do |recipe_item| %>
-              <li class="mb-2 pb-2 border-bottom border-light">
-                <p class="text-muted"
-                      data-base-amount="<%= recipe_item.amount %>"
-                      data-unit="<%= recipe_item.unit %>">
-                   <%= recipe_item.amount %> <%= recipe_item.unit %> -
-                  <%= recipe_item.ingredient.name %>
-                </p>
-              </li>
-            <% end %>
-          </ul>
+      <div class="row align-items-stretch">
+        <div class="col-4 d-flex">
+          <%# ingredients %>
+          <div class="card w-100">
+            <div class="card-body">
+              <h3 class="card-title h5 mb-3">
+                <i class="fa-solid fa-basket-shopping"></i> Ingredients
+              </h3>
+              <ul class="list mb-0">
+                <% @recipe.recipe_items.each do |recipe_item| %>
+                  <li class="mb-2 pb-2 border-bottom border-light">
+                    <p class="text-muted"
+                          data-base-amount="<%= recipe_item.amount %>"
+                          data-unit="<%= recipe_item.unit %>">
+                      <%= recipe_item.amount %> <%= recipe_item.unit %> -
+                      <%= recipe_item.ingredient.name %>
+                    </p>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="card mb-4">
-        <div class="card-body">
-          <h3 class="card-title h5 mb-3">
-            <i class="fa-solid fa-kitchen-set"></i> Instructions
-          </h3>
-          <div class="instructions-text">
-            <%= simple_format(@recipe.instructions) %>
+        <div class="col-8 d-flex">
+          <%# instructions %>
+          <div class="card w-100">
+            <div class="card-body">
+              <h3 class="card-title h5 mb-3">
+                <i class="fa-solid fa-kitchen-set"></i> Instructions
+              </h3>
+              <div class="instructions-text">
+                <%= raw(render_markdown(@recipe.instructions)) %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
 
     </div>
   </div>

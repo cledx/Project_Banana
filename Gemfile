@@ -77,3 +77,6 @@ end
 gem "ruby_llm"
 gem 'ruby_llm-schema'
 gem "simple_calendar"
+gem "kramdown"
+gem "rouge"
+gem "kramdown-parser-gfm"
