@@ -3,9 +3,9 @@
 # ============================================================
 
 puts "Cleaning database..."
-ShoppingItem.destroy_all
 Favorite.destroy_all
 Dish.destroy_all
+ShoppingItem.destroy_all
 Day.destroy_all
 Week.destroy_all
 DayTemplate.destroy_all
@@ -13,6 +13,7 @@ RecipeItem.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 User.destroy_all
+
 
 # ============================================================
 # REFERENCE DATA
@@ -77,7 +78,7 @@ end
 # ============================================================
 
 puts "Creating recipes..."
-recipe_records = RECIPE_NAMES.map.with_index do |name, i|
+recipe_records = RECIPE_NAMES.map do |name|
   recipe = Recipe.create!(
     name: name,
     cooktime: [600, 900, 1200, 1800, 2400, 3000].sample,
@@ -85,14 +86,14 @@ recipe_records = RECIPE_NAMES.map.with_index do |name, i|
     instructions: LOREM_INSTRUCTIONS
   )
 
-  # Each recipe gets 1 RecipeItem with a random ingredient
-  ingredient = ingredient_records.sample
-  RecipeItem.create!(
-    recipe: recipe,
-    ingredient: ingredient,
-    amount: (rand(1..500).to_f / 10.0).round(1),
-    unit: UNITS.sample
-  )
+  4.times do
+    RecipeItem.create!(
+      recipe: recipe,
+      ingredient: ingredient_records.sample,
+      amount: (rand(1..500).to_f / 10.0).round(1),
+      unit: UNITS.sample
+    )
+  end
 
   recipe
 end
@@ -130,18 +131,57 @@ puts "Creating users..."
   # ----------------------------------------------------------
   # WEEK → 7 DAYS → DISHES
   # ----------------------------------------------------------
+  # week = Week.create!(
+  #   user: user,
+  #   month: rand(1..12)
+  # )
+
+  # # Track ingredients needed across the week for shopping list
+  # ingredient_totals = Hash.new { |h, k| h[k] = { amount: 0.0, unit: nil } }
+
+  # 7.times do |day_index|
+  #   day = Day.create!(
+  #     week: week,
+  #     date: DateTime.now.beginning_of_week + day_index.days
+  #   )
+
+  #   rand(1..3).times do
+  #     recipe = recipe_records.sample
+  #     dish = Dish.create!(
+  #       day: day,
+  #       recipe: recipe,
+  #       portions: rand(1..3),
+  #       category: CATEGORIES.sample
+  #     )
+
+  #     # Accumulate shopping totals
+  #     recipe.recipe_items.each do |ri|
+  #       key = [ri.ingredient_id, ri.unit]
+  #       ingredient_totals[key][:amount] += ri.amount * dish.portions
+  #       ingredient_totals[key][:unit]    = ri.unit
+  #       ingredient_totals[key][:ingredient_id] = ri.ingredient_id
+  #     end
+  #   end
+  # end
+
+  # ============================================================
+  # CURRENT WEEK
+  # ============================================================
+  week_start = Date.today.beginning_of_week(:monday)
+
   week = Week.create!(
     user: user,
-    month: rand(1..12)
-  )
+    month: week_start.month
+    )
 
-  # Track ingredients needed across the week for shopping list
-  ingredient_totals = Hash.new { |h, k| h[k] = { amount: 0.0, unit: nil } }
+    # Track ingredients needed across the week for shopping list
+    ingredient_totals = Hash.new { |h, k| h[k] = { amount: 0.0, unit: nil } }
+
 
   7.times do |day_index|
     day = Day.create!(
       week: week,
-      date: DateTime.now.beginning_of_week + day_index.days
+      date: week_start + day_index.days  # use week_start instead of DateTime.now.beginning_of_week
     )
 
     rand(1..3).times do
@@ -153,7 +193,6 @@ puts "Creating users..."
         category: CATEGORIES.sample
       )
 
-      # Accumulate shopping totals
       recipe.recipe_items.each do |ri|
         key = [ri.ingredient_id, ri.unit]
         ingredient_totals[key][:amount] += ri.amount * dish.portions
@@ -162,6 +201,14 @@ puts "Creating users..."
       end
     end
   end
+
+  # ============================================================
+  # NEXT WEEK
+  # ============================================================
+
+
+  # Ai::WeekGen.new(user).generate_week
+
 
   # ----------------------------------------------------------
   # SHOPPING ITEMS (aggregated from week's dishes)
@@ -182,6 +229,6 @@ puts "Creating users..."
   recipe_records.sample(rand(1..5)).each do |recipe|
     Favorite.create!(user: user, recipe: recipe)
   end
-end
 
-puts "✅ Seed complete!"
+  puts "✅ Seed complete!"
+end
