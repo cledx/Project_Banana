@@ -12,10 +12,13 @@ class Ai::DishGen
         .with_tool(SearchRecipesTool)
         .with_instructions(prompt_gen)
         .with_schema(Ai::Schemas::DishSchema.new("DishSchema"))
+        # Generate the previous week's meals text.
         previous_meals = previous_week_meals_text(@day.week.user, @day.date)
-        current_week_meals = @day.week.dishes.map { |d| "#{d.day.date.strftime('%A %Y-%m-%d')}: #{d.category}: #{d.recipe.name}"}.join("\n")
-        response = @rubyllm.ask("The client's previous weeks meals were: #{previous_meals}. You need to generate a meal for #{@day.date.strftime('%A')}. This weeks meals so far are: #{current_week_meals}. Generate a new dish not already in the plan and avoid meals from last week.")
-        p response.content
+        # Generate the current week's meals text.
+        current_week_meals = @day.week.dishes.map { |dish| "#{dish.day.date.strftime('%A')}: #{dish.category}: #{dish.recipe.name}"}.join("\n")
+        # Generate the response from the AI.
+        response = @rubyllm.ask("The client's previous weeks meals were: #{previous_meals}. You need to generate a meal for #{@day.date.strftime('%A')} for #{@meal_name}. This weeks meals so far are: #{current_week_meals}. Generate a new dish not already in the plan and avoid meals from last week.")
+        # If the recipe ID is "Generate new Recipe", then create a new recipe.
         if response.content["recipe_id"] == "Generate new Recipe"
           new_recipe = Ai::RecipeGen.new(response.content["recipe_data"]["cuisine"], response.content["recipe_data"]["main_ingredient"]).generate_recipe
           dish = Dish.create(day: @day, recipe: new_recipe, category: @meal_name, portions: @portions)
@@ -30,12 +33,13 @@ class Ai::DishGen
     def previous_week_meals_text(user, reference_date)
       dishes = user.previous_week_dishes(reference_date)
       return "None." if dishes.empty?
+      # Group the dishes by date and sort them by date.
       dishes
         .group_by { |d| d.day.date.to_date }
         .sort_by { |date, _| date }
         .map do |date, day_dishes|
           meals = day_dishes.sort_by(&:category).map { |d| "#{d.category}: #{d.recipe.name}" }.join("; ")
-          "#{date.strftime('%A %Y-%m-%d')}: #{meals}"
+          "#{date.strftime('%A')}: #{meals}"
         end
         .join("\n")
     end

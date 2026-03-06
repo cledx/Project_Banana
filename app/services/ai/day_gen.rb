@@ -20,6 +20,7 @@ class Ai::DayGen
             end
         end
         @day.save
+        @day
     end
 
 end

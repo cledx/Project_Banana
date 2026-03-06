@@ -10,6 +10,7 @@ class Ai::RecipeGen
         .with_tool(SearchRecipesTool)
         .with_instructions(prompt_gen)
         .with_schema(Ai::Schemas::RecipeSchema.new("RecipeSchema"))
+        # Apparently :: is protected by RubyLLM. I'm not sure why. I had to redo the Schema class this way to make it work how I wanted.
         response = @rubyllm.ask("Generate a recipe for #{@main_ingredient} in #{@cuisine} cuisine.")
         parsed_response = response.content
         parsed_response = JSON.parse(parsed_response, symbolize_names: true) if parsed_response.is_a?(String)
