@@ -10,10 +10,12 @@
   overflow: hidden;
 }
 
-#calendar .simple-calendar th,
+#calendar .simple-calendar th {
+  border: none;
+}
+
 #calendar .simple-calendar td {
   border: none;
-
 }
 
 #calendar {
