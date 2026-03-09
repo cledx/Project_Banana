@@ -23,8 +23,17 @@
                 </span>
               </div>
             </div>
+            <div class="d-flex flex-column align-items-end">
+              <%= link_to toggle_favorites_path(recipe_id: @recipe.id),
+                          data: { turbo_method: :post },
+                          class: "p-1 mb-5" do %>
+
+                <i class="<%= current_user.favorited?(@recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
+
+              <% end %>
 
             <%= render "shared/portion_selector" %>
+            </div>
 
           </div>
         </div>
@@ -40,7 +49,7 @@
               </h3>
               <ul class="list mb-0">
                 <% @recipe.recipe_items.each do |recipe_item| %>
-                  <li class="mb-2 pb-2 border-bottom border-light">
+                  <li class="border-bottom border-light">
                     <p class="text-muted"
                           data-base-amount="<%= recipe_item.amount %>"
                           data-unit="<%= recipe_item.unit %>">

@@ -45,7 +45,7 @@ class Ai::DishGen
     end
 
     def prompt_gen
-      "You are a personal private meal cooridnator. Your client is a busy professional who need help with planning their meals for the week. You are given a history of what is planned for the week so far and you need to choose a recipe that is not already in the plan. Keep in mind the client's dietary restrictions and preferences. If there are no recipes that match in the database, then you will need to create a new recipe."
+      "You are a personal private meal cooridnator. Your client is a busy professional who need help with planning their meals for the week. You are given a history of what is planned for the week so far and you need to choose a recipe that is not already in the plan. Keep in mind the client's dietary restrictions and preferences. If there are no recipes that match in the database, then you will need to create a new recipe. \n The Client's dietary restrictions are: #{@day.week.user.disease} and #{@day.week.user.allergies}. \n The Client's preferences are: #{@day.week.user.preferred_cuisines} and #{@day.week.user.preferred_ingredients}."
     end
 
 end

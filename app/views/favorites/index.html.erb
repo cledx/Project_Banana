@@ -1,0 +1,43 @@
+<div class="page-banner">
+  <div class="container">
+    <div class="banner-inner">
+      <h1 class="banner-title">My Favorite Recipes</h1>
+      <p class="banner-subtitle">Find your favorite recipes here!</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <% if @recipes.present? %>
+    <div class="row mt-4">
+      <% @recipes.each do |recipe| %>
+
+        <div class="col-md-3 mb-4">
+          <div class="card recipe-card">
+              <%= link_to toggle_favorites_path(recipe_id: recipe.id),
+                          data: { turbo_method: :post },
+                          class: "p-1 mb-5 delete-dish-btn" do %>
+
+                <i class="fa-solid fa-xmark fa-lg"></i>
+
+              <% end %>
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+                 class="card-img-top"
+                 alt="<%= recipe.name %>">
+
+            <div class="card-body">
+              <h5 class="card-title"><%= recipe.name %></h5>
+              <p class="card-text">
+                <%#= recipe.description %>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  <% else %>
+    <p>No favorite recipes yet.</p>
+  <% end %>
+</div>

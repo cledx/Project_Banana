@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :weeks, dependent: :destroy
   has_many :day_templates, dependent: :destroy
+  has_many :favorite_recipes, through: :favorites, source: :recipe
   has_many :days, through: :weeks
   has_many :dishes, through: :days
   after_create :create_initial_week, :create_day_templates
@@ -9,6 +10,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  after_create :generate_week
 
   ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"]
 
@@ -34,5 +36,7 @@ class User < ApplicationRecord
     days.each do |day|
       day_templates.create!(day_name: day, breakfast: 0, lunch: 0, dinner: 2)
     end
+  def favorited?(recipe)
+    favorites.exists?(recipe_id: recipe.id)
   end
 end
