@@ -6,4 +6,8 @@ class Week < ApplicationRecord
   has_many :recipe_items, through: :recipes
   has_many :ingredients, through: :shopping_items
   belongs_to :user
+
+  def next_week
+    user.weeks.where("id > ?", id).order(:id).first
+  end
 end

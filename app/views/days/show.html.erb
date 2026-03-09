@@ -49,25 +49,37 @@
 
         <% category_dishes = @dishes.select {|dish| dish.category == category} %>
 
-        <% category_dishes.each do |dish| %>
-          <div class="position-relative">
-            <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-dish-btn" do %>
-              <i class="fa-solid fa-xmark"></i>
-            <% end %>
-            <%= link_to dish_path(dish), class: "text-decoration-none" do %>
-              <div class="card p-3 mb-3">
-                  <h5><%= dish.recipe.name %></h5>
-                <p class="mb-0 text-muted">Ingredients:</p>
-                <ul class="list mb-0 text-muted">
-                  <% dish.recipe.ingredients.first(3).each do |ingredient| %>
-                    <li><%= ingredient.name %></li>
+        <div data-controller="flipcard">
+          <% category_dishes.each do |dish| %>
+            <div class="position-relative flipcard" data-action="click->flipcard#flip">
+              <div id="flipcard">
+                <div class="front">
+                  <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-dish-btn" do %>
+                    <i class="fa-solid fa-xmark"></i>
                   <% end %>
-                </ul>
-                <%= "..." if dish.recipe.ingredients.count > 3 %>
+                  <%= image_tag "onb-1.jpg", style: "width: 100%;" %>
+                  <div class="front-title">
+                    <%= dish.recipe.name %>
+                  </div>
+                </div>
+                <div class="card p-3 mb-3 back d-flex flex-column">
+                  <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-dish-btn" do %>
+                    <i class="fa-solid fa-xmark"></i>
+                  <% end %>
+                  <h5><%= dish.recipe.name %></h5>
+                  <p class="mb-0 text-muted">Ingredients:</p>
+                  <ul class="list mb-0 text-muted">
+                    <% dish.recipe.ingredients.first(3).each do |ingredient| %>
+                      <li><%= ingredient.name %></li>
+                    <% end %>
+                  </ul>
+                  <%= "..." if dish.recipe.ingredients.count > 3 %>
+                  <%= link_to "View Recipe", dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" %>
+                </div>
               </div>
-            <% end %>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
