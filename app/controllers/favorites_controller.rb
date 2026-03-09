@@ -1,22 +1,17 @@
 class FavoritesController < ApplicationController
   def index
-    @favorites = current_user.favorites.includes(:recipe)
+    @recipes = current_user.favorite_recipes
   end
 
-  def create
+  def toggle
     recipe = Recipe.find(params[:recipe_id])
+    favorite = current_user.favorites.find_by(recipe: recipe)
 
-    Favorite.create(
-      user: current_user,
-      recipe: recipe
-    )
-
-    redirect_back(fallback_location: root_path)
-  end
-
-  def destroy
-    favorite = current_user.favorites.find(params[:id])
-    favorite.destroy
+    if favorite
+      favorite.destroy
+    else
+      current_user.favorites.create(recipe: recipe)
+    end
 
     redirect_back(fallback_location: root_path)
   end

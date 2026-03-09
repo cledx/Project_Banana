@@ -22,7 +22,10 @@ Rails.application.routes.draw do
 
   resources :shopping_items, only: [:update]
   resources :recipes, only: [:show]
-  resources :favorites, only: [:index, :create, :destroy]
+
+  resources :favorites, only: [:index, :create, :destroy] do
+    post :toggle, on: :collection
+  end
 
   get "/settings", to: "users#settings", as: :settings
   patch "/settings", to: "users#update_settings"
