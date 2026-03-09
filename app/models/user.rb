@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :favorites
+  has_many :favorite_recipes, through: :favorites, source: :recipe
   has_many :weeks
   has_many :day_templates
   has_many :days, through: :weeks

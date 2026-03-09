@@ -1,0 +1,12 @@
+<h1>My Favorite Recipes</h1>
+
+<div class="recipes">
+  <% @recipes.each do |recipe| %>
+    <div class="recipe-card">
+      <h3><%= recipe.name %></h3>
+      <p><%= recipe.cuisine %></p>
+
+      <%= link_to "View recipe", recipe_path(recipe) %>
+    </div>
+  <% end %>
+</div>

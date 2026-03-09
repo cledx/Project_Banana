@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :shopping_items, only: [:update]
   resources :recipes, only: [:show]
+  resources :favorites, only: [:index, :create, :destroy]
 
   get "/settings", to: "users#settings", as: :settings
   patch "/settings", to: "users#update_settings"
