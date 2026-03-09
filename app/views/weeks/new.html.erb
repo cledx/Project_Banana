@@ -1,3 +1,6 @@
+<div class="page-banner" style="height: 160px">
+</div>
+
 <div class="container d-flex flex-column align-items-center" data-controller="days-template">
   <h1 class="mt-4">Let's plan our meals for the week</h1>
   <p>Select the portions you want for each day</p>
@@ -53,3 +56,9 @@
   <%= link_to "Generate Week", week_path(current_user.weeks[-2] ? current_user.weeks[-2] : current_user.weeks[-1]), class: "btn btn-primary"  %>
 
 </div>
+
+<%= simple_form_for @week, url: weeks_path do |f| %>
+  <%= f.submit "Generate meals",
+        class: "btn btn-primary my-3",
+        data: { turbo_submits_with: "<i class='fa-light fa-spinner fa-spin'></i>".html_safe } %>
+<% end %>
