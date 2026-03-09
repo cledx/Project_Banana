@@ -85,7 +85,7 @@ end
 
 # ============================================================
 # RECIPES (create a pool so dishes can reference them)
-# ============================================================
+# ========================================================
 
 puts "Creating recipes..."
 recipe_records = RECIPE_NAMES.map do |name|
