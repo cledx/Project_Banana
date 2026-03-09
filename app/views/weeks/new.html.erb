@@ -5,23 +5,23 @@
     <div>
       <p>Master</p>
       <button class="btn-ghost btn-sm" type="button" id="decrementPortion" data-action="click->days-template#decrementAll">−</button>
-        <span class="portion-display px-2" id="portionSize" data-days-template-target="master">2</span>
+        <span class="portion-display px-2" data-days-template-target="master">2</span>
       <button class="btn-ghost btn-sm" type="button" id="incrementPortion" data-action="click->days-template#incrementAll">+</button>
     </div>
     <div class="d-flex justify-content-along align-items-center">
       <% ["breakfast", "lunch", "dinner"].each do |category| %>
         <p class="m-0"><%= category %></p>
-        <button class="btn-ghost btn-sm" type="button" data-category="<%= category %>" data-action="click->days-template#decrementCategory">−</button>
-        <span class="portion-display px-2" data-category-display="<%= category %>">2</span>
-        <button class="btn-ghost btn-sm" type="button" data-category="<%= category %>" data-action="click->days-template#incrementCategory">+</button>
+        <button class="btn-ghost btn-sm" type="button" id="decrementPortion" data-category="<%= category %>" data-action="click->days-template#decrementCategory">−</button>
+          <span class="portion-display px-2" id="portionSize" data-days-template-target="<%= category %>">2</span>
+        <button class="btn-ghost btn-sm" type="button" id="incrementPortion" data-category="<%= category %>" data-action="click->days-template#incrementCategory">+</button>
       <% end %>
     </div>
     <div class="d-flex justify-content-along align-items-center">
       <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |day| %>
         <p class="m-0"><%= day %></p>
-        <button class="btn-ghost btn-sm" type="button" data-day="<%= day %>" data-action="click->days-template#decrementDay">−</button>
-        <span class="portion-display px-2" data-day-display="<%= day %>">2</span>
-        <button class="btn-ghost btn-sm" type="button" data-day="<%= day %>" data-action="click->days-template#incrementDay">+</button>
+        <button class="btn-ghost btn-sm" type="button" id="decrementPortion" data-day="<%= day %>" data-action="click->days-template#decrementDay">−</button>
+          <span class="portion-display px-2" id="portionSize" data-days-template-target="<%= day %>">2</span>
+        <button class="btn-ghost btn-sm" type="button" id="incrementPortion" data-day="<%= day %>" data-action="click->days-template#incrementDay">+</button>
       <% end %>
     </div>
 
@@ -37,10 +37,10 @@
                 <span class="text-muted me-2">
                   <i class="fa-solid fa-bowl-food"></i>
                 </span>
-                <div class="d-flex align-items-center gap-1" data-portions-group>
-                  <button class="btn-ghost btn-sm" type="button" id="decrementPortion" data-action="click->days-template#decrement">−</button>
-                  <span class="portion-display px-2" id="portionSize">2</span>
-                  <button class="btn-ghost btn-sm" type="button" id="incrementPortion" data-action="click->days-template#increment">+</button>
+                <div class="d-flex align-items-center gap-1">
+                  <button class="btn-ghost btn-sm" type="button" data-action="click->days-template#decrement">−</button>
+                  <span class="portion-display px-2" data-days-template-target="portions">2</span>
+                  <button class="btn-ghost btn-sm" type="button" data-action="click->days-template#increment">+</button>
                 </div>
               </div>
             </div>

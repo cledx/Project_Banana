@@ -1,19 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
+import portions_controller from "./portions_controller";
 
 // Connects to data-controller="days-template"
 export default class extends Controller {
   static targets = [
-                    "master", "portions", "breakfast", "lunch", "dinner",
-                    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"
+    "master", "portions", "breakfast", "lunch", "dinner",
+    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"
   ];
 
-  decrement (event) {
-    const portionDisplay = event.currentTarget.closest('[data-portions-group]').querySelector(".portion-display");
+  decrement(event) {
+    const portionDisplay = event.currentTarget.closest('.d-flex').querySelector('.portion-display');
     portionDisplay.innerText = parseInt(portionDisplay.innerText) - 1;
   }
 
-  increment (event) {
-    const portionDisplay = event.currentTarget.closest('[data-portions-group]').querySelector(".portion-display");
+  increment(event) {
+    const portionDisplay = event.currentTarget.closest('.d-flex').querySelector('.portion-display');
     portionDisplay.innerText = parseInt(portionDisplay.innerText) + 1;
   }
 
@@ -31,45 +32,27 @@ export default class extends Controller {
     })
   }
 
-  decrementCategory (event) {
+  incrementCategory(event) {
     const category = event.currentTarget.dataset.category;
 
-    if (category === "breakfast") {
-      this.breakfastTarget.innerText = parseInt(this.breakfastTarget.innerText) - 1;
-      for (let i = 0; i < 22; i += 3) {
-        this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) - 1;
-      }
-    } else if (category === "lunch") {
-      this.lunchTarget.innerText = parseInt(this.lunchTarget.innerText) - 1;
-      for (let i = 1; i < 22; i += 3) {
-        this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) - 1;
-      }
-    } else {
-      this.dinnerTarget.innerText = parseInt(this.dinnerTarget.innerText) - 1;
-      for (let i = 2; i < 22; i += 3) {
-        this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) - 1;
-      }
+    const categorySpan = event.currentTarget.closest('.d-flex').querySelector(`[data-days-template-target="${category}"]`);
+    categorySpan.innerText = parseInt(categorySpan.innerText) + 1;
+
+    const startIndex = category === "breakfast" ? 0 : category === "lunch" ? 1 : 2;
+    for (let i = startIndex; i < 21; i += 3) {
+      this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) + 1;
     }
   }
 
-  incrementCategory (event) {
+  decrementCategory(event) {
     const category = event.currentTarget.dataset.category;
 
-    if (category === "breakfast") {
-      this.breakfastTarget.innerText = parseInt(this.breakfastTarget.innerText) + 1;
-      for (let i = 0; i < 22; i += 3) {
-        this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) + 1;
-      }
-    } else if (category === "lunch") {
-      this.lunchTarget.innerText = parseInt(this.lunchTarget.innerText) + 1;
-      for (let i = 1; i < 22; i += 3) {
-        this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) + 1;
-      }
-    } else {
-      this.dinnerTarget.innerText = parseInt(this.dinnerTarget.innerText) + 1;
-      for (let i = 2; i < 22; i += 3) {
-        this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) + 1;
-      }
+    const categorySpan = event.currentTarget.closest('.d-flex').querySelector(`[data-days-template-target="${category}"]`);
+    categorySpan.innerText = parseInt(categorySpan.innerText) - 1;
+
+    const startIndex = category === "breakfast" ? 0 : category === "lunch" ? 1 : 2;
+    for (let i = startIndex; i < 22; i += 3) {
+      this.portionsTargets[i].innerText = parseInt(this.portionsTargets[i].innerText) - 1;
     }
   }
 
@@ -143,7 +126,7 @@ export default class extends Controller {
         target.innerText = parseInt(target.innerText) + 1;
       })
     } else if (day === "saturday") {
-      this.saturdayTarget.innerText = parseInt(this.saturdayTarget.innerText) + 1;
+      this.saturdayTarget.innerText = parseInt(this.lunchTarget.innerText) + 1;
       this.portionsTargets.slice(15, 18).forEach (target => {
         target.innerText = parseInt(target.innerText) + 1;
       })
