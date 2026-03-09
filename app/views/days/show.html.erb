@@ -50,12 +50,16 @@
 
         <div data-controller="flipcard">
           <% category_dishes.each do |dish| %>
+          <%= link_to "(Regen)", dish_path(dish, new_id: "regenerate"), class: "ms-2 regen-link", data: { turbo_method: :patch, turbo_confirm: "Regenerate this dish?" } %>
             <div class="position-relative flipcard" data-action="click->flipcard#flip">
               <div id="flipcard">
                 <div class="front">
+                <div>
                   <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-dish-btn" do %>
                     <i class="fa-solid fa-xmark"></i>
                   <% end %>
+                  
+                </div>
                   <%= image_tag "onb-1.jpg", style: "width: 100%;" %>
                   <div class="front-title">
                     <%= dish.recipe.name %>
