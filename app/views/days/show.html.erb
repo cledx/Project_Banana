@@ -50,8 +50,10 @@
 
         <div data-controller="flipcard">
           <% category_dishes.each do |dish| %>
-          <%= link_to "(Regen)", dish_path(dish, new_id: "regenerate"), class: "ms-2 regen-link", data: { turbo_method: :patch, turbo_confirm: "Regenerate this dish?" } %>
-            <div class="position-relative flipcard" data-action="click->flipcard#flip">
+          <div data-controller="loading">
+            <div data-loading-target="content">
+
+              <div class="position-relative flipcard" data-action="click->flipcard#flip">
               <div id="flipcard">
                 <div class="front">
                   <div class="delete-dish-btn">
@@ -61,7 +63,7 @@
 
                   <%= link_to dish_path(dish, new_id: "regenerate"),
                   class: "icon-color-white p-1",
-                  data: { bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Generate new recipe", turbo_method: :patch, turbo_confirm: "Do you want to generate a new dish?" } do %>
+                  data: { bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Generate new recipe", action: "click->loading#show", turbo_method: :patch, turbo_confirm: "Do you want to generate a new dish?" } do %>
                     <i class="fa-solid fa-arrows-rotate fa-lg"></i>
                   <% end %>
                   <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"icon-color-white p-1" do %>
@@ -90,21 +92,21 @@
                     <% end %>
                 </div>
               </div>
+              </div>
             </div>
+
+            <!-- loading -->
+              <div class="d-none card p-4 flex-column align-items-center justify-content-center" data-loading-target="loading">
+                <div class="spinner-border">
+                </div>
+                <p class="text-muted mt-3" data-loading-target="message">
+                  Checking cookbook...
+                </p>
+              </div>
+          </div>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-<!--
-<%= simple_form_for Dish.new do |f| %>
-  <%= f.association :recipe %>
-  <%= f.input :portions %>
-  <%= f.input :category, collection: ["breakfast", "lunch", "dinner"] %>
-  <input type="hidden" name="dish[day_id]" value="<%= @day.id %>">
-  <%= f.submit %>
-<% end %>
-
--->
