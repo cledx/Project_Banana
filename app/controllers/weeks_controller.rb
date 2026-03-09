@@ -18,7 +18,14 @@ class WeeksController < ApplicationController
   end
 
   def create
-    @week = Week.create!(user: current_user)
+    @week = Week.new(user: current_user)
+    @week.month = (Date.today + 7).beginning_of_week.month
+    @week.save!
+
+    7.times do |i|
+      Day.create!(date: (Date.today + 7).beginning_of_week + i.days, week: @week)
+    end
+
     WeekJob.perform_later(@week.id)
     redirect_to week_path(@week)
   end

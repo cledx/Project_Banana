@@ -12,9 +12,21 @@ class Week < ApplicationRecord
   end
 
   def generate_next_week
-      7.times do |i|
-        day = Day.new(date: (Date.today + 7).beginning_of_week + i.days, week: self).generate_day
-        day.save
+    days.order(:date).each do |day|
+      day.generate_day
+  
+      ["breakfast", "lunch", "dinner"].each do |category|
+        dishes = day.dishes.where(category: category)
+        html = ApplicationController.render(
+          partial: "weeks/dish_list",
+          locals: { dishes: dishes, day: day, category: category }
+        )
+        ActionCable.server.broadcast("week_#{id}", {
+          day_id: day.id,
+          category: category,
+          html: html
+        })
       end
+    end
   end
 end

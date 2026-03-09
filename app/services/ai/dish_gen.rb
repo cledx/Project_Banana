@@ -1,10 +1,10 @@
 class Ai::DishGen
-    # This one might not be needed, but I'll keep it here for now.
-    def initialize(day, portions, meal_name)
+
+  def initialize(day, portions, meal_name)
       @day = day
       @portions = portions
       @meal_name = meal_name
-    end
+  end
 
     def generate_dish
         @rubyllm = RubyLLM.chat

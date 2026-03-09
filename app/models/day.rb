@@ -19,5 +19,6 @@ class Day < ApplicationRecord
         Ai::DishGen.new(self, portions, ["breakfast", "lunch", "dinner"][index]).generate_dish if portions.present?
       end
     end
+    self
   end
 end
