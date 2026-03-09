@@ -1,6 +1,7 @@
 class WeeksController < ApplicationController
   def show
     @week = Week.find(params[:id])
+    response.headers["Turbo-Cache-Control"] = "no-cache"
     @today = @week.days.find { |day| day.date.to_date == Date.current }
     @number_of_weeks = @week.next_week ? 2 : 1
     @calendar_days = @week.days
@@ -18,9 +19,15 @@ class WeeksController < ApplicationController
   end
 
   def create
-    @week = Week.new
-    # week_generation
-    @week.save
-    redirect_to weeks_path(@week)
+    @week = Week.new(user: current_user)
+    @week.month = (Date.today + 7).beginning_of_week.month
+    @week.save!
+
+    7.times do |i|
+      Day.create!(date: (Date.today + 7).beginning_of_week + i.days, week: @week)
+    end
+
+    WeekJob.perform_later(@week.id)
+    redirect_to week_path(current_user.weeks[-2].id)
   end
 end

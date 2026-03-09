@@ -1,4 +1,7 @@
 class Ai::WeekGen
+    # Deprecated
+    # This is no longer needed because the week is generated in the Week model.
+    
     def initialize(user)
       @user = user
     end

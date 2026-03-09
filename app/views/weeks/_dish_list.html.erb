@@ -1,0 +1,15 @@
+<% if dishes.any? %>
+  <% dishes.each do |dish| %>
+    <div class="planner-card w-100 position-relative"
+         data-dish_id="<%= dish.id %>"
+         data-recipe_name="<%= dish.recipe.name %>">
+      <%= link_to dish_path(dish), class: "stretched-link text-decoration-none" do %>
+        <p class="m-0 card-title"><%= dish.recipe.name %></p>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="empty-meal">
+    <span>No <%= category %> planned</span>
+  </div>
+<% end %>

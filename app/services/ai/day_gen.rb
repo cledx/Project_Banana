@@ -1,4 +1,7 @@
 class Ai::DayGen
+  # Deprecated
+  # This is no longer needed because the day is generated in the Day model.
+  
   def initialize(week, date)
     @week = week
     @date = date

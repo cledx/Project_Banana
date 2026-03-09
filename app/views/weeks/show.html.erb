@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="container" data-controller="sortable">
+<div class="container" data-controller="sortable" data-week-id="<%= @week.id %>" data-week-generation-week-id-value="<%= @week.id %>">
 
 <!-- Today Section -->
   <% if @today.present? %>
@@ -86,8 +86,10 @@
                       </div>
                     <% end %>
                   <% else %>
-                    <div class="empty-meal">
-                      <span>No <%= category %> planned</span>
+                    <div class="sortable-list-spinner">
+                      <div class="spinner-border spinner-border-sm text-secondary" role="status">
+                        <span class="visually-hidden">Generating...</span>
+                      </div>
                     </div>
                   <% end %>
                 </div>
@@ -105,14 +107,17 @@
 
 
 
-      <!-- Shopping list button -->
-      <div class="mt-4 mb-4 d-flex justify-content-end">
+      <!-- Plan next week & Shopping list buttons -->
+      <div class="mt-4 mb-4 d-flex justify-content-end gap-2">
+        <%= button_to "Plan Next Week",
+                      weeks_path,
+                      method: :post,
+                      class: "btn btn-primary btn-sm d-flex align-items-center gap-2" %>
+
         <%= link_to week_shopping_items_path(@week),
                     class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
-
           <span>Shopping list</span>
           <i class="fa-solid fa-chevron-right fa-xs"></i>
-
         <% end %>
       </div>
 
