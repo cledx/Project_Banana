@@ -15,8 +15,7 @@
       </tr>
     </thead>
 
-    <tbody>
-      <% date_range.each_slice(7) do |week| %>
+      <tbody>
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
@@ -24,7 +23,7 @@
             <% end %>
           <% end %>
         </tr>
-      <% end %>
-    </tbody>
+      </tbody>
+    <% end %>
   </table>
 </div>
