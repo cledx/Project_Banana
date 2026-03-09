@@ -7,8 +7,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  after_create :generate_week
 
   ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"]
+
+  def generate_week
+    2.times do
+      Week.create!(user: self)
+    end
+  end
 
   # Returns dishes from the week before the given date (by calendar week).
   # reference_date can be a Date or Time; defaults to today.

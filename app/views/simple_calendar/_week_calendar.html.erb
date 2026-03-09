@@ -1,13 +1,19 @@
 <div class="simple-calendar">
   <table class="table table-striped">
-    <% date_range.each_slice(7) do |week| %>
-      <thead>
-        <tr>
-          <% week.each do |day| %>
-            <th><%= link_to day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none" %></th>
-          <% end %>
-        </tr>
-      </thead>
+    <thead>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th>
+            <% if @week.id %>
+              <%= link_to day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none" %>
+            <% else %>
+              <%= day.strftime("%a %d") %>
+            <% end %>
+
+          </th>
+        <% end %>
+      </tr>
+    </thead>
 
       <tbody>
         <tr>

@@ -42,17 +42,20 @@
                                         class: "form-check-input me-2",
                                         data: {action: "change->shopping-list#purchased", shopping_list_target: "checkboxes"} %>
 
-                        <%= item.ingredient.name %> — <%= item.total.round %> <%= item.unit %>
+                        <%= item.ingredient.name %> — <%= item.unit %>
 
                       </label>
 
                     </div>
-                    <ul>
-                      <% item.dishes_with_ingredient.each do |dish| %>
-                        <li><%= dish.recipe.name %></li>
-                      <% end %>
-                    </ul>
-                  </div>
+                    <details>
+                      <summary class="text-muted" style="cursor: pointer; font-size: 0.85rem;"></summary>
+                      <ul class="mt-1">
+                        <% item.dishes_with_ingredient.map { |dish| dish.recipe.name }.uniq.each do |name| %>
+                          <li><%= name %></li>
+                        <% end %>
+                      </ul>
+                    </details>
+
                 <% end %>
               </li>
             <% end %>
