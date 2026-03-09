@@ -18,7 +18,7 @@
             <div class="card recipe-card">
                 <%= link_to toggle_favorites_path(recipe_id: recipe.id),
                             data: { turbo_method: :post },
-                            class: "p-1 mb-5 delete-dish-btn" do %>
+                            class: "delete-dish-btn" do %>
 
                   <i class="fa-solid fa-xmark fa-lg"></i>
 
