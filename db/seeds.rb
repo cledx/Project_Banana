@@ -28,17 +28,17 @@ USERS_DATA = [
 
 ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"]
 
-ALL_INGREDIENTS = [
-  "chicken breast", "salmon", "ground beef", "tofu", "shrimp", "pasta", "rice",
-  "potatoes", "tomatoes", "onion", "garlic", "spinach", "mushrooms", "bell pepper",
-  "zucchini", "lemon", "olive oil", "butter", "heavy cream", "parmesan",
-  "mozzarella", "cheddar", "bacon", "sausage", "broccoli", "carrots", "celery",
-  "ginger", "soy sauce", "coconut milk", "chickpeas", "lentils", "black beans",
-  "corn", "avocado", "lime", "cilantro", "basil", "thyme", "rosemary"
-]
+# ALL_INGREDIENTS = [
+#   "chicken breast", "salmon", "ground beef", "tofu", "shrimp", "pasta", "rice",
+#   "potatoes", "tomatoes", "onion", "garlic", "spinach", "mushrooms", "bell pepper",
+#   "zucchini", "lemon", "olive oil", "butter", "heavy cream", "parmesan",
+#   "mozzarella", "cheddar", "bacon", "sausage", "broccoli", "carrots", "celery",
+#   "ginger", "soy sauce", "coconut milk", "chickpeas", "lentils", "black beans",
+#   "corn", "avocado", "lime", "cilantro", "basil", "thyme", "rosemary"
+# ]
 
-ALL_CUISINES = ["French", "Italian", "Japanese", "Mexican", "Indian", "Thai",
-                "Chinese", "Mediterranean", "American", "Spanish"]
+# ALL_CUISINES = ["French", "Italian", "Japanese", "Mexican", "Indian", "Thai",
+#                 "Chinese", "Mediterranean", "American", "Spanish"]
 
 ALL_DISEASES = [nil, "diabetes", "hypertension", "celiac disease", "IBS", "gout"]
 
@@ -73,39 +73,64 @@ LOREM_INSTRUCTIONS = "1. Preheat the oven to 200°C (400°F). Line a baking tray
 # INGREDIENTS (create all upfront so recipes can reference them)
 # ============================================================
 
-puts "Creating ingredients..."
-ingredient_records = ALL_INGREDIENTS.map do |name|
-  Ingredient.create!(name: name)
-end
+# puts "Creating ingredients..."
+# ingredient_records = ALL_INGREDIENTS.map do |name|
+#   Ingredient.create!(name: name)
+# end
 
-# Helper: pick random ingredients as records
-def random_ingredients(ingredient_records, min, max)
-  ingredient_records.sample(rand(min..max))
-end
+# # Helper: pick random ingredients as records
+# def random_ingredients(ingredient_records, min, max)
+#   ingredient_records.sample(rand(min..max))
+# end
 
 # ============================================================
 # RECIPES (create a pool so dishes can reference them)
 # ========================================================
+#
+
+  # If production gets all recipes
+  # if development do like 5 recipes
+
+  # send recipe instruction to AI 'return this in markdown'
 
 puts "Creating recipes..."
-recipe_records = RECIPE_NAMES.map do |name|
+filepath = "./db/data/recipesV2.json"
+serialized_data = File.read(filepath)
+recipes_data = JSON.parse(serialized_data)
+recipes = recipes_data["data"]
+
+recipes.each do |recipe_hash|
+  name = recipe_hash["name"]
+  cooktime = [600, 900, 1200, 1800, 2400, 3000].sample
+  instructions = recipe_hash["instructions"]
+  cuisine = recipe_hash["cuisine"]
+  image_url = recipe_hash["image_url"]
+
   recipe = Recipe.create!(
     name: name,
-    cooktime: [600, 900, 1200, 1800, 2400, 3000].sample,
-    cuisine: ALL_CUISINES.sample,
-    instructions: LOREM_INSTRUCTIONS
+    cooktime: cooktime,
+    instructions: instructions,
+    cuisine: cuisine,
+    image_url: image_url
   )
 
-  4.times do
+  ingredients = recipe_hash["ingredients"]
+
+  ingredients.each do |ingredient_hash|
+    ingredient = Ingredient.find_by(name: ingredient_hash["name"].downcase)
+    ingredient = Ingredient.create(name: ingredient_hash["name"].downcase) unless ingredient
+
+    amount = ingredient_hash["amount"].gsub(/[^0-9]+/, '').strip.to_i
+    unit = ingredient_hash["amount"].gsub(/[0-9]+/, '').strip
+    unit = "nos." if unit == ""
+
     RecipeItem.create!(
       recipe: recipe,
-      ingredient: ingredient_records.sample,
-      amount: (rand(1..500).to_f / 10.0).round(1),
-      unit: UNITS.sample
+      ingredient: ingredient,
+      amount: amount,
+      unit: unit
     )
   end
-
-  recipe
 end
 
 # ============================================================
@@ -125,6 +150,10 @@ puts "Creating users..."
 #     disease:                [ALL_DISEASES.compact.sample, nil].sample(1).tap { |a| a.compact! }
 #   )
 # end
+
+# ALL_INGREDIENTS = Ingredient.all.pluck(:name).map { |name| name.downcase }
+ALL_INGREDIENTS = Ingredient.all.pluck(:name).map(&:downcase)
+ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
 
   user = User.create!(
     email:                  "doug_is_human@lewagon.com",
@@ -169,7 +198,7 @@ puts "Creating users..."
   #   )
 
   #   rand(1..3).times do
-  #     recipe = recipe_records.sample
+  #     recipe = Recipe.all.sample
   #     dish = Dish.create!(
   #       day: day,
   #       recipe: recipe,
@@ -208,7 +237,7 @@ puts "Creating users..."
       )
 
       rand(1..3).times do
-        recipe = recipe_records.sample
+        recipe = Recipe.all.sample
         dish = Dish.create!(
           day: day,
           recipe: recipe,
@@ -250,7 +279,7 @@ puts "Creating users..."
   # ----------------------------------------------------------
   # FAVORITES (1–5 random recipes)
   # ----------------------------------------------------------
-  recipe_records.sample(rand(1..5)).each do |recipe|
+  Recipe.all.sample(rand(1..5)).each do |recipe|
     Favorite.create!(user: user, recipe: recipe)
   end
 
