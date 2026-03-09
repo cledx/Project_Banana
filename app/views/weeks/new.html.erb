@@ -1,38 +1,64 @@
-<div class="container d-flex flex-column align-items-center">
+<div class="page-banner" style="height: 160px">
+</div>
+
+<div class="container d-flex flex-column align-items-center" data-controller="days-template">
   <h1 class="mt-4">Let's plan our meals for the week</h1>
   <p>Select the portions you want for each day</p>
   <div data-controller="sortable" id="calendar">
-  <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
-    <div class="calendar-day">
-      <div class="day-header d-flex justify-content-between align-items-center mb-2">
-        <h5 class="m-0 day-number"><%= date.strftime("%e") %></h5>
-      </div>
-
+    <div>
+      <p>Master</p>
+      <button class="btn-ghost btn-sm" type="button" id="decrementPortion" data-action="click->days-template#decrementAll">−</button>
+        <span class="portion-display px-2" data-days-template-target="master">2</span>
+      <button class="btn-ghost btn-sm" type="button" id="incrementPortion" data-action="click->days-template#incrementAll">+</button>
+    </div>
+    <div class="d-flex justify-content-along align-items-center">
       <% ["breakfast", "lunch", "dinner"].each do |category| %>
-        <div class="meal-section mb-3">
-          <div class="meal-header">
-            <span><%= category.capitalize %></span>
-          </div>
-          <div class="portion-selector ms-4">
-            <div class="d-flex align-items-center">
-              <span class="text-muted me-2">
-                <i class="fa-solid fa-bowl-food"></i>
-              </span>
-              <div class="d-flex align-items-center gap-1">
-                <button class="btn-ghost btn-sm" type="button" id="decrementPortion">−</button>
-                <span class="portion-display px-2" id="portionSize">0</span>
-                <button class="btn-ghost btn-sm" type="button" id="incrementPortion">+</button>
+        <p class="m-0"><%= category %></p>
+        <button class="btn-ghost btn-sm" type="button" id="decrementPortion" data-category="<%= category %>" data-action="click->days-template#decrementCategory">−</button>
+          <span class="portion-display px-2" id="portionSize" data-days-template-target="<%= category %>">2</span>
+        <button class="btn-ghost btn-sm" type="button" id="incrementPortion" data-category="<%= category %>" data-action="click->days-template#incrementCategory">+</button>
+      <% end %>
+    </div>
+    <div class="d-flex justify-content-along align-items-center">
+      <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |day| %>
+        <p class="m-0"><%= day %></p>
+        <button class="btn-ghost btn-sm" type="button" id="decrementPortion" data-day="<%= day %>" data-action="click->days-template#decrementDay">−</button>
+          <span class="portion-display px-2" id="portionSize" data-days-template-target="<%= day %>">2</span>
+        <button class="btn-ghost btn-sm" type="button" id="incrementPortion" data-day="<%= day %>" data-action="click->days-template#incrementDay">+</button>
+      <% end %>
+    </div>
+
+    <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
+      <div class="calendar-day">
+        <% ["breakfast", "lunch", "dinner"].each do |category| %>
+          <div class="meal-section mb-3">
+            <div class="meal-header">
+              <span><%= category.capitalize %></span>
+            </div>
+            <div class="portion-selector ms-4">
+              <div class="d-flex align-items-center">
+                <span class="text-muted me-2">
+                  <i class="fa-solid fa-bowl-food"></i>
+                </span>
+                <div class="d-flex align-items-center gap-1">
+                  <button class="btn-ghost btn-sm" type="button" data-action="click->days-template#decrement">−</button>
+                  <span class="portion-display px-2" data-days-template-target="portions">2</span>
+                  <button class="btn-ghost btn-sm" type="button" data-action="click->days-template#increment">+</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Generate Week", week_path(current_user.weeks[-2] ? current_user.weeks[-2] : current_user.weeks[-1]), class: "btn btn-primary"  %>
+
 </div>
 
 <%= simple_form_for @week, url: weeks_path do |f| %>
   <%= f.submit "Generate meals",
-        class: "btn btn-primary mt-3",
+        class: "btn btn-primary my-3",
         data: { turbo_submits_with: "<i class='fa-light fa-spinner fa-spin'></i>".html_safe } %>
 <% end %>

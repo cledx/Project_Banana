@@ -15,10 +15,22 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Week Planner", week_path(current_user.weeks[-2]), class: "nav-link" %>
+            <%= link_to week_path(current_user.weeks[-2] ? current_user.weeks[-2]:current_user.weeks[-1]), class: "nav-link" do %>
+            <i class="fa-solid fa-calendar-week p-1"></i>
+            Week Planner
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Shopping List", week_shopping_items_path(current_user.weeks.last), class: "nav-link" %>
+            <%= link_to week_shopping_items_path(current_user.weeks.last), class: "nav-link" do %>
+              <i class="fa-solid fa-basket-shopping p-1"></i>
+              Shopping list
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to favorites_path, class: "nav-link" do %>
+              <i class="fa-solid fa-heart p-1"></i>
+              Favorites
+            <% end %>
           </li>
           <li class="nav-item dropdown">
             <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

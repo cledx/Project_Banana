@@ -15,7 +15,6 @@
           week_day_path(@day.week, @day.next_day),
           class: "text-decoration-none btn-ghost-white ms-2" if @day.next_day %>
     </div>
-
   </div>
 </div>
 
@@ -38,7 +37,7 @@
 
       <!-- Back -->
       <div class="d-flex justify-content-between mb-1 p-1">
-        <%= link_to "‹ Back", week_path(current_user.weeks.last), class: "btn btn-ghost ms-2" %>
+        <%= link_to "‹ Back", week_path(@day.week), class: "btn btn-ghost ms-2" %>
       </div>
 
     <% ["breakfast", "lunch", "dinner"].each do |category| %>
@@ -51,25 +50,39 @@
 
         <div data-controller="flipcard">
           <% category_dishes.each do |dish| %>
-          <%= link_to "(Regen)", dish_path(dish, new_id: "regenerate"), class: "ms-2 regen-link", data: { turbo_method: :patch, turbo_confirm: "Regenerate this dish?" } %>
-            <div class="position-relative flipcard" data-action="click->flipcard#flip">
+          <div data-controller="loading">
+            <div data-loading-target="content">
+
+              <div class="position-relative flipcard" data-action="click->flipcard#flip">
               <div id="flipcard">
                 <div class="front">
-                <div>
-                  <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-dish-btn" do %>
-                    <i class="fa-solid fa-xmark"></i>
+                  <div class="delete-dish-btn">
+
+                    <%= link_to toggle_favorites_path(recipe_id: dish.recipe.id),
+                                data: { turbo_method: :post },
+                                class: "icon-color-white p-1" do %>
+
+                      <i class="<%= current_user.favorited?(dish.recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
+
+                    <% end %>
+
+                  <%= link_to dish_path(dish, new_id: "regenerate"),
+                  class: "icon-color-white p-1",
+                  data: { bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Generate new recipe", action: "click->loading#show", turbo_method: :patch, turbo_confirm: "Do you want to generate a new dish?" } do %>
+                    <i class="fa-solid fa-arrows-rotate fa-lg"></i>
                   <% end %>
-                  
-                </div>
+                  <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"icon-color-white p-1" do %>
+                    <i class="fa-regular fa-trash-can fa-lg" ></i>
+                  <% end %>
+                  </div>
                   <%= image_tag "onb-1.jpg", style: "width: 100%;" %>
                   <div class="front-title">
-                    <%= dish.recipe.name %>
+                    <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
+                      <h2><%= dish.recipe.name %></h2>
+                    <% end %>
                   </div>
                 </div>
                 <div class="card p-3 mb-3 back d-flex flex-column">
-                  <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-dish-btn" do %>
-                    <i class="fa-solid fa-xmark"></i>
-                  <% end %>
                   <h5><%= dish.recipe.name %></h5>
                   <p class="mb-0 text-muted">Ingredients:</p>
                   <ul class="list mb-0 text-muted">
@@ -77,25 +90,28 @@
                       <li><%= ingredient.name %></li>
                     <% end %>
                   </ul>
-                  <%= "..." if dish.recipe.ingredients.count > 3 %>
-                  <%= link_to "View Recipe", dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" %>
+                  <%= "..." if dish.recipe.ingredients.count > 5 %>
+                    <%= link_to dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" do %>
+                      View Recipe
+                      <i class="fa-solid fa-angle-right"></i>
+                    <% end %>
                 </div>
               </div>
+              </div>
             </div>
+
+            <!-- loading -->
+              <div class="d-none card p-4 flex-column align-items-center justify-content-center" data-loading-target="loading">
+                <div class="spinner-border">
+                </div>
+                <p class="text-muted mt-3" data-loading-target="message">
+                  Checking cookbook...
+                </p>
+              </div>
+          </div>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-<!--
-<%= simple_form_for Dish.new do |f| %>
-  <%= f.association :recipe %>
-  <%= f.input :portions %>
-  <%= f.input :category, collection: ["breakfast", "lunch", "dinner"] %>
-  <input type="hidden" name="dish[day_id]" value="<%= @day.id %>">
-  <%= f.submit %>
-<% end %>
-
--->

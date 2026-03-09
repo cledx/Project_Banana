@@ -74,6 +74,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_09_020051) do
     t.integer "cooktime"
     t.datetime "created_at", null: false
     t.string "cuisine"
+    t.string "image_url"
     t.text "instructions"
     t.string "name"
     t.datetime "updated_at", null: false

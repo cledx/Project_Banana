@@ -26,3 +26,26 @@ h3 {
 small {
   font-size: 12px;
 }
+
+.highlight-color{
+  color: $accent;
+  &:hover{
+    color: $accent-dark;
+  }
+}
+.card-day-h2{
+  color: white;
+
+  &:hover{
+    color: $warning;
+  }
+}
+
+.icon-color-white {
+  color: white;
+  text-decoration: none;
+
+  &:hover{
+    color: $warning;
+  }
+}

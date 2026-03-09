@@ -6,8 +6,10 @@ class DaysController < ApplicationController
     else
       @day = @week.days.where("date::date = ?", Date.parse(params[:id])).first
     end
-    @dishes = @day.dishes
+    redirect_to week_path(@week), alert: "Day is empty." and return if @day.nil?
+
     redirect_to root_path, alert: "You are not authorized to access this day." if @day.week.user != current_user
+    @dishes = @day.dishes
   end
 
   private

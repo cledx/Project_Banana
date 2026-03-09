@@ -9,9 +9,10 @@
     <p>Less planning</p>
     <h5>A planner that creates recipes for your whole week</h5>
     <h5>with one click</h5>
-    <%= link_to new_user_registration_path, class: "btn btn-primary shadow-sm text-light mt-5" do %>
-      Get Started <i class="fa-solid fa-caret-right"></i>
-    <% end %>
+      <%= link_to user_signed_in? ? settings_path : new_user_registration_path, class: "btn btn-accent btn-lg shadow-sm text-light mt-5" do %>
+        Get Started <i class="fa-solid fa-caret-right"></i>
+      <% end %>
+
   </div>
   <div style="position: absolute; top: 40%; right: -10%; transform: translateY(-25%); z-index: 10; width: 60%;">
     <%= image_tag "screenshot.jpg", class: "img-fluid shadow-lg rounded" %>

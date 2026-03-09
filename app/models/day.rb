@@ -1,5 +1,5 @@
 class Day < ApplicationRecord
-  has_many :dishes
+  has_many :dishes, dependent: :destroy
   has_many :recipes, through: :dishes
   belongs_to :week
   validates :date, presence: true

@@ -1,6 +1,6 @@
 class Week < ApplicationRecord
   has_many :shopping_items
-  has_many :days
+  has_many :days, dependent: :destroy
   has_many :dishes, through: :days
   has_many :recipes, through: :dishes
   has_many :recipe_items, through: :recipes
