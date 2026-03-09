@@ -19,7 +19,7 @@ class WeeksController < ApplicationController
 
   def create
     @week = Week.new
-    week_generation
+    # week_generation
     @week.save
     redirect_to week_path(@week)
   end
