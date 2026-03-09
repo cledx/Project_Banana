@@ -4,9 +4,12 @@
   <div data-controller="sortable" id="calendar">
   <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
     <div class="calendar-day">
-      <div class="day-header d-flex justify-content-between align-items-center mb-2">
-        <h5 class="m-0 day-number"><%= date.strftime("%e") %></h5>
-      </div>
+      <% if @week.id %>
+        <div class="day-header d-flex justify-content-between align-items-center mb-2">
+          <h5 class="m-0 day-number"><%= date.strftime("%e") %></h5>
+        </div>
+      <% end %>
+
 
       <% ["breakfast", "lunch", "dinner"].each do |category| %>
         <div class="meal-section mb-3">
