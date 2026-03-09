@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="container" data-controller="sortable">
+<div class="container" data-controller="sortable" data-week-generation-week-id-value="<%= @week.id %>">
 
 <!-- Today Section -->
   <% if @today.present? %>
@@ -86,8 +86,10 @@
                       </div>
                     <% end %>
                   <% else %>
-                    <div class="empty-meal">
-                      <span>No <%= category %> planned</span>
+                    <div class="sortable-list-spinner">
+                      <div class="spinner-border spinner-border-sm text-secondary" role="status">
+                        <span class="visually-hidden">Generating...</span>
+                      </div>
                     </div>
                   <% end %>
                 </div>
