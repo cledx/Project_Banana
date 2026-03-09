@@ -56,22 +56,13 @@
 
 <!-- Week Section -->
 
-  
+
     <div id="calendar">
-    <% [current_user.weeks[-2], current_user.weeks[-1]].each do |week| %>
-      <%= week_calendar(number_of_weeks: 2, events: week.days, attribute: :date) do |date, day| %>
+      <%= week_calendar(number_of_weeks: @number_of_weeks, events: @calendar_days, attribute: :date) do |date, day| %>
 
         <% day = day.first %>
         <div class="calendar-day <%= 'today-highlight' if day&.date&.to_date == Date.current %>" id="<%= day.id unless day.nil? %>">
           <% if day %>
-            <!-- Header  -->
-            <div class="day-header d-flex justify-content-between align-items-center mb-2">
-              <%= link_to week_day_path(week, day) do %>
-                <h5 class="m-0 day-number">
-                  <%= day.date.strftime("%e") %>
-                </h5>
-              <% end %>
-            </div>
             <!-- Meal Section -->
             <% ["breakfast", "lunch", "dinner"].each do |category| %>
               <div class="meal-section mb-3">
@@ -111,7 +102,6 @@
 
         </div>
       <% end %>
-  <% end %>
 
 
 

@@ -3,7 +3,9 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= day.strftime("%a %d") %></th>
+          <th>
+            <%= link_to day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none" %>
+          </th>
         <% end %>
       </tr>
     </thead>

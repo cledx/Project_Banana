@@ -47,10 +47,13 @@
                       </label>
 
                     </div>
-
+                    <ul>
+                      <% item.dishes_with_ingredient.each do |dish| %>
+                        <li><%= dish.recipe.name %></li>
+                      <% end %>
+                    </ul>
                   </div>
                 <% end %>
-
               </li>
             <% end %>
           </ul>
