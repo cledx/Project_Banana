@@ -25,6 +25,10 @@ class User < ApplicationRecord
     Dish.where(day_id: days_in_prev_week.select(:id)).includes(:recipe)
   end
 
+  def favorited?(recipe)
+    favorites.exists?(recipe_id: recipe.id)
+  end
+
   private
 
   def create_initial_week
@@ -36,7 +40,5 @@ class User < ApplicationRecord
     days.each do |day|
       day_templates.create!(day_name: day, breakfast: 0, lunch: 0, dinner: 2)
     end
-  def favorited?(recipe)
-    favorites.exists?(recipe_id: recipe.id)
   end
 end
