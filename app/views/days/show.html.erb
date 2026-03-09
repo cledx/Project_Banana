@@ -7,8 +7,13 @@
         <%= @day.date.strftime("%A, %d %B") %>
       </h1>
       <p class="banner-subtitle">Check what you need to prepare!</p>
-        <%= link_to "‹ Previous day","#" , class: "text-decoration-none btn-ghost-white ms-2" %>
-        <%= link_to "Next day ›","#" , class: "text-decoration-none btn-ghost-white ms-2" %>
+      <%= link_to "‹ Previous day",
+          week_day_path(@day.week, @day.previous_day),
+          class: "text-decoration-none btn-ghost-white ms-2" if @day.previous_day %>
+
+      <%= link_to "Next day ›",
+          week_day_path(@day.week, @day.next_day),
+          class: "text-decoration-none btn-ghost-white ms-2" if @day.next_day %>
     </div>
 
   </div>

@@ -3,6 +3,7 @@ import Sortable from 'sortablejs'
 
 // Connects to data-controller="sortable"
 export default class extends Controller {
+  // static targets = ["lists", "currentDay", ""]
   connect() {
     document.querySelectorAll(".sortable-list").forEach(el => {
       Sortable.create(el, {
@@ -10,34 +11,46 @@ export default class extends Controller {
         animation: 150,
         onEnd: async function (evt) {
           const dish = evt.item.dataset.dish_id;
+          console.log(dish);
+
           const category = evt.to.dataset.category;
+          const oldCategory = evt.from.dataset.category
           const newDay = evt.to.dataset.day_id;
           const previousDay = evt.from.dataset.day_id;
           const newCategory = evt.to;
           const previousCategory = evt.from;
           console.log(previousCategory);
 
+          const currentDay = document.querySelector(".today-highlight").id
           const name = evt.item.dataset.recipe_name;
 
-          if (previousDay !== document.querySelector(".today-highlight")) {
+          if (newDay === currentDay) {
             const today = document.querySelector(`#${category}`)
-            today.innerHTML = `<div id = "${previousCategory.dataset.category}">
-                                <div class="card p-3 w-100 meal-card">
-                                  <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + category.slice(1)}</p>
-                                  <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
-                                </div>
-                              </div>`
-          }
-
-          if (newDay === document.querySelector(".today-highlight").id) {
-            const today = document.querySelector(`#${category}`)
-            today.innerHTML = `<a class="text-decoration-none" href="/dishes/${dish}">
+            today.outerHTML = `<a class="text-decoration-none" href="/dishes/${dish}">
                                 <div class="card p-3 w-100 meal-card" id="${category}">
                                   <p class="meal-category">${category.charAt(0).toUpperCase() + category.slice(1)}</p>
                                   <h5 class="card-title">${name}</h5>
                                 </div>
                               </a>`
+            if (previousDay === currentDay) {
+              document.querySelector(`#${oldCategory}`).outerHTML = `<div id = "${previousCategory.dataset.category}">
+                                                                      <div class="card p-3 w-100 meal-card">
+                                                                        <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
+                                                                        <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
+                                                                      </div>
+                                                                    </div>`
+            }
+          } else if (previousDay === currentDay && newDay !== currentDay) {
+            const today = document.querySelector(`#${oldCategory}`)
+
+            today.outerHTML = `<div id = "${previousCategory.dataset.category}">
+                                <div class="card p-3 w-100 meal-card">
+                                  <p class="meal-category">${previousCategory.dataset.category.charAt(0).toUpperCase() + previousCategory.dataset.category.slice(1)}</p>
+                                  <h5 class="card-title text-secondary">No meal for ${previousCategory.dataset.category}</h5>
+                                </div>
+                              </div>`
           }
+
 
           if (previousCategory.children.length === 0) {
             previousCategory.innerHTML = `<div class="empty-meal">

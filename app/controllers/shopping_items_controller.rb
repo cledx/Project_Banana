@@ -1,6 +1,7 @@
 class ShoppingItemsController < ApplicationController
   def index
     @week = Week.find(params[:week_id])
+    @next_week = Week.find(next_week_params) if next_week_params
     # This is to prevent users from accessing shopping lists that they don't own.
     # Similar to the week controller, we can do it this way, or we can just use the current_user method.
     # Maybe something like this:
@@ -10,7 +11,11 @@ class ShoppingItemsController < ApplicationController
 
     # I agree with the above but we only need one week for the demo so might not need to think about this.
     redirect_to root_path, alert: "You are not authorized to access this shopping list." if @week.user != current_user
-    @shopping_items = @week.shopping_items.all
+    if next_week_params
+      @shopping_items = @next_week.shopping_items.all
+    else
+      @shopping_items = @week.shopping_items.all
+    end
     @items_remaining = @shopping_items.count { |i| !i.purchased }
   end
 
@@ -23,5 +28,10 @@ class ShoppingItemsController < ApplicationController
 
   def set_params
     params.require(:shopping_item).permit(:purchased)
+  end
+
+  def next_week_params
+    week_index = current_user.weeks.index(Week.find(params[:week_id])) + 1
+    current_user.weeks[week_index]&.id
   end
 end
