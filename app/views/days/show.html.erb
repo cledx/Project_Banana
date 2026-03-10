@@ -32,16 +32,17 @@
   } %>
 <% all_meals = [breakfasts, lunches, dinners] %>
 
-<div class="container mt-4">
+<div class="container mt-4" data-day-id="<%= @day.id %>">
   <div class="row" data-controller="favorites">
 
       <!-- Back -->
-      <div class="d-flex justify-content-between mb-1 p-1">
-        <%= link_to "‹ Back", week_path(@day.week), class: "btn btn-ghost ms-2" %>
-      </div>
+    <div class="d-flex justify-content-between mb-1 p-1">
+      <%= link_to "‹ Back", week_path(@day.week), class: "btn btn-ghost ms-2" %>
+    </div>
 
     <% ["breakfast", "lunch", "dinner"].each do |category| %>
-      <div class="col-md-4">
+      <div class="col-md-4" data-day-id="<%= @day.id %>" data-category="<%= category %>">
+        <div data-day-replaceable>
         <div class="meal-column">
           <h4><%= category.capitalize %></h4>
         </div>
@@ -78,36 +79,38 @@
                     <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
                       <h2><%= dish.recipe.name %></h2>
                     <% end %>
+                      </div>
+                    </div>
+
+                    <div class="card p-3 mb-3 back d-flex flex-column">
+                      <h5><%= dish.recipe.name %></h5>
+                      <p class="mb-0 text-muted">Ingredients:</p>
+                      <ul class="list mb-0 text-muted">
+                        <% dish.recipe.ingredients.first(3).each do |ingredient| %>
+                          <li><%= ingredient.name %></li>
+                        <% end %>
+                      </ul>
+                      <%= "..." if dish.recipe.ingredients.count > 5 %>
+                      <%= link_to dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" do %>
+                        View Recipe
+                        <i class="fa-solid fa-angle-right"></i>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
-                <div class="card p-3 mb-3 back d-flex flex-column">
-                  <h5><%= dish.recipe.name %></h5>
-                  <p class="mb-0 text-muted">Ingredients:</p>
-                  <ul class="list mb-0 text-muted">
-                    <% dish.recipe.ingredients.first(3).each do |ingredient| %>
-                      <li><%= ingredient.name %></li>
-                    <% end %>
-                  </ul>
-                  <%= "..." if dish.recipe.ingredients.count > 5 %>
-                    <%= link_to dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" do %>
-                      View Recipe
-                      <i class="fa-solid fa-angle-right"></i>
-                    <% end %>
-                </div>
-              </div>
-              </div>
-            </div>
 
-            <!-- loading -->
+              </div>
+
+              <!-- loading -->
               <div class="d-none card p-4 flex-column align-items-center justify-content-center" data-loading-target="loading">
-                <div class="spinner-border">
-                </div>
+                <div class="spinner-border"></div>
                 <p class="text-muted mt-3" data-loading-target="message">
                   Checking cookbook...
                 </p>
               </div>
-          </div>
+            </div>
           <% end %>
+        </div>
         </div>
       </div>
     <% end %>

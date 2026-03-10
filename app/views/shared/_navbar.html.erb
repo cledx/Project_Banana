@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-sm navbar-lewagon <%= yield :navbar_class %>">
   <div class="container-fluid">
     <% if user_signed_in? %>
-      <%= link_to week_path(current_user.weeks[-2] ? current_user.weeks[-2]:current_user.weeks[-1]), class: "navbar-brand" do %>
-        <%= image_tag "forkcast_navbar.png" %>
+      <%# <%= link_to week_path(current_user.weeks[-2] ? current_user.weeks[-2]:current_user.weeks[-1]), class: "navbar-brand" do %>
+      <%= link_to week_path(current_user.weeks[-1]), class: "navbar-brand" do %>
+        <%= image_tag "navbar_logo.png" %>
       <% end %>
     <% end %>
 
@@ -21,7 +22,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to week_shopping_items_path(current_user.weeks.last), class: "nav-link" do %>
+            <%= link_to week_shopping_items_path(current_user.weeks[-2]), class: "nav-link" do %>
               <i class="fa-solid fa-basket-shopping p-1"></i>
               Shopping list
             <% end %>

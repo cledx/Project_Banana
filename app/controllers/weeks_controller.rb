@@ -19,6 +19,7 @@ class WeeksController < ApplicationController
   end
 
   def create
+    current_user.weeks.first.destroy if current_user.weeks.first.days.nil?
     @week = Week.new(user: current_user)
     @week.month = (Date.today + 7).beginning_of_week.month
     @week.save!

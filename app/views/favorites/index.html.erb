@@ -19,7 +19,11 @@
             <i class="fa-solid fa-xmark fa-lg"></i>
           </a>
 
-          <%= image_tag recipe.image_url, class: "img-fluid card-img-top" %>
+          <% if recipe.image_url.present? %>
+            <%= image_tag recipe.image_url, class: "img-fluid card-img-top" %>
+          <% else %>
+            <%= image_tag "flipcard_placeholder.jpg", class: "img-fluid card-img-top" %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= recipe.name %></h5>
 

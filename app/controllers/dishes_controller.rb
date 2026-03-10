@@ -11,20 +11,8 @@ class DishesController < ApplicationController
 
   def update
     # This is where we would update the dish, for a given day.
-
     @dish = Dish.find(params[:id])
-    if params[:new_id] == "regenerate"
-      @new_dish = Ai::DishGen.new(@dish.day, @dish.portions, @dish.category).generate_dish
-      @dish.update(recipe_id: @new_dish.recipe_id, category: @new_dish.category)
-      @new_dish.destroy
-      redirect_to week_day_path(@dish.day.week, @dish.day)
-    elsif params[:new_id].present?
-      @new_dish = Recipe.find(params[:new_id])
-      @dish.update(recipe_id: @new_dish.id)
-      redirect_to week_day_path(@dish.day.week, @dish.day)
-    else
-      @dish.update(dish_params)
-    end
+    DishJob.perform_later(@dish.id, params[:new_id]) if params[:new_id].present?
   end
 
   def destroy

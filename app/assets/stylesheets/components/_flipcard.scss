@@ -2,8 +2,7 @@
   perspective: 800px;
 }
 
-.clicked > #flipcard {
-  cursor: pointer;
+.flipcard.clicked > #flipcard {
   transform: rotateY(180deg);
 }
 
@@ -14,6 +13,7 @@
   transform-style: preserve-3d;
   width: 100%;
   height: 320px;
+  will-change: transform;
 }
 
 .front,
@@ -48,7 +48,7 @@
 
 .front-title {
   position: absolute;
-  z-index: 2; // Above the gradient
+  z-index: 2;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -62,8 +62,9 @@
 
 .back {
   transform: rotateY(180deg);
+  pointer-events: none;
+}
 
-  &:hover {
-    transform: rotateY(180deg);
-  }
+.flipcard.clicked .front {
+  pointer-events: none;
 }

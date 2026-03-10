@@ -67,7 +67,7 @@
             <!-- Meal Section -->
             <% ["breakfast", "lunch", "dinner"].each do |category| %>
               <div class="meal-section mb-3">
-                <div class="meal-header">
+                <div class="">
                   <span><%= category.capitalize %></span>
                 </div>
                 <% dishes = day.dishes.select { |dish| dish.category == category } %>
@@ -75,28 +75,23 @@
                     data-day_id="<%= day.id %>"
                     data-category="<%= category %>">
                     <% if dishes.any? %>
-                    <% dishes.each do |dish| %>
-                      <div class="planner-card w-100 position-relative"
-                        data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
-                        <%= link_to dish_path(dish),
-                                    class: "stretched-link text-decoration-none" do %>
-                          <p class="m-0 card-title">
-                            <%= dish.recipe.name %>
-                          </p>
-                        <% end %>
+                      <% dishes.each do |dish| %>
+                        <div class="planner-card w-100 position-relative"
+                          data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
+                          <%= link_to dish_path(dish),
+                                      class: "stretched-link text-decoration-none" do %>
+                            <p class="m-0 card-title">
+                              <%= dish.recipe.name %>
+                            </p>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    <% else %>
+                      <!-- Empty days -->
+                      <div class="empty-meal">
+                        <span>No <%= category %> planned</span>
                       </div>
                     <% end %>
-                  <% else %>
-                    <!-- Empty days -->
-                    <div class="calendar-day empty-day"
-  <% if second_week %> data-week-loading-target="empty" <% end %>>
-                      <p class="text-muted small">No meal planned</p>
-                    </div>
-                    <div class="calendar-day empty-day d-none d-flex align-items-center justify-content-center"
-  <% if second_week %> data-week-loading-target="spinner" <% end %>>
-                      <div class="spinner-border spinner-border-sm text-secondary"></div>
-                    </div>
-                  <% end %>
                 </div>
               </div>
             <% end %>
