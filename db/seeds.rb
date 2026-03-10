@@ -95,9 +95,9 @@ recipes_data = JSON.parse(serialized_data)
 recipes = recipes_data["data"]
 
 
-recipes.first(5).each do |recipe_hash|
+recipes.each do |recipe_hash|
 name = recipe_hash["name"]
-cooktime = [600, 900, 1200, 1800, 2400, 3000].sample
+cooktime = [600, 900, 1200, 1800, 2400, 3000].sample 
 instructions = recipe_hash["instructions"]
 cuisine = recipe_hash["cuisine"]
 image_url = recipe_hash["image_url"]
