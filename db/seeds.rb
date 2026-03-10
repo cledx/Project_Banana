@@ -116,11 +116,15 @@ ingredients.each do |ingredient_hash|
   ingredient = Ingredient.find_by(name: ingredient_hash["name"].downcase)
   ingredient = Ingredient.create(name: ingredient_hash["name"].downcase) unless ingredient
 
-  amount = 1
-  unit = ingredient_hash["amount"].strip
-  # amount = ingredient_hash["amount"].gsub(/[^0-9]+/, '').strip.to_i
-  # unit = ingredient_hash["amount"].gsub(/[0-9]+/, '').strip
-  # unit = "nos." if unit == ""
+  raw_amount = ingredient_hash["amount"].to_s
+
+  # Extract numeric part; default to 1 if missing
+  parsed_amount = raw_amount.gsub(/[^0-9.]+/, "").strip
+  amount = parsed_amount.empty? ? 1 : parsed_amount.to_f
+
+  # Extract unit part; ensure it is never blank for validation
+  unit = raw_amount.gsub(/[0-9.]+/, "").strip
+  unit = "unit" if unit.blank?
 
   RecipeItem.create!(
     recipe: recipe,
@@ -283,3 +287,4 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   end
 
   puts "✅ Seed complete!"
+
