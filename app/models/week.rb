@@ -13,9 +13,7 @@ class Week < ApplicationRecord
 
   def generate_next_week
     days.order(:date).each do |day|
-      day.generate_day
-  
-      ["breakfast", "lunch", "dinner"].each do |category|
+      day.generate_day do |category|
         dishes = day.dishes.where(category: category)
         html = ApplicationController.render(
           partial: "weeks/dish_list",
