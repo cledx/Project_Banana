@@ -56,10 +56,11 @@
 
 <!-- Week Section -->
 
+    <% calendar_start = Date.current.beginning_of_week %>
 
-    <div id="calendar">
+    <div id="calendar" data-controller="week-loading">
       <%= week_calendar(number_of_weeks: @number_of_weeks, events: @calendar_days, attribute: :date) do |date, day| %>
-
+        <% second_week = date >= calendar_start + 7.days %>
         <% day = day.first %>
         <div class="calendar-day <%= 'today-highlight' if day&.date&.to_date == Date.current %>" id="<%= day.id unless day.nil? %>">
           <% if day %>
@@ -86,22 +87,22 @@
                       </div>
                     <% end %>
                   <% else %>
-                    <div class="sortable-list-spinner">
-                      <div class="spinner-border spinner-border-sm text-secondary" role="status">
-                        <span class="visually-hidden">Generating...</span>
-                      </div>
+                    <!-- Empty days -->
+                    <div class="calendar-day empty-day"
+  <% if second_week %> data-week-loading-target="empty" <% end %>>
+                      <p class="text-muted small">No day created</p>
+                    </div>
+
+                    <div class="calendar-day empty-day d-none d-flex align-items-center justify-content-center"
+  <% if second_week %> data-week-loading-target="spinner" <% end %>>
+                      <div class="spinner-border spinner-border-sm text-secondary"></div>
                     </div>
                   <% end %>
                 </div>
               </div>
             <% end %>
-          <% else %>
-            <!-- Empty days -->
-            <div class="calendar-day empty-day">
-              <p class="text-muted small">No day created</p>
-            </div>
-          <% end %>
 
+          <% end %>
         </div>
       <% end %>
 
@@ -109,15 +110,20 @@
 
       <!-- Plan next week & Shopping list buttons -->
       <div class="mt-4 mb-4 d-flex justify-content-end gap-2">
-        <%= button_to "Plan Next Week",
-                      weeks_path,
-                      method: :post,
-                      class: "btn btn-primary btn-sm d-flex align-items-center gap-2" %>
-
         <%= link_to week_shopping_items_path(@week),
                     class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
           <span>Shopping list</span>
           <i class="fa-solid fa-chevron-right fa-xs"></i>
+        <% end %>
+        <%= button_to weeks_path,
+                      method: :post,
+                      class: "btn btn-primary btn-sm d-flex align-items-center gap-2",
+                      data: {
+                        action: "click->week-loading#show",
+                        week_loading_target: "button"
+                      } do %>
+
+          <span data-week-loading-target="buttonText">Plan Next Week</span>
         <% end %>
       </div>
 
