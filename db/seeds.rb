@@ -9,9 +9,9 @@ ShoppingItem.destroy_all
 Day.destroy_all
 Week.destroy_all
 DayTemplate.destroy_all
-RecipeItem.destroy_all
-Recipe.destroy_all
-Ingredient.destroy_all
+# RecipeItem.destroy_all
+# Recipe.destroy_all
+# Ingredient.destroy_all
 User.destroy_all
 
 
@@ -87,53 +87,55 @@ LOREM_INSTRUCTIONS = "1. Preheat the oven to 200°C (400°F). Line a baking tray
 # RECIPES (create a pool so dishes can reference them)
 # ========================================================
 #
+# We've already seeded the recipes into the database.
+# Only run this if you want to recreate the recipes.
 
-puts "Creating recipes..."
-filepath = "./db/data/recipesV2.json"
-serialized_data = File.read(filepath)
-recipes_data = JSON.parse(serialized_data)
-recipes = recipes_data["data"]
-
-
-recipes.each do |recipe_hash|
-name = recipe_hash["name"]
-cooktime = [600, 900, 1200, 1800, 2400, 3000].sample 
-instructions = recipe_hash["instructions"]
-cuisine = recipe_hash["cuisine"]
-image_url = recipe_hash["image_url"]
-
-recipe = Recipe.create!(
-  name: name,
-  cooktime: cooktime,
-  instructions: instructions,
-  cuisine: cuisine,
-  image_url: image_url
-)
-
-ingredients = recipe_hash["ingredients"]
-
-ingredients.each do |ingredient_hash|
-  ingredient = Ingredient.find_by(name: ingredient_hash["name"].downcase)
-  ingredient = Ingredient.create(name: ingredient_hash["name"].downcase) unless ingredient
-
-  raw_amount = ingredient_hash["amount"].to_s
-
-  # Extract numeric part; default to 1 if missing
-  parsed_amount = raw_amount.gsub(/[^0-9.]+/, "").strip
-  amount = parsed_amount.empty? ? 1 : parsed_amount.to_f
-
-  # Extract unit part; ensure it is never blank for validation
-  unit = raw_amount.gsub(/[0-9.]+/, "").strip
-  unit = "unit" if unit.blank?
-
-  RecipeItem.create!(
-    recipe: recipe,
-    ingredient: ingredient,
-    amount: amount,
-    unit: unit
-  )
-  end
-end
+# puts "Creating recipes..."
+# filepath = "./db/data/recipesV2.json"
+# serialized_data = File.read(filepath)
+# recipes_data = JSON.parse(serialized_data)
+# recipes = recipes_data["data"]
+#
+#
+# recipes.each do |recipe_hash|
+# name = recipe_hash["name"]
+# cooktime = [600, 900, 1200, 1800, 2400, 3000].sample 
+# instructions = recipe_hash["instructions"]
+# cuisine = recipe_hash["cuisine"]
+# image_url = recipe_hash["image_url"]
+#
+# recipe = Recipe.create!(
+#   name: name,
+#   cooktime: cooktime,
+#   instructions: instructions,
+#   cuisine: cuisine,
+#   image_url: image_url
+# )
+#
+# ingredients = recipe_hash["ingredients"]
+#
+# ingredients.each do |ingredient_hash|
+#   ingredient = Ingredient.find_by(name: ingredient_hash["name"].downcase)
+#   ingredient = Ingredient.create(name: ingredient_hash["name"].downcase) unless ingredient
+#
+#   raw_amount = ingredient_hash["amount"].to_s
+#
+#   # Extract numeric part; default to 1 if missing
+#   parsed_amount = raw_amount.gsub(/[^0-9.]+/, "").strip
+#   amount = parsed_amount.empty? ? 1 : parsed_amount.to_f
+#
+#   # Extract unit part; ensure it is never blank for validation
+#   unit = raw_amount.gsub(/[0-9.]+/, "").strip
+#   unit = "unit" if unit.blank?
+#
+#   RecipeItem.create!(
+#     recipe: recipe,
+#     ingredient: ingredient,
+#     amount: amount,
+#     unit: unit
+#   )
+#   end
+# end
 
 
 # ============================================================
@@ -162,11 +164,11 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
     email:                  "doug_is_human@lewagon.com",
     username:               "Doug the Human",
     password:               "123456",
-    allergies:              ALL_ALLERGIES.sample(rand(0..2)),
+    allergies:              nil,
     preferred_ingredients:  ALL_INGREDIENTS.sample(rand(2..5)),
     undesireable_ingredients: ALL_INGREDIENTS.sample(rand(2..5)),
-    preferred_cuisines:     ALL_CUISINES.sample(rand(1..2)),
-    disease:                [ALL_DISEASES.compact.sample, nil].sample(1).tap { |a| a.compact! }
+    preferred_cuisines:     "Italian",
+    disease:                "diabetes"
   )
   puts "  Created user: #{user.username}"
 
@@ -177,9 +179,9 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
     DayTemplate.create!(
       user: user,
       day_name: day_name,
-      breakfast: [0, 1, 2, 3].sample,
-      lunch:     [0, 1, 2, 3].sample,
-      dinner:    [0, 1, 2, 3].sample
+      breakfast: 0,
+      lunch:     0,
+      dinner:    2
     )
   end
 
@@ -224,7 +226,7 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   # ============================================================
   week_start = Date.today.beginning_of_week(:monday)
 
-  [week_start, week_start + 7.days].each do |start_date|
+  [week_start].each do |start_date|
     week = Week.create!(
       user: user,
       month: start_date.month
@@ -282,7 +284,7 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   # ----------------------------------------------------------
   # FAVORITES (1–5 random recipes)
   # ----------------------------------------------------------
-  Recipe.all.sample(rand(1..5)).each do |recipe|
+  Recipe.all.sample(4).each do |recipe|
     Favorite.create!(user: user, recipe: recipe)
   end
 
