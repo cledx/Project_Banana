@@ -99,9 +99,27 @@
     }
   }
 }
+
+// calendar
 .empty-day {
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s ease;
+}
+
+// favorites
+
+.recipe-card--favorites {
+
+  .card-img-top {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+  }
+    .card-body {
+    margin: 1rem;
+  }
+
 }

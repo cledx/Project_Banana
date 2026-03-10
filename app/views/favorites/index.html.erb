@@ -13,7 +13,7 @@
       <% @recipes.each do |recipe| %>
 
       <div class="col-md-3 mb-4">
-        <div class="card recipe-card position-relative">
+        <div class="card recipe-card recipe-card--favorites position-relative">
 
           <%= link_to toggle_favorites_path(recipe_id: recipe.id),
                       data: { turbo_method: :post },
@@ -21,10 +21,7 @@
             <i class="fa-solid fa-xmark fa-lg"></i>
           <% end %>
 
-          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
-               class="card-img-top"
-               alt="<%= recipe.name %>">
-
+          <%= image_tag recipe.image_url, class: "img-fluid card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= recipe.name %></h5>
 
