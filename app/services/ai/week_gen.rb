@@ -6,17 +6,62 @@ class Ai::WeekGen
       @user = user
     end
 
-    def generate_week
-        @week = Week.new
-        @week.user = @user
-        # This is to get the month of the week after the current week.
-        @week.month = (Date.today + 7).beginning_of_week.month
-        @week.save
-        7.times do |i|
-        # This sends the week, the date of the day, and the user to the day generator to generate the day.
-            Ai::DayGen.new(@week, (Date.today + 7).beginning_of_week + i.days).generate_day
+    def generate_week(month = (Date.today + 7).beginning_of_week.month, week_start = (Date.today + 7).beginning_of_week)
+        @week = Week.create(user: @user, month: month)
+        @rubyllm = RubyLLM.chat
+        .with_instructions(prompt_gen)
+        .with_schema(Ai::Schemas::WeekSchema.new("WeekSchema"))
+        response = @rubyllm.ask("The client's previous weeks meals were: \n #{previous_week_meals_text(@user, week_start)}. Monday's date is #{week_start}. Here are the recipes you can select from: \n #{recipe_filter}")
+        response.content["days"].each do |day|
+            new_day = Day.create(week: @week, date: day["date"])
+            day.each do |meal_id, index|
+                new_dish = Dish.new(day: new_day, recipe_id: meal_id, category: ["breakfast", "lunch", "dinner"][index])
+                new_dish.save
+            end
+            new_day.save
         end
         @week
+    end
+
+
+    private
+
+    def previous_week_meals_text(user, reference_date)
+      dishes = user.previous_week_dishes(reference_date)
+      return "None." if dishes.empty?
+      # Group the dishes by date and sort them by date.
+      dishes
+        .group_by { |d| d.day.date.to_date }
+        .sort_by { |date, _| date }
+        .map do |date, day_dishes|
+          meals = day_dishes.sort_by(&:category).map { |d| "#{d.category}: #{d.recipe.name}" }.join("; ")
+          "#{date.strftime('%A')}: #{meals}"
+        end
+        .join("\n")
+    end
+
+    def prompt_gen
+      prompt = <<-PROMPT
+      You are a meal cooridnator. 
+      The user is a busy person who need help with planning their meals to prep for the week. 
+      You need to plan a few meals for them to cook in advance to feed them for the week. Use a recipe for no more than three days in a row. Favor using their favorite recipes.
+      Select from the following recipes and pick the best ones for the user.
+      PROMPT
+    end
+
+    def recipe_filter
+      # Return only recipes that do NOT contain any of the tags in @user.disease
+      # Exclude recipes that were in the user's previous week's dishes
+      previous_recipe_ids = @user.previous_week_dishes(@day.date).pluck(:recipe_id).uniq
+      recipes_filter_recent = Recipe.where.not(id: previous_recipe_ids)
+      recipes_filter_disease = recipes_filter_recent.select do |recipe|
+        Array(@user.disease).none? { |tag| recipe.tags.include?(tag) }
+      end
+      recipes_text = recipes_filter_disease.map do |recipe|
+        favoritized = @user.favorited?(recipe) ? "(Favorited Recipe)" : ""
+        "(#{favoritized})#{recipe.name} - ID: #{recipe.id}"
+      end.join("\n")
+      return recipes_text
     end
 end
 

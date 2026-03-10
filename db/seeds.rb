@@ -175,8 +175,8 @@ ALL_INGREDIENTS = Ingredient.all.pluck(:name).map(&:downcase)
 ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
 
   user = User.create!(
-    email:                  "doug_is_human@lewagon.com",
-    username:               "Doug the Human",
+    email:                  "jeff@business.com",
+    username:               "Jeff Business",
     password:               "123456",
     allergies:              nil,
     preferred_ingredients:  ALL_INGREDIENTS.sample(rand(2..5)),
@@ -194,7 +194,7 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
       user: user,
       day_name: day_name,
       breakfast: 0,
-      lunch:     0,
+      lunch:     2,
       dinner:    2
     )
   end
@@ -241,20 +241,8 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   week_start = Date.today.beginning_of_week(:monday)
 
   # Create a new week for the user and generate dinner dishes using AI::DishGen for each day
-  week = Week.create!(
-    user: user,
-    month: week_start.month
-  )
-
-  7.times do |day_index|
-    day = Day.create!(
-      week: week,
-      date: week_start + day_index.days
-    )
-
-    # Generate a dinner dish for 2 people using AI::DishGen
-    Ai::DishGen.new(day, 2, "dinner", user).generate_dish
-  end
+  # Generate a dinner dish for 2 people using AI::DishGen
+  Ai::WeekGen.new(user).generate_week(week_start.month, week_start)
 
   # [week_start].each do |start_date|
   #   week = Week.create!(

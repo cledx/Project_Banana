@@ -12,19 +12,9 @@ class Day < ApplicationRecord
     week.days.order(:date).where("date > ?", date).first
   end
 
-  def generate_day
-    day_template = week.user.day_templates.find_by(day_name: date.strftime("%A"))
-
-    if day_template.present?
-      [day_template.breakfast, day_template.lunch, day_template.dinner].each_with_index do |portions, index|
-        category = %w[breakfast lunch dinner][index]
-        if portions.present?
-          Ai::DishGen.new(self, portions, category).generate_dish
-          yield(category) if block_given?
-        end
-      end
-    end
-
+  def generate_day(day_template = week.user.day_templates.find_by(day_name: date.strftime("%A")))
+    
+    Ai:DayGen.new(self, day_template).generate_day
     self
   end
 end
