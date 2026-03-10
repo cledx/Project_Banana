@@ -1,15 +1,14 @@
 class Ai::DishGen
 
-  def initialize(day, meal_name)
+  def initialize(day, portions, category, user)
       @day = day
       @portions = portions
-      @meal_name = meal_name
+      @category = category
+      @user = user
   end
 
     def generate_dish
         @rubyllm = RubyLLM.chat
-        .with_tool(SearchIngredientsTool)
-        .with_tool(SearchRecipesTool)
         .with_instructions(prompt_gen)
         .with_schema(Ai::Schemas::DishSchema.new("DishSchema"))
         # Generate the previous week's meals text.
@@ -17,15 +16,10 @@ class Ai::DishGen
         # Generate the current week's meals text.
         current_week_meals = @day.week.dishes.map { |dish| "#{dish.day.date.strftime('%A')}: #{dish.category}: #{dish.recipe.name}"}.join("\n")
         # Generate the response from the AI.
-        response = @rubyllm.ask("The client's previous weeks meals were: #{previous_meals}. You need to generate a meal for #{@day.date.strftime('%A')} for #{@meal_name}. This weeks meals so far are: #{current_week_meals}.")
+        response = @rubyllm.ask("The client's previous weeks meals were: \n #{previous_meals}. This weeks meals so far are: \n #{current_week_meals}. You need to select a meal for #{@day.date.strftime('%A')} for #{@category}. Here are the recipes you can select from: \n #{recipe_filter}")
         # If the recipe ID is "Generate new Recipe", then create a new recipe.
-        if response.content["recipe_id"] == "Generate new Recipe"
-          new_recipe = Ai::RecipeGen.new(response.content["recipe_data"]["cuisine"], response.content["recipe_data"]["main_ingredient"]).generate_recipe
-          dish = Dish.create(day: @day, recipe_id: new_recipe.id, category: @meal_name, portions: @portions)
-        else
-          dish = Dish.create(day: @day, recipe_id: response.content["recipe_id"], category: @meal_name, portions: @portions)
-        end
-        dish
+        dish = Dish.create(day: @day, recipe_id: response.content["recipe_id"], category: @category, portions: @portions)
+        return dish
     end
 
     private
@@ -44,21 +38,26 @@ class Ai::DishGen
         .join("\n")
     end
 
-    private
-
     def prompt_gen
       prompt = <<-PROMPT
       You are a meal cooridnator. 
       The user is a busy person who need help with planning their meals to prep for the week. 
-      You need to plan a few meals for them to cook in advance to feed them for the week. 
+      You need to plan a few meals for them to cook in advance to feed them for the week. Keep the meal consistent for two to three days in a row, so they can prep and cook in advance.
       Select from the following recipes and pick the best ones for the user.
       PROMPT
     end
 
     def recipe_filter
       # Return only recipes that do NOT contain any of the tags in @user.disease
-      recipes = Recipe.all.select do |recipe|
-        Array(@user.disease).none? { |tag| recipe.tags.include?(tag) }
+      if @user.disease.present?
+        recipes = Recipe.all.select do |recipe|
+          Array(@user.disease).none? { |tag| recipe.tags.include?(tag) }
+        end
+        recipes_text = recipes.map { |recipe| "#{recipe.name} - ID: #{recipe.id}"}.join("\n")
+        return recipes_text
+      else
+        recipes = Recipe.all.map { |recipe| "#{recipe.name} - ID: #{recipe.id}"}.join("\n")
+        return recipes
       end
     end
 
