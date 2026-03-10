@@ -8,11 +8,7 @@ class UsersController < ApplicationController
 
   def update_settings
     if @user.update(user_params)
-      if @user.weeks.any?
-        redirect_to week_path(@user.weeks.last)
-      else
-        redirect_to new_week_path
-      end
+      redirect_to new_week_path
     else
       render :settings, status: :unprocessable_entity
     end
