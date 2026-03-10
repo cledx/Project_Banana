@@ -287,3 +287,4 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   end
 
   puts "✅ Seed complete!"
+
