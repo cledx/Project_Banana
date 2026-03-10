@@ -17,7 +17,11 @@ class Day < ApplicationRecord
 
     if day_template.present?
       [day_template.breakfast, day_template.lunch, day_template.dinner].each_with_index do |portions, index|
-        Ai::DishGen.new(self, portions, %w[breakfast lunch dinner][index]).generate_dish if portions.present?
+        category = %w[breakfast lunch dinner][index]
+        if portions.present?
+          Ai::DishGen.new(self, portions, category).generate_dish
+          yield(category) if block_given?
+        end
       end
     end
 
