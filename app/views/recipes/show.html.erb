@@ -10,19 +10,19 @@
         <%= link_to "‹ Back", request.referer, class: "btn btn-ghost" %>
       </div>
 
-      <div class="card mb-4">
-        <div class="card-body recipe-card">
-          <%= image_tag @recipe.image_url, class: "img-fluid rounded mb-3" %>
-
+      <div class="d-flex recipe-card mb-4">
+        <div>
+          <%= image_tag @recipe.image_url, class: "img-fluid card-img-top" %>
+        </div>
+        <div class="card-body position-relative">
           <div class="d-flex justify-content-between align-items-start">
-
             <div class="flex-grow-1">
               <h1 class="card-title display-4 mb-2"><%= @recipe.name %></h1>
               <div class="mb-3">
                 <span class="badge bg-primary me-2">
                   <i class="fa-solid fa-stopwatch"></i> <%= @recipe.cooktime/60 %> mins
                 </span>
-                <span class="badge bg-secondary">
+                <span class="badge bg-secondary mb-2">
                   <i class="fa-solid fa-utensils"></i> <%= @recipe.cuisine %>
                 </span>
               </div>
@@ -31,18 +31,15 @@
               <%= link_to toggle_favorites_path(recipe_id: @recipe.id),
                           data: { turbo_method: :post },
                           class: "p-1 mb-5" do %>
-
                 <i class="<%= current_user.favorited?(@recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
-
               <% end %>
-
-            <%= render "shared/portion_selector" %>
             </div>
-
           </div>
+            <div class="position-absolute bottom-0 start-0 p-3">
+              <%= render "shared/portion_selector" %>
+            </div>
         </div>
       </div>
-
       <div class="row align-items-stretch">
         <div class="col-4 d-flex">
           <%# ingredients %>
@@ -57,6 +54,7 @@
                     <p class="text-muted"
                           data-base-amount="<%= recipe_item.amount %>"
                           data-unit="<%= recipe_item.unit %>">
+                      <%= recipe_item.amount %>
                       <%= recipe_item.unit %> -
                       <%= recipe_item.ingredient.name %>
                     </p>

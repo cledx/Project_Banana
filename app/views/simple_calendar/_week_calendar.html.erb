@@ -6,6 +6,8 @@
           <% week.each do |day| %>
             <% if params[:id] %>
               <th><%= link_to(day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none") %></th>
+            <% elsif on_weeks_new? %>
+              <th class="text-center"><%= day.strftime("%A") %></th>
             <% else %>
               <th><%= day.strftime("%a %d") %></th>
             <% end %>
@@ -14,7 +16,7 @@
       </thead>
 
       <tbody>
-        <tr>
+        <tr class="text-center">
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
