@@ -4,7 +4,7 @@ class DaysController < ApplicationController
     if params[:id].to_i.to_s == params[:id]
       @day = @week.days.find_by(id: params[:id])
     else
-      @day = @week.days.where("date::date = ?", Date.parse(params[:id]))
+      @day = @week.days.where("date::date = ?", Date.parse(params[:id]))[0]
     end
     redirect_to week_path(@week), alert: "Day is empty." and return if @day.nil?
 

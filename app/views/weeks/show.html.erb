@@ -74,7 +74,7 @@
                 <div class="sortable-list"
                     data-day_id="<%= day.id %>"
                     data-category="<%= category %>">
-                  <% if dishes.any? %>
+                    <% if dishes.any? %>
                     <% dishes.each do |dish| %>
                       <div class="planner-card w-100 position-relative"
                         data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
@@ -90,9 +90,8 @@
                     <!-- Empty days -->
                     <div class="calendar-day empty-day"
   <% if second_week %> data-week-loading-target="empty" <% end %>>
-                      <p class="text-muted small">No day created</p>
+                      <p class="text-muted small">No meal planned</p>
                     </div>
-
                     <div class="calendar-day empty-day d-none d-flex align-items-center justify-content-center"
   <% if second_week %> data-week-loading-target="spinner" <% end %>>
                       <div class="spinner-border spinner-border-sm text-secondary"></div>
@@ -102,6 +101,11 @@
               </div>
             <% end %>
 
+          <% else %>
+            <!-- Empty days -->
+            <div class="calendar-day empty-day">
+              <p class="text-muted small">No day created</p>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -115,12 +119,13 @@
           <span>Shopping list</span>
           <i class="fa-solid fa-chevron-right fa-xs"></i>
         <% end %>
-        <%= button_to weeks_path,
+        <%= link_to weeks_path,
                       method: :post,
                       class: "btn btn-primary btn-sm d-flex align-items-center gap-2",
                       data: {
                         action: "click->week-loading#show",
-                        week_loading_target: "button"
+                        week_loading_target: "button",
+                        turbo_method: :post
                       } do %>
 
           <span data-week-loading-target="buttonText">Plan Next Week</span>
