@@ -13,7 +13,7 @@
   transition-duration: 1.5s;
   transform-style: preserve-3d;
   width: 100%;
-  height: auto;
+  height: 320px;
 }
 
 .front,
@@ -42,7 +42,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
   z-index: 1;
 }
 
