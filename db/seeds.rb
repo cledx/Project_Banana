@@ -15,12 +15,12 @@ puts "Deleting Weeks..."
 Week.destroy_all
 puts "Deleting Day Templates..."
 DayTemplate.destroy_all
-puts "Deleting Recipe Items..."
-RecipeItem.destroy_all
-puts "Deleting Recipes..."
-Recipe.destroy_all
-puts "Deleting Ingredients..."
-Ingredient.destroy_all
+# puts "Deleting Recipe Items..."
+# RecipeItem.destroy_all
+# puts "Deleting Recipes..."
+# Recipe.destroy_all
+# puts "Deleting Ingredients..."
+# Ingredient.destroy_all
 puts "Deleting Users..."
 User.destroy_all
 
@@ -240,39 +240,55 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   # ============================================================
   week_start = Date.today.beginning_of_week(:monday)
 
-  [week_start].each do |start_date|
-    week = Week.create!(
-      user: user,
-      month: start_date.month
+  # Create a new week for the user and generate dinner dishes using AI::DishGen for each day
+  week = Week.create!(
+    user: user,
+    month: week_start.month
+  )
+
+  7.times do |day_index|
+    day = Day.create!(
+      week: week,
+      date: week_start + day_index.days
     )
 
-    # Track ingredients needed across the week for shopping list
-    ingredient_totals = Hash.new { |h, k| h[k] = { amount: 0.0, unit: nil } }
-
-    7.times do |day_index|
-      day = Day.create!(
-        week: week,
-        date: start_date + day_index.days
-      )
-
-      3.times do |i|
-        recipe = Recipe.all.sample
-        dish = Dish.create!(
-          day: day,
-          recipe: recipe,
-          portions: 2,
-          category: ["breakfast", "lunch", "dinner"][i]
-        )
-
-        recipe.recipe_items.each do |ri|
-          key = [ri.ingredient_id, ri.unit]
-          ingredient_totals[key][:amount] += ri.amount * dish.portions
-          ingredient_totals[key][:unit]    = ri.unit
-          ingredient_totals[key][:ingredient_id] = ri.ingredient_id
-        end
-      end
-    end
+    # Generate a dinner dish for 2 people using AI::DishGen
+    Ai::DishGen.new(day, 2, "dinner", user).generate_dish
   end
+
+  # [week_start].each do |start_date|
+  #   week = Week.create!(
+  #     user: user,
+  #     month: start_date.month
+  #   )
+  #
+  #   # Track ingredients needed across the week for shopping list
+  #   ingredient_totals = Hash.new { |h, k| h[k] = { amount: 0.0, unit: nil } }
+  #
+  #   7.times do |day_index|
+  #     day = Day.create!(
+  #       week: week,
+  #       date: start_date + day_index.days
+  #     )
+  #
+  #     3.times do |i|
+  #       recipe = Recipe.all.sample
+  #       dish = Dish.create!(
+  #         day: day,
+  #         recipe: recipe,
+  #         portions: 2,
+  #         category: ["breakfast", "lunch", "dinner"][i]
+  #       )
+  #
+  #       recipe.recipe_items.each do |ri|
+  #         key = [ri.ingredient_id, ri.unit]
+  #         ingredient_totals[key][:amount] += ri.amount * dish.portions
+  #         ingredient_totals[key][:unit]    = ri.unit
+  #         ingredient_totals[key][:ingredient_id] = ri.ingredient_id
+  #       end
+  #     end
+  #   end
+  # end
 
   # ============================================================
   # NEXT WEEK
