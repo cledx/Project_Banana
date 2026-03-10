@@ -17,4 +17,10 @@ export default class extends Controller {
       }
     });
   }
+
+  delete(e) {
+    const recipeId = e.currentTarget.dataset.recipeId
+    fetch(`/favorites/toggle?recipe_id=${recipeId}`)
+    this.element.remove()
+  }
 }

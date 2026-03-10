@@ -12,14 +12,12 @@
     <div class="row mt-4">
       <% @recipes.each do |recipe| %>
 
-      <div class="col-md-3 mb-4">
+      <div class="col-md-3 mb-4" data-controller="favorites">
         <div class="card recipe-card recipe-card--favorites position-relative">
 
-          <%= link_to toggle_favorites_path(recipe_id: recipe.id),
-                      data: { turbo_method: :post },
-                      class: "delete-dish-btn" do %>
+          <a data-action="click->favorites#delete" data-recipe-id="<%= recipe.id %>" class="delete-dish-btn">
             <i class="fa-solid fa-xmark fa-lg"></i>
-          <% end %>
+          </a>
 
           <%= image_tag recipe.image_url, class: "img-fluid card-img-top" %>
           <div class="card-body">
