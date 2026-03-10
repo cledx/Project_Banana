@@ -21,8 +21,8 @@
             <i class="fa-solid fa-xmark fa-lg"></i>
           <% end %>
 
-          <% if @recipe.image_url.present? %>
-            <%= image_tag @recipe.image_url, class: "img-fluid card-img-top" %>
+          <% if recipe.image_url.present? %>
+            <%= image_tag recipe.image_url, class: "img-fluid card-img-top" %>
           <% else %>
             <%= image_tag "flipcard_placeholder.jpg", class: "img-fluid card-img-top" %>
           <% end %>
