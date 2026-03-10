@@ -12,7 +12,11 @@
 
       <div class="d-flex recipe-card mb-4">
         <div>
-          <%= image_tag @recipe.image_url, class: "img-fluid card-img-top" %>
+          <% if @recipe.image_url.present? %>
+            <%= image_tag @recipe.image_url, class: "img-fluid card-img-top" %>
+          <% else %>
+            <%= image_tag "flipcard_placeholder.jpg", class: "img-fluid card-img-top" %>
+          <% end %>
         </div>
         <div class="card-body position-relative">
           <div class="d-flex justify-content-between align-items-start">
