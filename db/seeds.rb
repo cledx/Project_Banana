@@ -190,15 +190,26 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   # ----------------------------------------------------------
   # DAY TEMPLATE
   # ----------------------------------------------------------
-  ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day_name|
-    DayTemplate.create!(
-      user: user,
-      day_name: day_name,
-      breakfast: 0,
-      lunch:     2,
-      dinner:    2
-    )
-  end
+  # ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day_name|
+  #   DayTemplate.create!(
+  #     user: user,
+  #     day_name: day_name,
+  #     breakfast: 0,
+  #     lunch:     0,
+  #     dinner:    2
+  #   )
+  # end
+  
+  day_templates = {
+    monday: { breakfast: 0, lunch: 2, dinner: 0 },
+    tuesday: { breakfast: 2, lunch: 0, dinner: 2 },
+    wednesday: { breakfast: 0, lunch: 0, dinner: 2 },
+    thursday: { breakfast: 0, lunch: 2, dinner: 2 },
+    friday: { breakfast: 0, lunch: 0, dinner: 0 },
+    saturday: { breakfast: 0, lunch: 2, dinner: 2 },
+    sunday: { breakfast: 2, lunch: 0, dinner: 0 }
+  }
+  puts "Day templates: #{day_templates}"
 
   # ----------------------------------------------------------
   # WEEK → 7 DAYS → DISHES
@@ -243,7 +254,7 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
 
   # Create a new week for the user and generate dinner dishes using AI::DishGen for each day
   # Generate a dinner dish for 2 people using AI::DishGen
-  Ai::WeekGen.new(user).generate_week(week_start.month, week_start)
+  Ai::WeekGen.new(user).generate_week(week_start.month, week_start, day_templates)
 
   # [week_start].each do |start_date|
   #   week = Week.create!(

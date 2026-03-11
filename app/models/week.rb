@@ -12,7 +12,7 @@ class Week < ApplicationRecord
   end
 
   def generate_next_week(day_templates = nil)
-    next_week = Ai::WeekGen.new(user).generate_week(month: (days.first.date + 7).beginning_of_week.month, )
+    next_week = Ai::WeekGen.new(user).generate_week(month: (days.first.date + 7).beginning_of_week.month, week_start: (days.first.date + 7).beginning_of_week, day_templates: day_templates)
 
     days.order(:date).each do |day|
       day.generate_day do |category|
