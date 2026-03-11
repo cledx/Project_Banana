@@ -41,7 +41,7 @@ class ShoppingItem < ApplicationRecord
 
     unit
       .downcase
-      .gsub(/\(.*?\)/, "") # remove parentheses
+      .gsub(/\(.*?\)/, "")
       .split
       .first
   end
