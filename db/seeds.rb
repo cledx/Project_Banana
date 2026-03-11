@@ -29,14 +29,14 @@ User.destroy_all
 # REFERENCE DATA
 # ============================================================
 
-USERS_DATA = [
-  ["koji@lewagon.com",      "Koji the Wise"],
-  ["katherine@lewagon.com", "Katherine the Nicest"],
-  ["glau@lewagon.com",      "Glau the Nice"],
-  ["karlos@lewagon.com",    "Charlos the kraykray"]
-]
-
-ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"]
+# USERS_DATA = [
+#   ["koji@lewagon.com",      "Koji the Wise"],
+#   ["katherine@lewagon.com", "Katherine the Nicest"],
+#   ["glau@lewagon.com",      "Glau the Nice"],
+#   ["karlos@lewagon.com",    "Charlos the kraykray"]
+# ]
+#
+# ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"]
 
 # ALL_INGREDIENTS = [
 #   "chicken breast", "salmon", "ground beef", "tofu", "shrimp", "pasta", "rice",
@@ -50,34 +50,34 @@ ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", 
 # ALL_CUISINES = ["French", "Italian", "Japanese", "Mexican", "Indian", "Thai",
 #                 "Chinese", "Mediterranean", "American", "Spanish"]
 
-ALL_DISEASES = [nil, "gluten", "soy", "dairy"]
+# ALL_DISEASES = [nil, "gluten", "soy", "dairy"]
 
-UNITS = ["g", "ml", "tbsp", "tsp", "cup", "oz", "piece", "clove", "slice"]
+# UNITS = ["g", "ml", "tbsp", "tsp", "cup", "oz", "piece", "clove", "slice"]
 
-CATEGORIES = ["breakfast", "lunch", "dinner"]
+# CATEGORIES = ["breakfast", "lunch", "dinner"]
 
-RECIPE_NAMES = [
-  "Rustic Tomato Pasta", "Garlic Butter Salmon", "Spicy Chicken Stir-fry",
-  "Mushroom Risotto", "Beef Tacos", "Thai Green Curry", "Lemon Herb Chicken",
-  "Vegetable Fried Rice", "Classic French Omelette", "Shrimp Scampi",
-  "Margherita Pizza", "Caesar Salad", "Beef Bourguignon", "Pad Thai",
-  "Chicken Tikka Masala", "Spaghetti Carbonara", "Greek Salad", "Miso Soup"
-  "Ratatouille", "Avocado Toast", "Shakshuka", "Lentil Soup", "Pesto Gnocchi",
-  "Teriyaki Salmon", "Black Bean Tacos", "Butternut Squash Soup",
-  "Chicken Parmigiana", "Tofu Scramble", "Prawn Linguine", "Niçoise Salad"
-]
+# RECIPE_NAMES = [
+#   "Rustic Tomato Pasta", "Garlic Butter Salmon", "Spicy Chicken Stir-fry",
+#   "Mushroom Risotto", "Beef Tacos", "Thai Green Curry", "Lemon Herb Chicken",
+#   "Vegetable Fried Rice", "Classic French Omelette", "Shrimp Scampi",
+#   "Margherita Pizza", "Caesar Salad", "Beef Bourguignon", "Pad Thai",
+#   "Chicken Tikka Masala", "Spaghetti Carbonara", "Greek Salad", "Miso Soup"
+#   "Ratatouille", "Avocado Toast", "Shakshuka", "Lentil Soup", "Pesto Gnocchi",
+#   "Teriyaki Salmon", "Black Bean Tacos", "Butternut Squash Soup",
+#   "Chicken Parmigiana", "Tofu Scramble", "Prawn Linguine", "Niçoise Salad"
+# ]
 
-LOREM_INSTRUCTIONS = "1. Preheat the oven to 200°C (400°F). Line a baking tray with parchment paper.
-2. In a large bowl, toss the chopped vegetables with olive oil, salt, and pepper until evenly coated.
-3. Spread the vegetables in a single layer on the prepared baking tray.
-4. Roast in the oven for 20–25 minutes, stirring once halfway through, until the vegetables are tender and lightly browned.
-5. While the vegetables roast, cook the quinoa according to the package instructions, then fluff with a fork and set aside.
-6. In a small bowl, whisk together the lemon juice, extra-virgin olive oil, minced garlic, and a pinch of salt to make the dressing.
-7. In a large serving bowl, combine the cooked quinoa, roasted vegetables, and chopped fresh herbs.
-8. Pour the dressing over the mixture and gently toss until everything is well coated.
-9. Taste and adjust seasoning with additional salt, pepper, or lemon juice if needed.
-10. Serve warm or at room temperature, optionally topped with crumbled feta or toasted nuts.
-"
+# LOREM_INSTRUCTIONS = "1. Preheat the oven to 200°C (400°F). Line a baking tray with parchment paper.
+# 2. In a large bowl, toss the chopped vegetables with olive oil, salt, and pepper until evenly coated.
+# 3. Spread the vegetables in a single layer on the prepared baking tray.
+# 4. Roast in the oven for 20–25 minutes, stirring once halfway through, until the vegetables are tender and lightly browned.
+# 5. While the vegetables roast, cook the quinoa according to the package instructions, then fluff with a fork and set aside.
+# 6. In a small bowl, whisk together the lemon juice, extra-virgin olive oil, minced garlic, and a pinch of salt to make the dressing.
+# 7. In a large serving bowl, combine the cooked quinoa, roasted vegetables, and chopped fresh herbs.
+# 8. Pour the dressing over the mixture and gently toss until everything is well coated.
+# 9. Taste and adjust seasoning with additional salt, pepper, or lemon juice if needed.
+# 10. Serve warm or at room temperature, optionally topped with crumbled feta or toasted nuts.
+# "
 
 # ============================================================
 # INGREDIENTS (create all upfront so recipes can reference them)
@@ -146,7 +146,7 @@ recipes.each do |recipe_hash|
       recipe: recipe,
       ingredient: ingredient,
       amount: amount,
-      unit: unit
+      unit: unit || "unit",
       modifier: ingredient_hash["modifier"] || ""
     )
   end
