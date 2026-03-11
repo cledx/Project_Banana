@@ -17,7 +17,7 @@
         { "name": "Smoked Paprika", "amount": "1 tsp" },
         { "name": "Dried Oregano", "amount": "1 tsp" },
         { "name": "Dried Thyme", "amount": "1 tsp" },
-        { "name": "Lemon", "amount": "1/2, juiced (optional)" },
+        { "name": "Lemon", "amount": "1 juiced (optional)" },
         { "name": "Carrots", "amount": "3 medium" },
         { "name": "Red Bell Pepper", "amount": "1 large" },
         { "name": "Zucchini", "amount": "1 large" },
@@ -119,7 +119,7 @@
         { "name": "Water", "amount": "4 cups" },
         { "name": "Salt", "amount": "2 tsp, divided" },
         { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Lime", "amount": "2, juiced" },
+        { "name": "Lime", "amount": "2 juiced" },
         { "name": "Ground Cumin", "amount": "2 tsp" },
         { "name": "Chili Powder", "amount": "1.5 tsp" },
         { "name": "Garlic Powder", "amount": "1 tsp" },
@@ -147,7 +147,7 @@
         { "name": "Honey", "amount": "3 tbsp" },
         { "name": "Olive Oil", "amount": "2 tbsp" },
         { "name": "Garlic", "amount": "1 tbsp, minced" },
-        { "name": "Black Pepper", "amount": "1/2 tsp" },
+        { "name": "Black Pepper", "amount": "0.5 tsp" },
         { "name": "Chicken Thighs", "amount": "2 lb boneless, skinless" }
       ],
       "tags": [
@@ -171,7 +171,7 @@
         { "name": "Bell Peppers", "amount": "2, sliced" },
         { "name": "Red Onion", "amount": "1, sliced" },
         { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Lemon", "amount": "1, juiced" },
+        { "name": "Lemon", "amount": "1 juiced" },
         { "name": "Dried Oregano", "amount": "2 tsp" },
         { "name": "Garlic Powder", "amount": "1 tsp" },
         { "name": "Salt", "amount": "1.5 tsp" },
@@ -193,13 +193,13 @@
       "instructions": "1. Preheat oven to 400°F (200°C). Lightly grease a large baking dish.\n2. Arrange 2 lb bone-in chicken thighs or legs in the dish.\n3. In a bowl, mix 1/2 cup BBQ sauce, 2 tbsp water, and 1 tbsp olive oil. Pour over the chicken and turn to coat.\n4. Add 2 cups frozen corn and 2 cups green beans around the chicken. Season vegetables lightly with salt and pepper.\n5. Bake for 35–40 minutes, basting the chicken once, until the chicken is cooked through and vegetables are tender.\n6. Serve with cooked rice or potatoes and portion into containers.",
       "ingredients": [
         { "name": "Chicken Thighs or Legs", "amount": "2 lb bone-in" },
-        { "name": "BBQ Sauce", "amount": "1/2 cup" },
+        { "name": "BBQ Sauce", "amount": "0.5 cup" },
         { "name": "Water", "amount": "2 tbsp" },
         { "name": "Olive Oil", "amount": "1 tbsp" },
         { "name": "Corn", "amount": "2 cups frozen" },
         { "name": "Green Beans", "amount": "2 cups" },
         { "name": "Salt", "amount": "1 tsp" },
-        { "name": "Black Pepper", "amount": "1/2 tsp" }
+        { "name": "Black Pepper", "amount": "0.5 tsp" }
       ],
       "tags": [
         "MealPrep",
