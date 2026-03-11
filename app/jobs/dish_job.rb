@@ -1,5 +1,5 @@
 class DishJob < ApplicationJob
-    queue_as :default
+  queue_as :default
 
     def perform(dish_id, new_id)
         dish = Dish.find(dish_id)

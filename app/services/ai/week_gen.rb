@@ -89,5 +89,12 @@ class Ai::WeekGen
       end.join("\n")
       return recipes_text
     end
+
+    def day_template_text(day_templates)
+      return "None." if day_templates.nil?
+      day_templates.map do |day, template|
+        "#{day.capitalize}: " + template.select { |k, v| v.present? }.keys.map { |key| key.capitalize }.join(", ")
+      end.join("\n")
+    end
 end
 

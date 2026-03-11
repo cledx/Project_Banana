@@ -11,29 +11,30 @@ export default class extends Controller {
         animation: 150,
         onEnd: async function (evt) {
           const dish = evt.item.dataset.dish_id;
-          console.log(dish);
-
           const category = evt.to.dataset.category;
           const oldCategory = evt.from.dataset.category
           const newDay = evt.to.dataset.day_id;
           const previousDay = evt.from.dataset.day_id;
           const newCategory = evt.to;
           const previousCategory = evt.from;
-          console.log(previousCategory);
-
           const currentDay = document.querySelector(".today-highlight").id
           const name = evt.item.dataset.recipe_name;
 
           if (newDay === currentDay) {
-            const today = document.querySelector(`#${category}`)
-            today.outerHTML = `
-            <a class="text-decoration-none" href="/dishes/${dish}">
-              <div class="card p-3 w-100 meal-card" id="${category}">
-                <p class="meal-category">${category.charAt(0).toUpperCase() + category.slice(1)}</p>
-                <h5 class="card-title">${name}</h5>
-              </div>
-            </a>
-            `
+            const todayElement = document.querySelector(`#${category}`);
+
+            if (todayElement) {
+              todayElement.innerHTML = `
+                <a class="text-decoration-none" href="/dishes/${dish}">
+                  <div class="card p-3 w-100 meal-card">
+                    <p class="meal-category">${category.charAt(0).toUpperCase() + category.slice(1)}</p>
+                    <h5 class="card-title">${name}</h5>
+                  </div>
+                </a>
+              `;
+            } else {
+              console.error(`Could not find element with id: ${category}`);
+            }
             if (previousDay === currentDay) {
               document.querySelector(`#${oldCategory}`).outerHTML = `
               <div id = "${previousCategory.dataset.category}">
@@ -56,7 +57,6 @@ export default class extends Controller {
             </div>
             `
           }
-
 
           if (previousCategory.children.length === 0) {
             previousCategory.innerHTML = `<div class="empty-meal">
