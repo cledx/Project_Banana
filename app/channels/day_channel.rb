@@ -1,5 +1,5 @@
 class DayChannel < ApplicationCable::Channel
     def subscribed
-      stream_from "day_#{params[:day_id]}"
+      stream_from "date"
     end
   end

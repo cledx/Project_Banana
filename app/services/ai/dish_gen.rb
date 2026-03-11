@@ -1,63 +1,63 @@
 class Ai::DishGen
 
-  def initialize(day, portions, category, user)
-      @day = day
-      @portions = portions
-      @category = category
-      @user = user
+  def initialize(dish_id)
+    @dish = Dish.find(dish_id)
+    @day = @dish.day
+    @portions = @dish.portions
+    @category = @dish.category
+    @user = @dish.day.week.user
+    @recipe = @dish.recipe
   end
 
     def generate_dish
         @rubyllm = RubyLLM.chat
         .with_instructions(prompt_gen)
         .with_schema(Ai::Schemas::DishSchema.new("DishSchema"))
-        # Generate the previous week's meals text.
-        previous_meals = previous_week_meals_text(@day.week.user, @day.date)
         # Generate the current week's meals text.
         current_week_meals = @day.week.dishes.map { |dish| "#{dish.day.date.strftime('%A')}: #{dish.category} - #{dish.recipe.name}"}.join("\n")
         # Generate the response from the AI.
-        response = @rubyllm.ask("The client's previous weeks meals were: \n #{previous_meals}. This weeks meals so far are: \n #{current_week_meals}. You need to select a meal for #{@day.date.strftime('%A')} for #{@category}. Here are the recipes you can select from: \n #{recipe_filter}")
+        response = @rubyllm.ask("This weeks meals so far are: \n #{current_week_meals}. You need to select a meal for #{@day.date.strftime('%A')} for #{@category}. Here are the recipes you can select from: \n #{recipe_filter}")
         # If the recipe ID is "Generate new Recipe", then create a new recipe.
-        dish = Dish.create(day: @day, recipe_id: response.content["recipe_id"], category: @category, portions: @portions)
-        return dish
+        puts "Updating dish with recipe ID: #{response.content["recipe_id"]}"
+        @dish.update(recipe_id: response.content["recipe_id"])
+        puts "Dish updated: #{@dish.inspect}"
+        return @dish
     end
 
     private
-
-    def previous_week_meals_text(user, reference_date)
-      dishes = user.previous_week_dishes(reference_date)
-      return "None." if dishes.empty?
-      # Group the dishes by date and sort them by date.
-      dishes
-        .group_by { |d| d.day.date.to_date }
-        .sort_by { |date, _| date }
-        .map do |date, day_dishes|
-          meals = day_dishes.sort_by(&:category).map { |d| "#{d.category}: #{d.recipe.name}" }.join("; ")
-          "#{date.strftime('%A')}: #{meals}"
-        end
-        .join("\n")
-    end
 
     def prompt_gen
       prompt = <<-PROMPT
       You are a meal cooridnator. 
       The user is a busy person who need help with planning their meals to prep for the week. 
-      You need to plan a few meals for them to cook in advance to feed them for the week. Use a recipe for no more than three days in a row.
-      Select from the following recipes and pick the best ones for the user.
+      The user wants to replace the current recipe with a new one. Here is the current recipe: #{@recipe.name}
       PROMPT
     end
 
-    def recipe_filter
+    def recipe_filter(week_start = @day.date.beginning_of_week)
       # Return only recipes that do NOT contain any of the tags in @user.disease
       # Exclude recipes that were in the user's previous week's dishes
-      previous_recipe_ids = @user.previous_week_dishes(@day.date).pluck(:recipe_id).uniq
-      recipes_filter_recent = Recipe.where.not(id: previous_recipe_ids)
-      recipes_filter_disease = recipes_filter_recent.select do |recipe|
-        Array(@user.disease).none? { |tag| recipe.tags.include?(tag) }
-      end
-      recipes_text = recipes_filter_disease.map do |recipe|
-        favoritized = @user.favorited?(recipe) ? "(Favorited Recipe)" : ""
-        "(#{favoritized})#{recipe.name} - ID: #{recipe.id}"
+      disease_tags = Array(@user.disease)
+      allergy_tags = Array(@user.allergies)
+      previous_recipe_ids = @user.previous_week_dishes(week_start).pluck(:recipe_id).uniq
+
+      # Also exclude recipes in the current week
+      current_week_recipe_ids = @user.dishes.includes(:day).where(days: { week_id: @day.week.id }).pluck(:recipe_id).uniq
+
+      favorited_recipe_ids = @user.favorited_recipes
+      recipes = Recipe
+        .where.not(id: previous_recipe_ids + current_week_recipe_ids)
+        .where(
+          disease_tags.reject(&:blank?).map { |tag| "tags NOT LIKE ?" }.join(' AND '),
+          *disease_tags.reject(&:blank?).map { |tag| "%#{tag}%" }
+        )
+        .where(
+          allergy_tags.reject(&:blank?).map { |tag| "tags NOT LIKE ?" }.join(' AND '),
+          *allergy_tags.reject(&:blank?).map { |tag| "%#{tag}%" }
+        )
+      recipes_text = recipes.map do |recipe|
+        favoritized = favorited_recipe_ids.include?(recipe.id) ? "(Favorited Recipe)" : ""
+        "#{favoritized}#{recipe.name} - ID: #{recipe.id}"
       end.join("\n")
       return recipes_text
     end
