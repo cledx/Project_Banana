@@ -57,7 +57,6 @@
     </div>
 
     <%= week_calendar(number_of_weeks: @number_of_weeks, events: @calendar_days, attribute: :date) do |date, day| %>
-      <% second_week = date >= calendar_start + 7.days %>
       <% day = day.first %>
       <div class="calendar-day d-flex flex-column <%= 'today-highlight' if day&.date&.to_date == Date.current %>" id="<%= day.id unless day.nil? %>">
         <% if day %>
