@@ -21,7 +21,7 @@ class Ai::WeekGen
             end
             new_day.save
         end
-        @week
+        return @week
     end
 
 

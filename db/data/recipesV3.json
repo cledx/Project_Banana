@@ -6,25 +6,104 @@
       "cuisine": "American",
       "prep_time": 20,
       "cook_time": 25,
-      "instructions": "1. Rinse 2 cups of rice under cold water until the water runs mostly clear. Add the rice, 4 cups of water, and 1/2 tsp salt to a pot or rice cooker. Cook according to package instructions, then fluff and let cool slightly.\n2. Preheat the oven to 400°F (200°C). Line two large baking trays with parchment paper if desired.\n3. Cut 3 medium carrots into coins, 1 large red bell pepper into strips, 1 large zucchini into half-moons, and 1 red onion into wedges. Place all the vegetables on one of the trays. Drizzle with 2 tbsp olive oil, sprinkle with 1 tsp salt, 1/2 tsp black pepper, and 1 tsp dried Italian seasoning, and toss to coat. Spread into an even layer.\n4. Pat 2 lb boneless skinless chicken thighs dry with paper towels. In a large bowl, mix 2 tbsp olive oil, 1.5 tsp salt, 1 tsp black pepper, 1.5 tsp garlic powder, 1 tsp onion powder, 1 tsp smoked paprika, 1 tsp dried oregano, and 1 tsp dried thyme. Add the chicken thighs and toss until evenly coated. Arrange the chicken on the second tray in a single layer.\n5. Place both trays in the oven. Roast the vegetables for 20–25 minutes, stirring once halfway, until tender and lightly browned. Roast the chicken for 20–25 minutes, or until cooked through and the internal temperature reaches 165°F (74°C).\n6. Optional: Squeeze the juice of 1/2 lemon over the cooked chicken thighs.\n7. To assemble, divide the cooked rice among 6 meal-prep containers. Top each portion with roasted vegetables and 1–2 chicken thighs. Let everything cool to room temperature before sealing and refrigerating. Reheat in the microwave before serving.",
+      "instructions": "### Step 1\n\nRinse 2 cups of rice under cold water until the water runs mostly clear. Add the rice, 4 cups of water, and 1/2 tsp salt to a pot or rice cooker. Cook according to package instructions, then fluff and let cool slightly.\n\n### Step 2\n\nPreheat the oven to 400°F (200°C). Line two large baking trays with parchment paper if desired.\n\n### Step 3\n\nCut 3 medium carrots into coins, 1 large red bell pepper into strips, 1 large zucchini into half-moons, and 1 red onion into wedges. Place all the vegetables on one of the trays. Drizzle with 2 tbsp olive oil, sprinkle with 1 tsp salt, 1/2 tsp black pepper, and 1 tsp dried Italian seasoning, and toss to coat. Spread into an even layer.\n\n### Step 4\n\nPat 2 lb boneless skinless chicken thighs dry with paper towels. In a large bowl, mix 2 tbsp olive oil, 1.5 tsp salt, 1 tsp black pepper, 1.5 tsp garlic powder, 1 tsp onion powder, 1 tsp smoked paprika, 1 tsp dried oregano, and 1 tsp dried thyme. Add the chicken thighs and toss until evenly coated. Arrange the chicken on the second tray in a single layer.\n\n### Step 5\n\nPlace both trays in the oven. Roast the vegetables for 20–25 minutes, stirring once halfway, until tender and lightly browned. Roast the chicken for 20–25 minutes, or until cooked through and the internal temperature reaches 165°F (74°C).\n\n### Step 6\n\n**Optional:** Squeeze the juice of 1/2 lemon over the cooked chicken thighs.\n\n### Step 7\n\nTo assemble, divide the cooked rice among 6 meal-prep containers. Top each portion with roasted vegetables and 1–2 chicken thighs. Let everything cool to room temperature before sealing and refrigerating. Reheat in the microwave before serving.",
       "ingredients": [
-        { "name": "Chicken Thighs", "amount": "2 lb boneless, skinless" },
-        { "name": "Olive Oil", "amount": "4 tbsp, divided" },
-        { "name": "Salt", "amount": "3 tsp, divided" },
-        { "name": "Black Pepper", "amount": "1.5 tsp, divided" },
-        { "name": "Garlic Powder", "amount": "1.5 tsp" },
-        { "name": "Onion Powder", "amount": "1 tsp" },
-        { "name": "Smoked Paprika", "amount": "1 tsp" },
-        { "name": "Dried Oregano", "amount": "1 tsp" },
-        { "name": "Dried Thyme", "amount": "1 tsp" },
-        { "name": "Lemon", "amount": "1/2, juiced (optional)" },
-        { "name": "Carrots", "amount": "3 medium" },
-        { "name": "Red Bell Pepper", "amount": "1 large" },
-        { "name": "Zucchini", "amount": "1 large" },
-        { "name": "Red Onion", "amount": "1 medium" },
-        { "name": "Italian Seasoning", "amount": "1 tsp dried" },
-        { "name": "Rice", "amount": "2 cups uncooked" },
-        { "name": "Water", "amount": "4 cups" }
+        {
+          "name": "Chicken Thighs",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "boneless, skinless"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "4",
+          "unit": "tbsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Salt",
+          "amount": "3",
+          "unit": "tsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1.5",
+          "unit": "tsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Onion Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Smoked Paprika",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Thyme",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1/2",
+          "unit": "piece",
+          "modifier": "juiced (optional)"
+        },
+        {
+          "name": "Carrots",
+          "amount": "3",
+          "unit": "piece",
+          "modifier": "medium"
+        },
+        {
+          "name": "Red Bell Pepper",
+          "amount": "1",
+          "unit": "piece",
+          "modifier": "large"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "piece",
+          "modifier": "large"
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1",
+          "unit": "piece",
+          "modifier": "medium"
+        },
+        {
+          "name": "Italian Seasoning",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "dried"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -39,16 +118,51 @@
       "cuisine": "American",
       "prep_time": 15,
       "cook_time": 30,
-      "instructions": "1. Preheat the oven to 400°F (200°C). Line a large baking tray with parchment paper.\n2. Cut 1.5 lb small potatoes into bite-size chunks. Cut 3 cups broccoli florets from a head of broccoli. Place potatoes and broccoli on the tray.\n3. In a small bowl, mix 3 tbsp olive oil, 1.5 tsp salt, 1 tsp black pepper, 2 tsp lemon pepper seasoning, and 1 tsp garlic powder.\n4. Add 2 lb boneless skinless chicken breasts to a large bowl and spoon over half of the oil mixture, tossing to coat. Arrange the chicken on the tray.\n5. Toss the potatoes and broccoli in the remaining oil mixture and spread into an even layer around the chicken.\n6. Bake for 25–30 minutes, or until the chicken is cooked through and the potatoes are tender, turning the vegetables once halfway.\n7. Let cool slightly, then slice the chicken and divide everything into meal-prep containers.",
+      "instructions": "### Step 1\n\nPreheat the oven to 400°F (200°C). Line a large baking tray with parchment paper.\n\n### Step 2\n\nCut 1.5 lb small potatoes into bite-size chunks. Cut 3 cups broccoli florets from a head of broccoli. Place potatoes and broccoli on the tray.\n\n### Step 3\n\nIn a small bowl, mix 3 tbsp olive oil, 1.5 tsp salt, 1 tsp black pepper, 2 tsp lemon pepper seasoning, and 1 tsp garlic powder.\n\n### Step 4\n\nAdd 2 lb boneless skinless chicken breasts to a large bowl and spoon over half of the oil mixture, tossing to coat. Arrange the chicken on the tray.\n\n### Step 5\n\nToss the potatoes and broccoli in the remaining oil mixture and spread into an even layer around the chicken.\n\n### Step 6\n\nBake for 25–30 minutes, or until the chicken is cooked through and the potatoes are tender, turning the vegetables once halfway.\n\n### Step 7\n\nLet cool slightly, then slice the chicken and divide everything into meal-prep containers.",
       "ingredients": [
-        { "name": "Chicken Breasts", "amount": "2 lb boneless, skinless" },
-        { "name": "Potatoes", "amount": "1.5 lb small, cubed" },
-        { "name": "Broccoli", "amount": "3 cups florets" },
-        { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Salt", "amount": "1.5 tsp" },
-        { "name": "Black Pepper", "amount": "1 tsp" },
-        { "name": "Lemon Pepper Seasoning", "amount": "2 tsp" },
-        { "name": "Garlic Powder", "amount": "1 tsp" }
+        {
+          "name": "Chicken Breasts",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "boneless, skinless"
+        },
+        {
+          "name": "Potatoes",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "small, cubed"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "3",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Lemon Pepper Seasoning",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -63,17 +177,56 @@
       "cuisine": "American",
       "prep_time": 15,
       "cook_time": 35,
-      "instructions": "1. Preheat oven to 400°F (200°C). Lightly oil a large baking dish.\n2. Peel and cube 2 large sweet potatoes. Slice 1 red onion into wedges. Add both to the baking dish.\n3. In a small bowl, whisk together 3 tbsp olive oil, 2 tsp smoked paprika, 1 tsp garlic powder, 1 tsp dried oregano, 1.5 tsp salt, and 1 tsp black pepper.\n4. Add 2 lb boneless skinless chicken thighs to the dish and pour the oil mixture over the chicken and vegetables. Toss everything until coated and spread into an even layer.\n5. Bake for 30–35 minutes, stirring the vegetables once halfway, until the chicken is cooked through and the sweet potatoes are tender.\n6. Cool slightly, then portion into containers for easy reheating.",
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Lightly oil a large baking dish.\n\n### Step 2\n\nPeel and cube 2 large sweet potatoes. Slice 1 red onion into wedges. Add both to the baking dish.\n\n### Step 3\n\nIn a small bowl, whisk together 3 tbsp olive oil, 2 tsp smoked paprika, 1 tsp garlic powder, 1 tsp dried oregano, 1.5 tsp salt, and 1 tsp black pepper.\n\n### Step 4\n\nAdd 2 lb boneless skinless chicken thighs to the dish and pour the oil mixture over the chicken and vegetables. Toss everything until coated and spread into an even layer.\n\n### Step 5\n\nBake for 30–35 minutes, stirring the vegetables once halfway, until the chicken is cooked through and the sweet potatoes are tender.\n\n### Step 6\n\nCool slightly, then portion into containers for easy reheating.",
       "ingredients": [
-        { "name": "Chicken Thighs", "amount": "2 lb boneless, skinless" },
-        { "name": "Sweet Potatoes", "amount": "2 large, cubed" },
-        { "name": "Red Onion", "amount": "1 large, wedged" },
-        { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Smoked Paprika", "amount": "2 tsp" },
-        { "name": "Garlic Powder", "amount": "1 tsp" },
-        { "name": "Dried Oregano", "amount": "1 tsp" },
-        { "name": "Salt", "amount": "1.5 tsp" },
-        { "name": "Black Pepper", "amount": "1 tsp" }
+        {
+          "name": "Chicken Thighs",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "boneless, skinless"
+        },
+        {
+          "name": "Sweet Potatoes",
+          "amount": "2",
+          "unit": "piece",
+          "modifier": "large, cubed"
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1",
+          "unit": "piece",
+          "modifier": "large, wedged"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Smoked Paprika",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -88,17 +241,56 @@
       "cuisine": "Italian",
       "prep_time": 15,
       "cook_time": 35,
-      "instructions": "1. Preheat the oven to 400°F (200°C). Line a large baking tray with parchment paper.\n2. Trim 3 cups green beans and halve 1 pint cherry tomatoes. Slice 1 small red onion into wedges. Place vegetables on the tray.\n3. In a bowl, combine 2 lb chicken drumsticks or thighs, 3 tbsp olive oil, 2 tsp Italian seasoning, 1 tsp garlic powder, 1.5 tsp salt, and 1 tsp black pepper. Toss to coat.\n4. Arrange the chicken pieces on the tray among the vegetables.\n5. Bake for 30–35 minutes, or until the chicken is cooked through and the vegetables are tender, stirring the vegetables once.\n6. Cool slightly and portion into containers with some of each component.",
+      "instructions": "### Step 1\n\nPreheat the oven to 400°F (200°C). Line a large baking tray with parchment paper.\n\n### Step 2\n\nTrim 3 cups green beans and halve 1 pint cherry tomatoes. Slice 1 small red onion into wedges. Place vegetables on the tray.\n\n### Step 3\n\nIn a bowl, combine 2 lb chicken drumsticks or thighs, 3 tbsp olive oil, 2 tsp Italian seasoning, 1 tsp garlic powder, 1.5 tsp salt, and 1 tsp black pepper. Toss to coat.\n\n### Step 4\n\nArrange the chicken pieces on the tray among the vegetables.\n\n### Step 5\n\nBake for 30–35 minutes, or until the chicken is cooked through and the vegetables are tender, stirring the vegetables once.\n\n### Step 6\n\nCool slightly and portion into containers with some of each component.",
       "ingredients": [
-        { "name": "Chicken Drumsticks or Thighs", "amount": "2 lb" },
-        { "name": "Green Beans", "amount": "3 cups, trimmed" },
-        { "name": "Cherry Tomatoes", "amount": "1 pint, halved" },
-        { "name": "Red Onion", "amount": "1 small, wedged" },
-        { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Italian Seasoning", "amount": "2 tsp" },
-        { "name": "Garlic Powder", "amount": "1 tsp" },
-        { "name": "Salt", "amount": "1.5 tsp" },
-        { "name": "Black Pepper", "amount": "1 tsp" }
+        {
+          "name": "Chicken Drumsticks or Thighs",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Green Beans",
+          "amount": "3",
+          "unit": "cups",
+          "modifier": "trimmed"
+        },
+        {
+          "name": "Cherry Tomatoes",
+          "amount": "1",
+          "unit": "pints",
+          "modifier": "halved"
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1",
+          "unit": "piece",
+          "modifier": "small, wedged"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Italian Seasoning",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -113,19 +305,67 @@
       "cuisine": "Mexican",
       "prep_time": 15,
       "cook_time": 30,
-      "instructions": "1. Cook 2 cups brown rice according to package instructions with 4 cups water and 1/2 tsp salt. Fluff and set aside.\n2. In a bowl, whisk together 3 tbsp olive oil, juice of 2 limes, 2 tsp ground cumin, 1.5 tsp chili powder, 1 tsp garlic powder, 1.5 tsp salt, and 1 tsp black pepper.\n3. Add 2 lb boneless skinless chicken breasts cut into strips and toss to coat.\n4. Heat a large skillet over medium-high heat. Cook the chicken in batches for 5–6 minutes, stirring occasionally, until cooked through and slightly browned.\n5. Steam or quickly sauté 3 cups mixed bell pepper strips in a little olive oil and salt until crisp-tender.\n6. Portion the brown rice, chicken, and peppers into containers and garnish with extra lime wedges if desired.",
+      "instructions": "### Step 1\n\nCook 2 cups brown rice according to package instructions with 4 cups water and 1/2 tsp salt. Fluff and set aside.\n\n### Step 2\n\nIn a bowl, whisk together 3 tbsp olive oil, juice of 2 limes, 2 tsp ground cumin, 1.5 tsp chili powder, 1 tsp garlic powder, 1.5 tsp salt, and 1 tsp black pepper.\n\n### Step 3\n\nAdd 2 lb boneless skinless chicken breasts cut into strips and toss to coat.\n\n### Step 4\n\nHeat a large skillet over medium-high heat. Cook the chicken in batches for 5–6 minutes, stirring occasionally, until cooked through and slightly browned.\n\n### Step 5\n\nSteam or quickly sauté 3 cups mixed bell pepper strips in a little olive oil and salt until crisp-tender.\n\n### Step 6\n\nPortion the brown rice, chicken, and peppers into containers and garnish with extra lime wedges if desired.",
       "ingredients": [
-        { "name": "Brown Rice", "amount": "2 cups uncooked" },
-        { "name": "Water", "amount": "4 cups" },
-        { "name": "Salt", "amount": "2 tsp, divided" },
-        { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Lime", "amount": "2, juiced" },
-        { "name": "Ground Cumin", "amount": "2 tsp" },
-        { "name": "Chili Powder", "amount": "1.5 tsp" },
-        { "name": "Garlic Powder", "amount": "1 tsp" },
-        { "name": "Black Pepper", "amount": "1 tsp" },
-        { "name": "Chicken Breasts", "amount": "2 lb, cut into strips" },
-        { "name": "Bell Peppers", "amount": "3 cups, sliced" }
+        {
+          "name": "Brown Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Lime",
+          "amount": "2, juiced",
+          "unit": null
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Chili Powder",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Chicken Breasts",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "cut into strips"
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "3",
+          "unit": "cups",
+          "modifier": "sliced"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -140,15 +380,46 @@
       "cuisine": "Asian",
       "prep_time": 10,
       "cook_time": 35,
-      "instructions": "1. Preheat oven to 375°F (190°C). Lightly oil a baking dish large enough to hold the chicken in a single layer.\n2. Peel and slice 4 medium carrots into thick coins and spread them in the dish.\n3. In a small bowl, whisk together 3 tbsp low-sodium soy sauce, 3 tbsp honey, 2 tbsp olive oil, 1 tbsp minced garlic, and 1/2 tsp black pepper.\n4. Add 2 lb boneless skinless chicken thighs to the dish and pour the sauce over the chicken and carrots, turning to coat.\n5. Bake for 30–35 minutes, basting once with the pan juices, until the chicken is cooked through and the carrots are tender.\n6. Serve with cooked rice or quinoa and divide into containers.",
+      "instructions": "### Step 1\n\nPreheat oven to 375°F (190°C). Lightly oil a baking dish large enough to hold the chicken in a single layer.\n\n### Step 2\n\nPeel and slice 4 medium carrots into thick coins and spread them in the dish.\n\n### Step 3\n\nIn a small bowl, whisk together 3 tbsp low-sodium soy sauce, 3 tbsp honey, 2 tbsp olive oil, 1 tbsp minced garlic, and 1/2 tsp black pepper.\n\n### Step 4\n\nAdd 2 lb boneless skinless chicken thighs to the dish and pour the sauce over the chicken and carrots, turning to coat.\n\n### Step 5\n\nBake for 30–35 minutes, basting once with the pan juices, until the chicken is cooked through and the carrots are tender.\n\n### Step 6\n\nServe with cooked rice or quinoa and divide into containers.",
       "ingredients": [
-        { "name": "Carrots", "amount": "4 medium, sliced" },
-        { "name": "Low-Sodium Soy Sauce", "amount": "3 tbsp" },
-        { "name": "Honey", "amount": "3 tbsp" },
-        { "name": "Olive Oil", "amount": "2 tbsp" },
-        { "name": "Garlic", "amount": "1 tbsp, minced" },
-        { "name": "Black Pepper", "amount": "1/2 tsp" },
-        { "name": "Chicken Thighs", "amount": "2 lb boneless, skinless" }
+        {
+          "name": "Carrots",
+          "amount": "4",
+          "unit": "piece",
+          "modifier": "medium, sliced"
+        },
+        {
+          "name": "Low-Sodium Soy Sauce",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Honey",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "1",
+          "unit": "tbsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Chicken Thighs",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "boneless, skinless"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -165,17 +436,53 @@
       "cuisine": "Greek",
       "prep_time": 15,
       "cook_time": 30,
-      "instructions": "1. Preheat the oven to 400°F (200°C). Line a baking tray with parchment.\n2. Slice 2 bell peppers and 1 red onion into strips and place on the tray.\n3. In a bowl, mix 3 tbsp olive oil, juice of 1 lemon, 2 tsp dried oregano, 1 tsp garlic powder, 1.5 tsp salt, and 1 tsp black pepper.\n4. Add 2 lb chicken breasts or thighs and coat well. Arrange the chicken on the tray among the vegetables.\n5. Bake for 25–30 minutes, or until the chicken is cooked through and vegetables are tender.\n6. Optional: Top with a sprinkle of crumbled feta after baking if dairy is acceptable.\n7. Portion into containers with your choice of cooked rice or potatoes.",
+      "instructions": "### Step 1\n\nPreheat the oven to 400°F (200°C). Line a baking tray with parchment.\n\n### Step 2\n\nSlice 2 bell peppers and 1 red onion into strips and place on the tray.\n\n### Step 3\n\nIn a bowl, mix 3 tbsp olive oil, juice of 1 lemon, 2 tsp dried oregano, 1 tsp garlic powder, 1.5 tsp salt, and 1 tsp black pepper.\n\n### Step 4\n\nAdd 2 lb chicken breasts or thighs and coat well. Arrange the chicken on the tray among the vegetables.\n\n### Step 5\n\nBake for 25–30 minutes, or until the chicken is cooked through and vegetables are tender.\n\n### Step 6\n\n**Optional:** Top with a sprinkle of crumbled feta after baking if dairy is acceptable.\n\n### Step 7\n\nPortion into containers with your choice of cooked rice or potatoes.",
       "ingredients": [
-        { "name": "Chicken Breasts or Thighs", "amount": "2 lb" },
-        { "name": "Bell Peppers", "amount": "2, sliced" },
-        { "name": "Red Onion", "amount": "1, sliced" },
-        { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Lemon", "amount": "1, juiced" },
-        { "name": "Dried Oregano", "amount": "2 tsp" },
-        { "name": "Garlic Powder", "amount": "1 tsp" },
-        { "name": "Salt", "amount": "1.5 tsp" },
-        { "name": "Black Pepper", "amount": "1 tsp" }
+        {
+          "name": "Chicken Breasts or Thighs",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "2, sliced",
+          "unit": null
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1, juiced",
+          "unit": null
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -190,23 +497,56 @@
       "cuisine": "American",
       "prep_time": 10,
       "cook_time": 40,
-      "instructions": "1. Preheat oven to 400°F (200°C). Lightly grease a large baking dish.\n2. Arrange 2 lb bone-in chicken thighs or legs in the dish.\n3. In a bowl, mix 1/2 cup BBQ sauce, 2 tbsp water, and 1 tbsp olive oil. Pour over the chicken and turn to coat.\n4. Add 2 cups frozen corn and 2 cups green beans around the chicken. Season vegetables lightly with salt and pepper.\n5. Bake for 35–40 minutes, basting the chicken once, until the chicken is cooked through and vegetables are tender.\n6. Serve with cooked rice or potatoes and portion into containers.",
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Lightly grease a large baking dish.\n\n### Step 2\n\nArrange 2 lb bone-in chicken thighs or legs in the dish.\n\n### Step 3\n\nIn a bowl, mix 1/2 cup BBQ sauce, 2 tbsp water, and 1 tbsp olive oil. Pour over the chicken and turn to coat.\n\n### Step 4\n\nAdd 2 cups frozen corn and 2 cups green beans around the chicken. Season vegetables lightly with salt and pepper.\n\n### Step 5\n\nBake for 35–40 minutes, basting the chicken once, until the chicken is cooked through and vegetables are tender.\n\n### Step 6\n\nServe with cooked rice or potatoes and portion into containers.",
       "ingredients": [
-        { "name": "Chicken Thighs or Legs", "amount": "2 lb bone-in" },
-        { "name": "BBQ Sauce", "amount": "1/2 cup" },
-        { "name": "Water", "amount": "2 tbsp" },
-        { "name": "Olive Oil", "amount": "1 tbsp" },
-        { "name": "Corn", "amount": "2 cups frozen" },
-        { "name": "Green Beans", "amount": "2 cups" },
-        { "name": "Salt", "amount": "1 tsp" },
-        { "name": "Black Pepper", "amount": "1/2 tsp" }
+        {
+          "name": "Chicken Thighs or Legs",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "bone-in"
+        },
+        {
+          "name": "BBQ Sauce",
+          "amount": "1/2",
+          "unit": "cups"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "1",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Corn",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "frozen"
+        },
+        {
+          "name": "Green Beans",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
       ],
       "tags": [
         "MealPrep",
         "Lunch",
         "Dinner",
-        "HighProtein",
-        "gluten"
+        "HighProtein"
       ]
     },
     {
@@ -215,18 +555,60 @@
       "cuisine": "Middle Eastern",
       "prep_time": 15,
       "cook_time": 20,
-      "instructions": "1. In a bowl, mix 2 tsp ground turmeric, 1 tsp ground cumin, 1 tsp garlic powder, 1.5 tsp salt, 1 tsp black pepper, and 3 tbsp olive oil.\n2. Add 2 lb chicken breast strips and toss to coat. Let marinate while you prepare the vegetables.\n3. Heat a large skillet over medium-high heat and cook the chicken for 6–8 minutes until cooked through.\n4. In another skillet, sauté 4 cups riced cauliflower in 1 tbsp olive oil with a pinch of salt and pepper for 5–7 minutes until tender.\n5. Slice 1 cucumber and 1 bell pepper for fresh crunch.\n6. Assemble bowls or containers with cauliflower rice, chicken, and fresh vegetables.",
+      "instructions": "### Step 1\n\nIn a bowl, mix 2 tsp ground turmeric, 1 tsp ground cumin, 1 tsp garlic powder, 1.5 tsp salt, 1 tsp black pepper, and 3 tbsp olive oil.\n\n### Step 2\n\nAdd 2 lb chicken breast strips and toss to coat. Let marinate while you prepare the vegetables.\n\n### Step 3\n\nHeat a large skillet over medium-high heat and cook the chicken for 6–8 minutes until cooked through.\n\n### Step 4\n\nIn another skillet, sauté 4 cups riced cauliflower in 1 tbsp olive oil with a pinch of salt and pepper for 5–7 minutes until tender.\n\n### Step 5\n\nSlice 1 cucumber and 1 bell pepper for fresh crunch.\n\n### Step 6\n\nAssemble bowls or containers with cauliflower rice, chicken, and fresh vegetables.",
       "ingredients": [
-        { "name": "Ground Turmeric", "amount": "2 tsp" },
-        { "name": "Ground Cumin", "amount": "1 tsp" },
-        { "name": "Garlic Powder", "amount": "1 tsp" },
-        { "name": "Salt", "amount": "1.5 tsp" },
-        { "name": "Black Pepper", "amount": "1 tsp" },
-        { "name": "Olive Oil", "amount": "4 tbsp, divided" },
-        { "name": "Chicken Breasts", "amount": "2 lb, cut into strips" },
-        { "name": "Riced Cauliflower", "amount": "4 cups" },
-        { "name": "Cucumber", "amount": "1, sliced" },
-        { "name": "Bell Pepper", "amount": "1, sliced" }
+        {
+          "name": "Ground Turmeric",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "4",
+          "unit": "tbsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Chicken Breasts",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "cut into strips"
+        },
+        {
+          "name": "Riced Cauliflower",
+          "amount": "4",
+          "unit": "cups"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Bell Pepper",
+          "amount": "1, sliced",
+          "unit": null
+        }
       ],
       "tags": [
         "MealPrep",
@@ -242,16 +624,50 @@
       "cuisine": "American",
       "prep_time": 15,
       "cook_time": 30,
-      "instructions": "1. Preheat oven to 400°F (200°C). Line a large tray with parchment paper.\n2. Place 2 lb chicken breasts on the tray. Surround with 2 cups baby carrots, 2 cups broccoli florets, and 2 cups halved Brussels sprouts.\n3. In a bowl, whisk 3 tbsp olive oil, 1.5 tsp salt, 1 tsp black pepper, and 1 tsp garlic powder. Drizzle over the chicken and vegetables and toss gently.\n4. Roast for 25–30 minutes, turning vegetables once, until the chicken is cooked through and vegetables are tender.\n5. Slice chicken if desired and divide into meal-prep containers.",
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large tray with parchment paper.\n\n### Step 2\n\nPlace 2 lb chicken breasts on the tray. Surround with 2 cups baby carrots, 2 cups broccoli florets, and 2 cups halved Brussels sprouts.\n\n### Step 3\n\nIn a bowl, whisk 3 tbsp olive oil, 1.5 tsp salt, 1 tsp black pepper, and 1 tsp garlic powder. Drizzle over the chicken and vegetables and toss gently.\n\n### Step 4\n\nRoast for 25–30 minutes, turning vegetables once, until the chicken is cooked through and vegetables are tender.\n\n### Step 5\n\nSlice chicken if desired and divide into meal-prep containers.",
       "ingredients": [
-        { "name": "Chicken Breasts", "amount": "2 lb" },
-        { "name": "Baby Carrots", "amount": "2 cups" },
-        { "name": "Broccoli", "amount": "2 cups florets" },
-        { "name": "Brussels Sprouts", "amount": "2 cups, halved" },
-        { "name": "Olive Oil", "amount": "3 tbsp" },
-        { "name": "Salt", "amount": "1.5 tsp" },
-        { "name": "Black Pepper", "amount": "1 tsp" },
-        { "name": "Garlic Powder", "amount": "1 tsp" }
+        {
+          "name": "Chicken Breasts",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Baby Carrots",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Brussels Sprouts",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "halved"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        }
       ],
       "tags": [
         "MealPrep",
@@ -266,23 +682,2641 @@
       "cuisine": "American",
       "prep_time": 20,
       "cook_time": 55,
-      "instructions": "1. Preheat oven to 375°F (190°C). Lightly oil a roasting pan.\n2. Place a 2.5 lb pork loin in the center of the pan.\n3. In a bowl, combine 3 tbsp olive oil, 2 tsp dried rosemary, 2 tsp dried thyme, 1.5 tsp salt, 1 tsp black pepper, and 2 cloves minced garlic. Rub the mixture all over the pork.\n4. Cut 4 medium carrots and 4 medium potatoes into chunks and toss them with 1 tbsp olive oil, 1/2 tsp salt, and 1/2 tsp pepper. Arrange around the pork.\n5. Roast for 45–55 minutes, or until the pork reaches an internal temperature of 145°F (63°C) and the vegetables are tender, stirring vegetables once.\n6. Let the pork rest 10 minutes before slicing. Portion slices with vegetables into containers.",
+      "instructions": "### Step 1\n\nPreheat oven to 375°F (190°C). Lightly oil a roasting pan.\n\n### Step 2\n\nPlace a 2.5 lb pork loin in the center of the pan.\n\n### Step 3\n\nIn a bowl, combine 3 tbsp olive oil, 2 tsp dried rosemary, 2 tsp dried thyme, 1.5 tsp salt, 1 tsp black pepper, and 2 cloves minced garlic. Rub the mixture all over the pork.\n\n### Step 4\n\nCut 4 medium carrots and 4 medium potatoes into chunks and toss them with 1 tbsp olive oil, 1/2 tsp salt, and 1/2 tsp pepper. Arrange around the pork.\n\n### Step 5\n\nRoast for 45–55 minutes, or until the pork reaches an internal temperature of 145°F (63°C) and the vegetables are tender, stirring vegetables once.\n\n### Step 6\n\nLet the pork rest 10 minutes before slicing. Portion slices with vegetables into containers.",
       "ingredients": [
-        { "name": "Pork Loin", "amount": "2.5 lb" },
-        { "name": "Olive Oil", "amount": "4 tbsp, divided" },
-        { "name": "Dried Rosemary", "amount": "2 tsp" },
-        { "name": "Dried Thyme", "amount": "2 tsp" },
-        { "name": "Salt", "amount": "2 tsp, divided" },
-        { "name": "Black Pepper", "amount": "1.5 tsp, divided" },
-        { "name": "Garlic", "amount": "2 cloves, minced" },
-        { "name": "Carrots", "amount": "4 medium, chunked" },
-        { "name": "Potatoes", "amount": "4 medium, chunked" }
+        {
+          "name": "Pork Loin",
+          "amount": "2.5",
+          "unit": "lb"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "4",
+          "unit": "tbsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Dried Rosemary",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Thyme",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1.5",
+          "unit": "tsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "modifier": "minced"
+        },
+        {
+          "name": "Carrots",
+          "amount": "4",
+          "unit": "piece",
+          "modifier": "medium, chunked"
+        },
+        {
+          "name": "Potatoes",
+          "amount": "4",
+          "unit": "piece",
+          "modifier": "medium, chunked"
+        }
       ],
       "tags": [
         "MealPrep",
         "Lunch",
         "Dinner",
         "HighProtein"
+      ]
+    },
+    {
+      "name": "Sheet Pan Pork Chops with Apples and Sweet Potato",
+      "category": "Pork",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment paper.\n\n### Step 2\n\nPeel and cube 2 sweet potatoes. Core and slice 2 apples into wedges. Toss with 2 tbsp olive oil, 1 tsp salt, 1/2 tsp black pepper, and 1 tsp dried thyme. Spread on the sheet.\n\n### Step 3\n\nSeason 4 bone-in pork chops (about 2 lb) with 1 tsp salt, 1/2 tsp black pepper, and 1 tsp garlic powder. Place on the sheet among the vegetables.\n\n### Step 4\n\nBake 30–35 minutes until pork reaches 145°F (63°C) and sweet potatoes are tender.\n\n### Step 5\n\nRest pork 5 minutes, then portion into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Chops",
+          "amount": "4",
+          "unit": "piece",
+          "modifier": "bone-in, about 2 lb"
+        },
+        {
+          "name": "Sweet Potatoes",
+          "amount": "2, cubed",
+          "unit": null
+        },
+        {
+          "name": "Apples",
+          "amount": "2, cored and wedged",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "divided"
+        },
+        {
+          "name": "Dried Thyme",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Cumin Lime Pork Tenderloin with Black Beans and Rice",
+      "category": "Pork",
+      "cuisine": "Mexican",
+      "prep_time": 15,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nCook 2 cups white rice with 4 cups water and 1/2 tsp salt. Fluff and set aside.\n\n### Step 2\n\nRub 2 lb pork tenderloin with 2 tbsp olive oil, 2 tsp ground cumin, 1 tsp chili powder, 1.5 tsp salt, 1 tsp black pepper, and juice of 2 limes.\n\n### Step 3\n\nHeat a large oven-safe skillet over medium-high. Sear pork on all sides, about 6 minutes total. Transfer to oven at 375°F (190°C) and roast 20–25 minutes until 145°F (63°C). Rest 10 minutes, then slice.\n\n### Step 4\n\nWarm 2 cans black beans (drained) with a pinch of salt and cumin. Serve pork over rice with black beans; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Tenderloin",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "White Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups"
+        },
+        {
+          "name": "Black Beans",
+          "amount": "2",
+          "unit": "cans",
+          "modifier": "drained"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Chili Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Lime",
+          "amount": "2, juiced",
+          "unit": null
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Garlic Rosemary Pork Chops with Roasted Broccoli",
+      "category": "Pork",
+      "cuisine": "American",
+      "prep_time": 10,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nToss 4 cups broccoli florets with 2 tbsp olive oil, 1/2 tsp salt, and 1/2 tsp black pepper. Spread on half the sheet.\n\n### Step 3\n\nSeason 4 pork chops (about 2 lb) with 1.5 tsp salt, 1 tsp black pepper, 2 tsp minced garlic, and 1 tsp dried rosemary. Drizzle with 1 tbsp olive oil. Place on the other half of the sheet.\n\n### Step 4\n\nBake 20–25 minutes until pork reaches 145°F (63°C) and broccoli is tender. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Chops",
+          "amount": "4, about 2 lb",
+          "unit": null
+        },
+        {
+          "name": "Broccoli",
+          "amount": "4",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Dried Rosemary",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1.5",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Pork and Bell Pepper Skillet with Rice",
+      "category": "Pork",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nCook 2 cups rice according to package directions. Set aside.\n\n### Step 2\n\nCut 1.5 lb pork loin into strips. Slice 3 bell peppers and 1 onion into strips.\n\n### Step 3\n\nHeat 2 tbsp olive oil in a large skillet over medium-high. Cook pork strips 5–6 minutes until browned; remove. Add peppers and onion, sauté 5 minutes. Return pork, add 1 tsp garlic powder, 1.5 tsp salt, 1 tsp black pepper. Toss and cook 2 minutes.\n\n### Step 4\n\nPortion rice and pork mixture into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Loin",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "cut into strips"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "3, sliced",
+          "unit": null
+        },
+        {
+          "name": "Onion",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Baked Pork Meatballs with Marinara and Zucchini",
+      "category": "Pork",
+      "cuisine": "Italian",
+      "prep_time": 20,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nIn a bowl, mix 2 lb ground pork, 1/2 cup breadcrumbs, 1 egg, 2 cloves minced garlic, 1 tsp dried oregano, 1.5 tsp salt, 1 tsp black pepper. Form into 24 meatballs; place on the sheet. Bake 20–25 minutes until cooked through.\n\n### Step 3\n\nSlice 2 zucchini into half-moons. In a large skillet, heat 2 cups marinara, add zucchini, simmer 8–10 minutes. Add meatballs and toss. Serve over cooked pasta or with rice; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Ground Pork",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Breadcrumbs",
+          "amount": "1/2",
+          "unit": "cups"
+        },
+        {
+          "name": "Egg",
+          "amount": "1",
+          "unit": null
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "modifier": "minced"
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Marinara Sauce",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "2, sliced",
+          "unit": null
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "eggs"
+      ]
+    },
+    {
+      "name": "Honey Mustard Pork Tenderloin with Green Beans",
+      "category": "Pork",
+      "cuisine": "American",
+      "prep_time": 10,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nPreheat oven to 375°F (190°C). Line a baking dish with parchment.\n\n### Step 2\n\nMix 3 tbsp Dijon mustard, 2 tbsp honey, 1 tbsp olive oil, 1 tsp garlic powder, 1/2 tsp salt, 1/2 tsp black pepper. Rub over 2 lb pork tenderloin. Place in the dish.\n\n### Step 3\n\nTrim 1 lb green beans and arrange around the pork. Drizzle beans with 1 tbsp olive oil and a pinch of salt and pepper.\n\n### Step 4\n\nRoast 25–30 minutes until pork reaches 145°F (63°C). Rest 10 minutes, slice, and portion into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Tenderloin",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Dijon Mustard",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Honey",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Green Beans",
+          "amount": "1",
+          "unit": "lb",
+          "modifier": "trimmed"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Pork Stir-Fry with Vegetables and Brown Rice",
+      "category": "Pork",
+      "cuisine": "Asian",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups brown rice according to package directions. Set aside.\n\n### Step 2\n\nSlice 1.5 lb pork loin into thin strips. Cut 2 cups broccoli florets, 1 bell pepper, 1 carrot into bite-size pieces.\n\n### Step 3\n\nHeat 2 tbsp vegetable oil in a large skillet or wok over high heat. Stir-fry pork 4–5 minutes until cooked through; remove. Add vegetables, stir-fry 4–5 minutes. Add 3 tbsp soy sauce, 1 tsp ginger, 1 clove minced garlic; return pork, toss 1 minute.\n\n### Step 4\n\nPortion rice and stir-fry into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Loin",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "thinly sliced"
+        },
+        {
+          "name": "Brown Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Bell Pepper",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Carrot",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Vegetable Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Soy Sauce",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "1",
+          "unit": "cloves",
+          "modifier": "minced"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "gluten",
+        "soy"
+      ]
+    },
+    {
+      "name": "Smoked Paprika Pork Loin with Roasted Carrots and Onions",
+      "category": "Pork",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 50,
+      "instructions": "### Step 1\n\nPreheat oven to 375°F (190°C). Lightly oil a roasting pan.\n\n### Step 2\n\nRub 2.5 lb pork loin with 2 tbsp olive oil, 2 tsp smoked paprika, 1 tsp garlic powder, 1.5 tsp salt, 1 tsp black pepper. Place in the pan.\n\n### Step 3\n\nToss 4 carrots (chunked) and 2 onions (wedged) with 1 tbsp olive oil, 1/2 tsp salt, 1/2 tsp pepper. Arrange around the pork.\n\n### Step 4\n\nRoast 45–50 minutes until pork reaches 145°F (63°C). Rest 10 minutes, slice, and portion with vegetables into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Loin",
+          "amount": "2.5",
+          "unit": "lb"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Smoked Paprika",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Carrots",
+          "amount": "4, chunked",
+          "unit": null
+        },
+        {
+          "name": "Onions",
+          "amount": "2, wedged",
+          "unit": null
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Pork and Cabbage Skillet with Potatoes",
+      "category": "Pork",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nCut 1.5 lb pork shoulder or loin into cubes. Dice 4 medium potatoes. Shred half a large cabbage.\n\n### Step 2\n\nHeat 2 tbsp olive oil in a large skillet over medium-high. Brown pork 5–6 minutes; remove. Add potatoes, cook 5 minutes. Add cabbage, 1/2 cup water, 1.5 tsp salt, 1 tsp black pepper, 1 tsp caraway seeds (optional). Cover and cook 15–20 minutes until potatoes are tender. Return pork, heat through.\n\n### Step 3\n\nPortion into containers.",
+      "ingredients": [
+        {
+          "name": "Pork Shoulder or Loin",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "cubed"
+        },
+        {
+          "name": "Potatoes",
+          "amount": "4",
+          "unit": "piece",
+          "modifier": "medium, diced"
+        },
+        {
+          "name": "Cabbage",
+          "amount": "1/2",
+          "unit": "piece",
+          "modifier": "large, head, shredded"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Water",
+          "amount": "1/2",
+          "unit": "cups"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Caraway Seeds",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "(optional)"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Beef and Broccoli with Brown Rice",
+      "category": "Beef",
+      "cuisine": "Asian",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups brown rice according to package directions. Set aside.\n\n### Step 2\n\nSlice 1.5 lb flank or sirloin steak thinly against the grain. Cut 4 cups broccoli into florets.\n\n### Step 3\n\nHeat 1 tbsp vegetable oil in a large skillet over high heat. Stir-fry beef 3–4 minutes; remove. Add broccoli, 2 tbsp water, cover 2 minutes. Add 3 tbsp soy sauce, 1 tsp minced garlic, 1 tsp grated ginger; return beef, toss 1 minute.\n\n### Step 4\n\nPortion rice and beef broccoli into containers.",
+      "ingredients": [
+        {
+          "name": "Flank or Sirloin Steak",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "thinly sliced"
+        },
+        {
+          "name": "Brown Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "4",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Vegetable Oil",
+          "amount": "1",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Soy Sauce",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "grated"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "gluten",
+        "soy"
+      ]
+    },
+    {
+      "name": "Sheet Pan Beef Fajita Bake",
+      "category": "Beef",
+      "cuisine": "Mexican",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment.\n\n### Step 2\n\nSlice 1.5 lb sirloin into strips. Slice 3 bell peppers and 1 large onion into strips. Toss beef and vegetables with 3 tbsp olive oil, 2 tsp chili powder, 1 tsp cumin, 1.5 tsp salt, 1 tsp garlic powder. Spread in a single layer.\n\n### Step 3\n\nBake 20–25 minutes, stirring once, until beef is cooked to desired doneness and peppers are tender.\n\n### Step 4\n\nServe with cooked rice or warm tortillas; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Sirloin Steak",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "sliced"
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "3, sliced",
+          "unit": null
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "piece",
+          "modifier": "large, sliced"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Chili Powder",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Baked Beef Meatballs with Marinara and Green Beans",
+      "category": "Beef",
+      "cuisine": "Italian",
+      "prep_time": 20,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nIn a bowl, mix 2 lb ground beef, 1/2 cup breadcrumbs, 1 egg, 2 cloves minced garlic, 1 tsp dried oregano, 1.5 tsp salt, 1 tsp black pepper. Form into 24 meatballs; place on the sheet. Bake 20–25 minutes until cooked through.\n\n### Step 3\n\nSteam or roast 1 lb green beans. Warm 2 cups marinara. Combine meatballs and marinara; serve with green beans. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Ground Beef",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Breadcrumbs",
+          "amount": "1/2",
+          "unit": "cups"
+        },
+        {
+          "name": "Egg",
+          "amount": "1",
+          "unit": null
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "modifier": "minced"
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Marinara Sauce",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Green Beans",
+          "amount": "1",
+          "unit": "lb"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "eggs"
+      ]
+    },
+    {
+      "name": "Herb-Crusted Beef Roast with Carrots and Potatoes",
+      "category": "Beef",
+      "cuisine": "American",
+      "prep_time": 20,
+      "cook_time": 90,
+      "instructions": "### Step 1\n\nPreheat oven to 350°F (175°C). Lightly oil a roasting pan.\n\n### Step 2\n\nRub 3 lb beef chuck or round roast with 2 tbsp olive oil. Mix 2 tsp dried rosemary, 2 tsp dried thyme, 1.5 tsp salt, 1 tsp black pepper, 3 cloves minced garlic; press onto the roast. Place in the pan.\n\n### Step 3\n\nCut 4 carrots and 4 potatoes into chunks. Toss with 1 tbsp olive oil, 1/2 tsp salt, 1/2 tsp pepper. Arrange around the roast.\n\n### Step 4\n\nRoast 1–1.5 hours until beef reaches 145°F (63°C) for medium. Rest 15 minutes, slice, and portion with vegetables into containers.",
+      "ingredients": [
+        {
+          "name": "Beef Chuck or Round Roast",
+          "amount": "3",
+          "unit": "lb"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Dried Rosemary",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Thyme",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "modifier": "minced"
+        },
+        {
+          "name": "Carrots",
+          "amount": "4, chunked",
+          "unit": null
+        },
+        {
+          "name": "Potatoes",
+          "amount": "4, chunked",
+          "unit": null
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Beef and Bell Pepper Stir-Fry with Rice",
+      "category": "Beef",
+      "cuisine": "Asian",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups white rice. Set aside.\n\n### Step 2\n\nSlice 1.5 lb sirloin thinly. Slice 2 bell peppers and 1 onion. Heat 2 tbsp vegetable oil in a large skillet over high heat. Stir-fry beef 3–4 minutes; remove. Add peppers and onion, stir-fry 4 minutes. Add 3 tbsp soy sauce, 1 tsp garlic, 1 tsp ginger; return beef, toss 1 minute.\n\n### Step 3\n\nPortion rice and stir-fry into containers.",
+      "ingredients": [
+        {
+          "name": "Sirloin Steak",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "thinly sliced"
+        },
+        {
+          "name": "White Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "2, sliced",
+          "unit": null
+        },
+        {
+          "name": "Onion",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Vegetable Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Soy Sauce",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "minced"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "gluten",
+        "soy"
+      ]
+    },
+    {
+      "name": "Beef Tacos with Roasted Corn and Black Beans",
+      "category": "Beef",
+      "cuisine": "Mexican",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 lb ground beef in a skillet over medium-high until no pink remains. Add 2 tsp chili powder, 1 tsp cumin, 1 tsp garlic powder, 1.5 tsp salt. Stir and cook 2 minutes.\n\n### Step 2\n\nWarm 2 cups corn and 2 cans black beans (drained). Serve beef with corn, black beans, and rice or tortillas; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Ground Beef",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Chili Powder",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Corn",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Black Beans",
+          "amount": "2",
+          "unit": "cans",
+          "modifier": "drained"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Beef and Zucchini Skillet with Rice",
+      "category": "Beef",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Set aside.\n\n### Step 2\n\nBrown 1.5 lb ground beef in a large skillet; drain excess fat. Add 2 diced zucchini, 1 diced onion, 1 tsp garlic powder, 1.5 tsp salt, 1 tsp black pepper. Cook 8–10 minutes until zucchini is tender.\n\n### Step 3\n\nPortion rice and beef mixture into containers.",
+      "ingredients": [
+        {
+          "name": "Ground Beef",
+          "amount": "1.5",
+          "unit": "lb"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "2, diced",
+          "unit": null
+        },
+        {
+          "name": "Onion",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Pepper-Crusted Steak with Roasted Asparagus",
+      "category": "Beef",
+      "cuisine": "American",
+      "prep_time": 10,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nToss 1 lb asparagus with 1 tbsp olive oil, 1/2 tsp salt, 1/2 tsp black pepper. Spread on the sheet.\n\n### Step 3\n\nPress 2 lb strip or sirloin steaks with 1 tbsp coarsely ground black pepper and 1 tsp salt. Heat 1 tbsp olive oil in a skillet over high heat; sear steaks 3–4 minutes per side for medium-rare. Rest 5 minutes, slice.\n\n### Step 4\n\nRoast asparagus 15–18 minutes. Portion steak and asparagus into containers; add rice or potatoes if desired.",
+      "ingredients": [
+        {
+          "name": "Strip or Sirloin Steak",
+          "amount": "2",
+          "unit": "lb"
+        },
+        {
+          "name": "Asparagus",
+          "amount": "1",
+          "unit": "lb"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tbsp",
+          "modifier": "coarsely ground"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Beef and Sweet Potato Tray Bake",
+      "category": "Beef",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 40,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment.\n\n### Step 2\n\nCube 2 sweet potatoes and 1 red onion. Mix 1.5 lb ground beef with 1 tsp garlic powder, 1.5 tsp salt, 1 tsp black pepper; form into small meatballs or crumble.\n\n### Step 3\n\nToss sweet potato and onion with 2 tbsp olive oil, 1/2 tsp salt, 1/2 tsp pepper. Spread on the sheet. Add beef in chunks or meatballs. Bake 35–40 minutes until beef is cooked and sweet potatoes are tender.\n\n### Step 4\n\nPortion into containers.",
+      "ingredients": [
+        {
+          "name": "Ground Beef",
+          "amount": "1.5",
+          "unit": "lb"
+        },
+        {
+          "name": "Sweet Potatoes",
+          "amount": "2, cubed",
+          "unit": null
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1, wedged",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1.5",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Garlic Herb Beef Strips with Roasted Vegetables",
+      "category": "Beef",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nCut 2 lb sirloin into strips. Toss with 2 tbsp olive oil, 2 tsp minced garlic, 1 tsp dried thyme, 1.5 tsp salt, 1 tsp black pepper. Spread on half the sheet.\n\n### Step 3\n\nToss 2 cups broccoli florets and 2 cups carrot coins with 1 tbsp olive oil, 1/2 tsp salt. Spread on the other half. Bake 18–22 minutes, stirring once, until beef is cooked and vegetables are tender.\n\n### Step 4\n\nPortion into containers.",
+      "ingredients": [
+        {
+          "name": "Sirloin Steak",
+          "amount": "2",
+          "unit": "lb",
+          "modifier": "cut into strips"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Carrots",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "coins"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Dried Thyme",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein"
+      ]
+    },
+    {
+      "name": "Lentil and Vegetable Rice Bowls",
+      "category": "Plant-Protein",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nCook 2 cups brown rice. Cook 1.5 cups brown or green lentils in 3 cups water until tender, about 25 minutes; drain if needed.\n\n### Step 2\n\nRoast 2 cups broccoli florets and 2 cups diced sweet potato at 400°F (200°C) with 2 tbsp olive oil, 1 tsp salt, 1/2 tsp black pepper for 20–25 minutes.\n\n### Step 3\n\nAssemble bowls: rice, lentils, roasted vegetables. Season with salt, pepper, and a squeeze of lemon. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Brown Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Brown or Green Lentils",
+          "amount": "1.5",
+          "unit": "cups",
+          "modifier": "dry"
+        },
+        {
+          "name": "Water",
+          "amount": "3",
+          "unit": "cups"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Sweet Potato",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "diced"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1, juiced",
+          "unit": null
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan"
+      ]
+    },
+    {
+      "name": "Chickpea and Roasted Vegetable Sheet Pan",
+      "category": "Plant-Protein",
+      "cuisine": "Mediterranean",
+      "prep_time": 15,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment.\n\n### Step 2\n\nDrain and rinse 2 cans chickpeas. Cut 2 bell peppers, 1 zucchini, 1 red onion into chunks. Toss chickpeas and vegetables with 3 tbsp olive oil, 2 tsp cumin, 1 tsp paprika, 1.5 tsp salt, 1 tsp black pepper. Spread in a single layer.\n\n### Step 3\n\nBake 25–30 minutes, stirring once, until vegetables are tender and chickpeas are slightly crisp. Serve over rice or with pita; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Chickpeas",
+          "amount": "2",
+          "unit": "cans",
+          "modifier": "drained and rinsed"
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "2, chunked",
+          "unit": null
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1, chunked",
+          "unit": null
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1, chunked",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Paprika",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan"
+      ]
+    },
+    {
+      "name": "Black Bean and Corn Burrito Bowls",
+      "category": "Plant-Protein",
+      "cuisine": "Mexican",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Warm 2 cans black beans (drained) with 1 tsp cumin, 1/2 tsp salt. Warm 2 cups corn.\n\n### Step 2\n\nDice 2 tomatoes, 1 avocado, 1 red onion. Chop fresh cilantro.\n\n### Step 3\n\nAssemble bowls: rice, black beans, corn, tomatoes, avocado, onion, cilantro. Squeeze lime over each portion. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Black Beans",
+          "amount": "2",
+          "unit": "cans",
+          "modifier": "drained"
+        },
+        {
+          "name": "Corn",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Tomatoes",
+          "amount": "2, diced",
+          "unit": null
+        },
+        {
+          "name": "Avocado",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Cilantro",
+          "amount": "1/4",
+          "unit": "cups",
+          "modifier": "chopped"
+        },
+        {
+          "name": "Lime",
+          "amount": "2, juiced",
+          "unit": null
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan"
+      ]
+    },
+    {
+      "name": "Tofu and Vegetable Stir-Fry with Rice",
+      "category": "Plant-Protein",
+      "cuisine": "Asian",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Drain and press 1 block extra-firm tofu (14 oz), cut into cubes.\n\n### Step 2\n\nHeat 2 tbsp vegetable oil in a large skillet over high heat. Pan-fry tofu until golden, 5–6 minutes; remove. Add 2 cups broccoli florets, 1 bell pepper, 1 carrot (sliced), 2 tbsp water; cover 3 minutes. Add 3 tbsp soy sauce, 1 tsp garlic, 1 tsp ginger; return tofu, toss 1 minute.\n\n### Step 3\n\nPortion rice and stir-fry into containers.",
+      "ingredients": [
+        {
+          "name": "Extra-Firm Tofu",
+          "amount": "1",
+          "unit": "blocks",
+          "modifier": "(14 oz)"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Bell Pepper",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Carrot",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Vegetable Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Soy Sauce",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "minced"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan",
+        "gluten",
+        "soy"
+      ]
+    },
+    {
+      "name": "Red Lentil and Spinach Curry with Rice",
+      "category": "Plant-Protein",
+      "cuisine": "Indian",
+      "prep_time": 10,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nCook 2 cups basmati or jasmine rice. Set aside.\n\n### Step 2\n\nIn a pot, sauté 1 diced onion in 2 tbsp olive oil 3 minutes. Add 1.5 cups red lentils, 1 can coconut milk, 2 cups water, 2 tsp curry powder, 1 tsp turmeric, 1.5 tsp salt. Simmer 20–25 minutes until lentils are tender. Stir in 4 cups baby spinach until wilted.\n\n### Step 3\n\nPortion curry over rice into containers. (Thick, not soupy.)",
+      "ingredients": [
+        {
+          "name": "Red Lentils",
+          "amount": "1.5",
+          "unit": "cups",
+          "modifier": "dry"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Onion",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Coconut Milk",
+          "amount": "1",
+          "unit": "cans"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Curry Powder",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Turmeric",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Baby Spinach",
+          "amount": "4",
+          "unit": "cups"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan"
+      ]
+    },
+    {
+      "name": "Baked Tofu with Roasted Broccoli and Rice",
+      "category": "Plant-Protein",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nDrain and press 2 blocks extra-firm tofu (28 oz total), cut into cubes. Toss with 2 tbsp olive oil, 2 tbsp soy sauce, 1 tsp garlic powder. Place on the sheet.\n\n### Step 3\n\nToss 4 cups broccoli florets with 1 tbsp olive oil, 1/2 tsp salt. Add to the sheet. Bake 25–30 minutes, flipping tofu halfway, until tofu is golden and broccoli is tender.\n\n### Step 4\n\nCook 2 cups rice. Portion rice, tofu, and broccoli into containers.",
+      "ingredients": [
+        {
+          "name": "Extra-Firm Tofu",
+          "amount": "2",
+          "unit": "blocks",
+          "modifier": "(28 oz total)"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "4",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Soy Sauce",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan",
+        "gluten",
+        "soy"
+      ]
+    },
+    {
+      "name": "White Bean and Tomato Bake with Polenta",
+      "category": "Plant-Protein",
+      "cuisine": "Italian",
+      "prep_time": 15,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nCook polenta according to package (or 1 cup polenta with 4 cups water, 1 tsp salt). Spread in a baking dish to set; slice when cool.\n\n### Step 2\n\nIn a skillet, sauté 1 diced onion in 2 tbsp olive oil 3 minutes. Add 2 cans white beans (drained), 2 cups crushed tomatoes, 1 tsp oregano, 1.5 tsp salt, 1/2 tsp black pepper. Simmer 10 minutes.\n\n### Step 3\n\nPortion polenta with white bean tomato mixture into containers.",
+      "ingredients": [
+        {
+          "name": "Polenta",
+          "amount": "1",
+          "unit": "cups",
+          "modifier": "dry"
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups"
+        },
+        {
+          "name": "White Beans",
+          "amount": "2",
+          "unit": "cans",
+          "modifier": "drained"
+        },
+        {
+          "name": "Onion",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Crushed Tomatoes",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan"
+      ]
+    },
+    {
+      "name": "Chickpea Curry with Rice",
+      "category": "Plant-Protein",
+      "cuisine": "Indian",
+      "prep_time": 10,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Set aside.\n\n### Step 2\n\nIn a large pot, sauté 1 diced onion in 2 tbsp olive oil 3 minutes. Add 2 cans chickpeas (drained), 1 can diced tomatoes, 1 can coconut milk, 2 tsp curry powder, 1 tsp turmeric, 1.5 tsp salt. Simmer 20 minutes until thickened.\n\n### Step 3\n\nPortion curry over rice into containers.",
+      "ingredients": [
+        {
+          "name": "Chickpeas",
+          "amount": "2",
+          "unit": "cans",
+          "modifier": "drained"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Onion",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Diced Tomatoes",
+          "amount": "1",
+          "unit": "cans"
+        },
+        {
+          "name": "Coconut Milk",
+          "amount": "1",
+          "unit": "cans"
+        },
+        {
+          "name": "Curry Powder",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Turmeric",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan"
+      ]
+    },
+    {
+      "name": "Tempeh and Vegetable Sheet Pan with Rice",
+      "category": "Plant-Protein",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Preheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nCut 2 packages tempeh (16 oz total) into cubes. Cut 2 bell peppers and 1 zucchini into chunks. Toss tempeh and vegetables with 3 tbsp olive oil, 2 tbsp tamari or soy sauce, 1 tsp garlic powder, 1.5 tsp salt. Spread in a single layer. Bake 25–30 minutes, stirring once.\n\n### Step 3\n\nPortion rice and tempeh mixture into containers.",
+      "ingredients": [
+        {
+          "name": "Tempeh",
+          "amount": "2",
+          "unit": "packages",
+          "modifier": "(16 oz total)"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "2, chunked",
+          "unit": null
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1, chunked",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Tamari or Soy Sauce",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan",
+        "gluten",
+        "soy"
+      ]
+    },
+    {
+      "name": "Lentil Bolognese with Pasta",
+      "category": "Plant-Protein",
+      "cuisine": "Italian",
+      "prep_time": 15,
+      "cook_time": 40,
+      "instructions": "### Step 1\n\nCook 1 lb pasta according to package directions. Set aside.\n\n### Step 2\n\nIn a pot, sauté 1 diced onion and 2 minced garlic cloves in 2 tbsp olive oil 3 minutes. Add 1.5 cups brown lentils, 1 (28 oz) can crushed tomatoes, 2 cups water, 1 tsp oregano, 1.5 tsp salt, 1/2 tsp black pepper. Simmer 30–35 minutes until lentils are tender and sauce is thick.\n\n### Step 3\n\nToss pasta with lentil bolognese. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Pasta",
+          "amount": "1",
+          "unit": "lb"
+        },
+        {
+          "name": "Brown Lentils",
+          "amount": "1.5",
+          "unit": "cups",
+          "modifier": "dry"
+        },
+        {
+          "name": "Onion",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "modifier": "minced"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Crushed Tomatoes",
+          "amount": "1",
+          "unit": "can"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan",
+        "gluten"
+      ]
+    },
+    {
+      "name": "Spiced Black Bean and Sweet Potato Bowls",
+      "category": "Plant-Protein",
+      "cuisine": "Mexican",
+      "prep_time": 15,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Roast 2 diced sweet potatoes at 400°F (200°C) with 2 tbsp olive oil, 1 tsp cumin, 1/2 tsp salt for 25–30 minutes.\n\n### Step 2\n\nWarm 2 cans black beans with 1 tsp cumin, 1/2 tsp salt. Dice 1 avocado, 1 tomato, chop cilantro.\n\n### Step 3\n\nAssemble bowls: rice, black beans, roasted sweet potato, avocado, tomato, cilantro. Squeeze lime. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Sweet Potatoes",
+          "amount": "2, diced",
+          "unit": null
+        },
+        {
+          "name": "Black Beans",
+          "amount": "2",
+          "unit": "cans"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Ground Cumin",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Tomato",
+          "amount": "1, diced",
+          "unit": null
+        },
+        {
+          "name": "Cilantro",
+          "amount": "2",
+          "unit": "tbsp",
+          "modifier": "chopped"
+        },
+        {
+          "name": "Lime",
+          "amount": "1, juiced",
+          "unit": null
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan"
+      ]
+    },
+    {
+      "name": "Crispy Tofu and Roasted Vegetable Bowls",
+      "category": "Plant-Protein",
+      "cuisine": "American",
+      "prep_time": 20,
+      "cook_time": 35,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Preheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nDrain and press 1 block extra-firm tofu (14 oz), cut into cubes. Toss with 1 tbsp olive oil, 1 tbsp cornstarch, 1/2 tsp salt. Place on the sheet. Bake 25–30 minutes, flipping once, until crispy.\n\n### Step 3\n\nRoast 2 cups broccoli and 2 cups diced sweet potato on the same or second sheet with 2 tbsp olive oil, 1 tsp salt. Combine rice, tofu, and vegetables in containers.",
+      "ingredients": [
+        {
+          "name": "Extra-Firm Tofu",
+          "amount": "1",
+          "unit": "blocks",
+          "modifier": "(14 oz)"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Sweet Potato",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "diced"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Vegan",
+        "soy"
+      ]
+    },
+    {
+      "name": "Baked Salmon with Roasted Asparagus and Rice",
+      "category": "Fish",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups rice according to package directions. Set aside.\n\n### Step 2\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment paper.\n\n### Step 3\n\nToss 1 lb asparagus (trimmed) with 1 tbsp olive oil, 1/2 tsp salt, 1/2 tsp black pepper. Spread on one side of the sheet.\n\n### Step 4\n\nPlace 4 salmon fillets (about 1.5 lb total) on the other side. Drizzle with 2 tbsp olive oil, 1 tsp garlic powder, 1 tsp dried dill, 1 tsp salt, 1/2 tsp black pepper. Squeeze half a lemon over the salmon.\n\n### Step 5\n\nBake 18–22 minutes until salmon flakes easily and asparagus is tender. Portion rice, salmon, and asparagus into containers.",
+      "ingredients": [
+        {
+          "name": "Salmon Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Asparagus",
+          "amount": "1",
+          "unit": "lb",
+          "modifier": "trimmed"
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Dill",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1/2",
+          "unit": "piece",
+          "modifier": "juiced"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Lemon Herb White Fish with Green Beans and Potatoes",
+      "category": "Fish",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment paper.\n\n### Step 2\n\nCut 1.5 lb potatoes into bite-size chunks. Trim 3 cups green beans. Toss potatoes and green beans with 2 tbsp olive oil, 1 tsp salt, 1/2 tsp black pepper. Spread on the sheet and roast 15 minutes.\n\n### Step 3\n\nPlace 4 white fish fillets (cod or tilapia, about 1.5 lb) on the sheet. Drizzle with 2 tbsp olive oil, juice of 1 lemon, 1 tsp garlic powder, 1 tsp dried thyme, 1/2 tsp salt, 1/2 tsp black pepper.\n\n### Step 4\n\nBake 12–15 minutes until fish flakes easily. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Cod or Tilapia Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Potatoes",
+          "amount": "1.5",
+          "unit": "lb",
+          "modifier": "cubed"
+        },
+        {
+          "name": "Green Beans",
+          "amount": "3",
+          "unit": "cups",
+          "modifier": "trimmed"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "4",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1, juiced",
+          "unit": null
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Thyme",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Sheet Pan Salmon and Broccoli",
+      "category": "Fish",
+      "cuisine": "American",
+      "prep_time": 10,
+      "cook_time": 20,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment paper.\n\n### Step 2\n\nToss 4 cups broccoli florets with 2 tbsp olive oil, 1/2 tsp salt, 1/2 tsp black pepper. Spread on the sheet.\n\n### Step 3\n\nPlace 4 salmon fillets (about 1.5 lb) on the sheet. Drizzle with 2 tbsp olive oil, 1.5 tsp smoked paprika, 1 tsp garlic powder, 1 tsp salt, 1/2 tsp black pepper.\n\n### Step 4\n\nBake 18–20 minutes until salmon is cooked through and broccoli is tender. Serve with cooked rice; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Salmon Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Broccoli",
+          "amount": "4",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "4",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Smoked Paprika",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Cod with Bell Peppers and Rice",
+      "category": "Fish",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 30,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Set aside.\n\n### Step 2\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment. Slice 3 bell peppers and 1 onion into strips; toss with 2 tbsp olive oil, 1/2 tsp salt. Spread on the sheet.\n\n### Step 3\n\nPlace 4 cod fillets (about 1.5 lb) on top. Drizzle with 1 tbsp olive oil, 1 tsp garlic powder, 1 tsp paprika, 1 tsp salt, 1/2 tsp black pepper.\n\n### Step 4\n\nBake 15–18 minutes until cod flakes easily. Portion rice, fish, and peppers into containers.",
+      "ingredients": [
+        {
+          "name": "Cod Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Bell Peppers",
+          "amount": "3, sliced",
+          "unit": null
+        },
+        {
+          "name": "Onion",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Paprika",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Tilapia with Zucchini and Cherry Tomatoes",
+      "category": "Fish",
+      "cuisine": "Mediterranean",
+      "prep_time": 10,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nSlice 2 zucchini into half-moons. Halve 1 pint cherry tomatoes. Toss with 2 tbsp olive oil, 1 tsp Italian seasoning, 1/2 tsp salt, 1/2 tsp black pepper. Spread on the sheet.\n\n### Step 3\n\nPlace 4 tilapia fillets (about 1.5 lb) on the sheet. Drizzle with 1 tbsp olive oil, 1 tsp garlic powder, 1 tsp salt, 1/2 tsp black pepper. Squeeze half a lemon over the fish.\n\n### Step 4\n\nBake 15–18 minutes until fish flakes easily. Serve with rice or quinoa; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Tilapia Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Zucchini",
+          "amount": "2, sliced",
+          "unit": null
+        },
+        {
+          "name": "Cherry Tomatoes",
+          "amount": "1",
+          "unit": "pints",
+          "modifier": "halved"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Italian Seasoning",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1/2",
+          "unit": "piece",
+          "modifier": "juiced"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Baked Salmon with Sweet Potato and Kale",
+      "category": "Fish",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 28,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a large baking sheet with parchment.\n\n### Step 2\n\nCube 2 sweet potatoes. Toss with 2 tbsp olive oil, 1/2 tsp salt, 1/2 tsp black pepper. Spread on the sheet and roast 10 minutes.\n\n### Step 3\n\nAdd 4 cups chopped kale and stir. Place 4 salmon fillets (about 1.5 lb) on the sheet. Drizzle salmon with 2 tbsp olive oil, 1 tsp garlic powder, 1 tsp dried thyme, 1 tsp salt, 1/2 tsp black pepper.\n\n### Step 4\n\nBake 15–18 minutes until salmon is cooked through and sweet potatoes are tender. Portion into containers; add rice if desired.",
+      "ingredients": [
+        {
+          "name": "Salmon Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Sweet Potatoes",
+          "amount": "2, cubed",
+          "unit": null
+        },
+        {
+          "name": "Kale",
+          "amount": "4",
+          "unit": "cups",
+          "modifier": "chopped"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "4",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Thyme",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Garlic Herb Cod with Roasted Carrots and Rice",
+      "category": "Fish",
+      "cuisine": "American",
+      "prep_time": 15,
+      "cook_time": 28,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Set aside.\n\n### Step 2\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment. Cut 4 carrots into coins; toss with 1 tbsp olive oil, 1/2 tsp salt. Spread on the sheet.\n\n### Step 3\n\nPlace 4 cod fillets (about 1.5 lb) on the sheet. Drizzle with 2 tbsp olive oil, 2 tsp minced garlic, 1 tsp dried parsley, 1 tsp dried dill, 1 tsp salt, 1/2 tsp black pepper.\n\n### Step 4\n\nBake 15–18 minutes until cod flakes easily. Portion rice, fish, and carrots into containers.",
+      "ingredients": [
+        {
+          "name": "Cod Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Carrots",
+          "amount": "4, sliced into coins",
+          "unit": null
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Dried Parsley",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Dried Dill",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Salmon and Vegetable Rice Bowls",
+      "category": "Fish",
+      "cuisine": "Asian",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Set aside.\n\n### Step 2\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment. Cut 2 cups broccoli florets and 1 bell pepper into bite-size pieces. Toss with 2 tbsp olive oil, 1/2 tsp salt. Spread on the sheet.\n\n### Step 3\n\nPlace 4 salmon fillets (about 1.5 lb) on the sheet. Drizzle with 2 tbsp olive oil, 2 tbsp soy sauce, 1 tsp garlic powder, 1/2 tsp ginger. Bake 18–20 minutes until salmon is cooked through.\n\n### Step 4\n\nAssemble bowls with rice, salmon, and vegetables. Portion into containers.",
+      "ingredients": [
+        {
+          "name": "Salmon Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Bell Pepper",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "4",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Soy Sauce",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "gluten",
+        "soy",
+        "fish"
+      ]
+    },
+    {
+      "name": "Mediterranean Baked White Fish with Tomatoes and Olives",
+      "category": "Fish",
+      "cuisine": "Mediterranean",
+      "prep_time": 15,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nPreheat oven to 375°F (190°C). Lightly oil a baking dish.\n\n### Step 2\n\nSlice 2 tomatoes and 1 red onion. Scatter in the dish with 1/2 cup pitted olives. Drizzle with 2 tbsp olive oil, 1 tsp dried oregano, 1/2 tsp salt, 1/2 tsp black pepper.\n\n### Step 3\n\nPlace 4 white fish fillets (cod or tilapia, about 1.5 lb) on top. Drizzle with 1 tbsp olive oil, 1 tsp garlic powder, 1/2 tsp salt. Squeeze half a lemon over the fish.\n\n### Step 4\n\nBake 18–22 minutes until fish flakes easily. Serve with rice or crusty bread; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Cod or Tilapia Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Tomatoes",
+          "amount": "2, sliced",
+          "unit": null
+        },
+        {
+          "name": "Red Onion",
+          "amount": "1, sliced",
+          "unit": null
+        },
+        {
+          "name": "Pitted Olives",
+          "amount": "1/2",
+          "unit": "cups"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Dried Oregano",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1/2",
+          "unit": "piece",
+          "modifier": "juiced"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
+      ]
+    },
+    {
+      "name": "Teriyaki Salmon with Rice and Broccoli",
+      "category": "Fish",
+      "cuisine": "Asian",
+      "prep_time": 10,
+      "cook_time": 25,
+      "instructions": "### Step 1\n\nCook 2 cups rice. Set aside.\n\n### Step 2\n\nMix 3 tbsp soy sauce, 2 tbsp honey, 1 tbsp rice vinegar, 1 tsp minced garlic, 1 tsp grated ginger in a small bowl.\n\n### Step 3\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment. Place 4 salmon fillets (about 1.5 lb) on the sheet. Brush with half the teriyaki mixture. Arrange 4 cups broccoli florets around the salmon; drizzle broccoli with 1 tbsp olive oil and a pinch of salt.\n\n### Step 4\n\nBake 18–20 minutes, brushing salmon with remaining sauce halfway. Portion rice, salmon, and broccoli into containers.",
+      "ingredients": [
+        {
+          "name": "Salmon Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Rice",
+          "amount": "2",
+          "unit": "cups",
+          "modifier": "uncooked"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "4",
+          "unit": "cups",
+          "modifier": "florets"
+        },
+        {
+          "name": "Soy Sauce",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Honey",
+          "amount": "2",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Rice Vinegar",
+          "amount": "1",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Garlic",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "tsp",
+          "modifier": "grated"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "1",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "gluten",
+        "soy",
+        "fish"
+      ]
+    },
+    {
+      "name": "Cajun Tilapia with Corn and Green Beans",
+      "category": "Fish",
+      "cuisine": "American",
+      "prep_time": 10,
+      "cook_time": 22,
+      "instructions": "### Step 1\n\nPreheat oven to 400°F (200°C). Line a baking sheet with parchment.\n\n### Step 2\n\nToss 2 cups corn and 2 cups green beans with 2 tbsp olive oil, 1/2 tsp salt, 1/2 tsp black pepper. Spread on the sheet.\n\n### Step 3\n\nPlace 4 tilapia fillets (about 1.5 lb) on the sheet. Drizzle with 1 tbsp olive oil, 2 tsp Cajun seasoning, 1 tsp garlic powder, 1/2 tsp salt.\n\n### Step 4\n\nBake 18–20 minutes until fish flakes easily. Serve with rice; portion into containers.",
+      "ingredients": [
+        {
+          "name": "Tilapia Fillets",
+          "amount": "4, about 1.5 lb total",
+          "unit": null
+        },
+        {
+          "name": "Corn",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Green Beans",
+          "amount": "2",
+          "unit": "cups"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": "3",
+          "unit": "tbsp"
+        },
+        {
+          "name": "Cajun Seasoning",
+          "amount": "2",
+          "unit": "tsp"
+        },
+        {
+          "name": "Garlic Powder",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1/2",
+          "unit": "tsp"
+        }
+      ],
+      "tags": [
+        "MealPrep",
+        "Lunch",
+        "Dinner",
+        "HighProtein",
+        "fish"
       ]
     }
   ]

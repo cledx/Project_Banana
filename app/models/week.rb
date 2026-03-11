@@ -11,7 +11,9 @@ class Week < ApplicationRecord
     user.weeks.where("id > ?", id).order(:id).first
   end
 
-  def generate_next_week
+  def generate_next_week(day_templates = nil)
+    next_week = Ai::WeekGen.new(user).generate_week(month: (days.first.date + 7).beginning_of_week.month, )
+
     days.order(:date).each do |day|
       day.generate_day do |category|
         dishes = day.dishes.where(category: category)

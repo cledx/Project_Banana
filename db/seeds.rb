@@ -15,12 +15,12 @@ puts "Deleting Weeks..."
 Week.destroy_all
 puts "Deleting Day Templates..."
 DayTemplate.destroy_all
-# puts "Deleting Recipe Items..."
-# RecipeItem.destroy_all
-# puts "Deleting Recipes..."
-# Recipe.destroy_all
-# puts "Deleting Ingredients..."
-# Ingredient.destroy_all
+puts "Deleting Recipe Items..."
+RecipeItem.destroy_all
+puts "Deleting Recipes..."
+Recipe.destroy_all
+puts "Deleting Ingredients..."
+Ingredient.destroy_all
 puts "Deleting Users..."
 User.destroy_all
 
@@ -61,7 +61,7 @@ RECIPE_NAMES = [
   "Mushroom Risotto", "Beef Tacos", "Thai Green Curry", "Lemon Herb Chicken",
   "Vegetable Fried Rice", "Classic French Omelette", "Shrimp Scampi",
   "Margherita Pizza", "Caesar Salad", "Beef Bourguignon", "Pad Thai",
-  "Chicken Tikka Masala", "Spaghetti Carbonara", "Greek Salad", "Miso Soup",
+  "Chicken Tikka Masala", "Spaghetti Carbonara", "Greek Salad", "Miso Soup"
   "Ratatouille", "Avocado Toast", "Shakshuka", "Lentil Soup", "Pesto Gnocchi",
   "Teriyaki Salmon", "Black Bean Tacos", "Butternut Squash Soup",
   "Chicken Parmigiana", "Tofu Scramble", "Prawn Linguine", "Niçoise Salad"
@@ -100,56 +100,57 @@ LOREM_INSTRUCTIONS = "1. Preheat the oven to 200°C (400°F). Line a baking tray
 # We've already seeded the recipes into the database.
 # Only run this if you want to recreate the recipes.
 
-# require "json"
+require "json"
 
-# puts "Creating recipes..."
-# filepath = Rails.root.join("db", "data", "recipesV3.json")
-# serialized_data = File.read(filepath)
-# recipes_data = JSON.parse(serialized_data)
-# recipes = recipes_data["data"]
+puts "Creating recipes..."
+filepath = Rails.root.join("db", "data", "recipesV3.json")
+serialized_data = File.read(filepath)
+recipes_data = JSON.parse(serialized_data)
+recipes = recipes_data["data"]
 
-# recipes.each do |recipe_hash|
-#   name         = recipe_hash["name"]
-#   cooktime     = recipe_hash["cook_time"]   # minutes
-#   preptime     = recipe_hash["prep_time"]   # minutes
-#   instructions = recipe_hash["instructions"]
-#   cuisine      = recipe_hash["cuisine"]
-#   tags         = recipe_hash["tags"] || []
+recipes.each do |recipe_hash|
+  name         = recipe_hash["name"]
+  cooktime     = recipe_hash["cook_time"]   # minutes
+  preptime     = recipe_hash["prep_time"]   # minutes
+  instructions = recipe_hash["instructions"]
+  cuisine      = recipe_hash["cuisine"]
+  tags         = recipe_hash["tags"] || []
 
-#   recipe = Recipe.create!(
-#     name: name,
-#     cooktime: cooktime,
-#     preptime: preptime,
-#     instructions: instructions,
-#     cuisine: cuisine,
-#     tags: tags
-#   )
+  recipe = Recipe.create!(
+    name: name,
+    cooktime: cooktime,
+    preptime: preptime,
+    instructions: instructions,
+    cuisine: cuisine,
+    tags: tags
+  )
 
-#   ingredients = recipe_hash["ingredients"]
+  ingredients = recipe_hash["ingredients"]
 
-#   ingredients.each do |ingredient_hash|
-#     ingredient_name = ingredient_hash["name"].downcase
-#     ingredient = Ingredient.find_by(name: ingredient_name)
-#     ingredient ||= Ingredient.create!(name: ingredient_name)
+  ingredients.each do |ingredient_hash|
+    ingredient_name = ingredient_hash["name"].downcase
+    ingredient = Ingredient.find_by(name: ingredient_name)
+    ingredient ||= Ingredient.create!(name: ingredient_name)
 
-#     raw_amount = ingredient_hash["amount"].to_s
+    raw_amount = ingredient_hash["amount"].to_s
 
-#     # Extract numeric part; default to 1 if missing
-#     parsed_amount = raw_amount.gsub(/[^0-9.]+/, "").strip
-#     amount = parsed_amount.empty? ? 1 : parsed_amount.to_f
+    # Extract numeric part; default to 1 if missing
+    parsed_amount = raw_amount.gsub(/[^0-9.]+/, "").strip
+    amount = parsed_amount.empty? ? 1 : parsed_amount.to_f
 
-#     # Extract unit part; ensure it is never blank for validation
-#     unit = raw_amount.gsub(/[0-9.]+/, "").strip
-#     unit = "unit" if unit.blank?
+    # Extract unit part; ensure it is never blank for validation
+    unit = raw_amount.gsub(/[0-9.]+/, "").strip
+    unit = ingredient_hash["unit"] if unit.blank?
 
-#     RecipeItem.create!(
-#       recipe: recipe,
-#       ingredient: ingredient,
-#       amount: amount,
-#       unit: unit
-#     )
-#   end
-# end
+    RecipeItem.create!(
+      recipe: recipe,
+      ingredient: ingredient,
+      amount: amount,
+      unit: unit
+      modifier: ingredient_hash["modifier"] || ""
+    )
+  end
+end
 
 
 # ============================================================
