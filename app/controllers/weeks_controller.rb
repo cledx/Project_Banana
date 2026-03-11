@@ -22,39 +22,39 @@ class WeeksController < ApplicationController
     if params[:day_templates].present?
       day_templates = {
         monday: {
-          breakfast: params[:day_templates][0][:breakfast],
-          lunch:     params[:day_templates][0][:lunch],
-          dinner:    params[:day_templates][0][:dinner]
+          breakfast: params[:day_templates][:monday][:breakfast].to_i,
+          lunch: params[:day_templates][:monday][:lunch].to_i,
+          dinner: params[:day_templates][:monday][:dinner].to_i
         },
         tuesday: {
-          breakfast: params[:day_templates][1][:breakfast],
-          lunch:     params[:day_templates][1][:lunch],
-          dinner:    params[:day_templates][1][:dinner]
+          breakfast: params[:day_templates][:tuesday][:breakfast].to_i,
+          lunch: params[:day_templates][:tuesday][:lunch].to_i,
+          dinner: params[:day_templates][:tuesday][:dinner].to_i
         },
         wednesday: {
-          breakfast: params[:day_templates][2][:breakfast],
-          lunch:     params[:day_templates][2][:lunch],
-          dinner:    params[:day_templates][2][:dinner]
+          breakfast: params[:day_templates][:wednesday][:breakfast].to_i,
+          lunch: params[:day_templates][:wednesday][:lunch].to_i,
+          dinner: params[:day_templates][:wednesday][:dinner].to_i
         },
         thursday: {
-          breakfast: params[:day_templates][3][:breakfast],
-          lunch:     params[:day_templates][3][:lunch],
-          dinner:    params[:day_templates][3][:dinner]
+          breakfast: params[:day_templates][:thursday][:breakfast].to_i,
+          lunch: params[:day_templates][:thursday][:lunch].to_i,
+          dinner: params[:day_templates][:thursday][:dinner].to_i
         },
         friday: {
-          breakfast: params[:day_templates][4][:breakfast],
-          lunch:     params[:day_templates][4][:lunch],
-          dinner:    params[:day_templates][4][:dinner]
+          breakfast: params[:day_templates][:friday][:breakfast].to_i,
+          lunch: params[:day_templates][:friday][:lunch].to_i,
+          dinner: params[:day_templates][:friday][:dinner].to_i
         },
         saturday: {
-          breakfast: params[:day_templates][5][:breakfast],
-          lunch:     params[:day_templates][5][:lunch],
-          dinner:    params[:day_templates][5][:dinner]
+          breakfast: params[:day_templates][:saturday][:breakfast].to_i,
+          lunch: params[:day_templates][:saturday][:lunch].to_i,
+          dinner: params[:day_templates][:saturday][:dinner].to_i
         },
         sunday: {
-          breakfast: params[:day_templates][6][:breakfast],
-          lunch:     params[:day_templates][6][:lunch],
-          dinner:    params[:day_templates][6][:dinner]
+          breakfast: params[:day_templates][:sunday][:breakfast].to_i,
+          lunch: params[:day_templates][:sunday][:lunch].to_i,
+          dinner: params[:day_templates][:sunday][:dinner].to_i
         }
       }
     else
@@ -68,7 +68,7 @@ class WeeksController < ApplicationController
     7.times do |i|
       Day.create!(date: (Date.today + 7).beginning_of_week + i.days, week: @week)
     end
-
+    puts "day templates: #{day_templates}"
     WeekJob.perform_later(@week.id, day_templates)
     redirect_to week_path(current_user.weeks[-2].id)
   end
