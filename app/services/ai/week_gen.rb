@@ -63,16 +63,39 @@ class Ai::WeekGen
       The user is a busy person who need help with planning their meals to prep for the week.
       You need to plan a few meals for them to cook in advance to feed them for the week. Select only 3 different recipes maximum for the whole week, and spread them out between the days.
       Select from the following recipes and pick the best ones for the user.
-    PROMPT
-  end
+      PROMPT
+    end
+    
+    def day_template_text(day_templates)
+      return "None." if day_templates.nil?
+      day_templates.map do |day, template|
+        "#{day.capitalize}: " + template.select { |k, v| v.present? }.keys.map { |key| key.capitalize }.join(", ")
+      end.join("\n")
+    end
 
-  def recipe_filter(week_start)
-    # Return only recipes that do NOT contain any of the tags in @user.disease
-    # Exclude recipes that were in the user's previous week's dishes
-    previous_recipe_ids = @user.previous_week_dishes(week_start).pluck(:recipe_id).uniq
-    recipes_filter_recent = Recipe.where.not(id: previous_recipe_ids)
-    recipes_filter_disease = recipes_filter_recent.select do |recipe|
-      Array(@user.disease).none? { |tag| recipe.tags.include?(tag) }
+    def recipe_filter(week_start)
+      # Return only recipes that do NOT contain any of the tags in @user.disease
+      # Exclude recipes that were in the user's previous week's dishes
+      disease_tags = Array(@user.disease)
+      allergy_tags = Array(@user.allergies)
+      previous_recipe_ids = @user.previous_week_dishes(week_start).pluck(:recipe_id).uniq
+
+      favorited_recipe_ids = @user.favorited_recipes
+      recipes = Recipe
+        .where.not(id: previous_recipe_ids)
+        .where(
+          disease_tags.reject(&:blank?).map { |tag| "tags NOT LIKE ?" }.join(' AND '),
+          *disease_tags.reject(&:blank?).map { |tag| "%#{tag}%" }
+        )
+        .where(
+          allergy_tags.reject(&:blank?).map { |tag| "tags NOT LIKE ?" }.join(' AND '),
+          *allergy_tags.reject(&:blank?).map { |tag| "%#{tag}%" }
+        )
+      recipes_text = recipes.map do |recipe|
+        favoritized = favorited_recipe_ids.include?(recipe.id) ? "(Favorited Recipe)" : ""
+        "#{favoritized}#{recipe.name} - ID: #{recipe.id}"
+      end.join("\n")
+      return recipes_text
     end
     recipes_text = recipes_filter_disease.map do |recipe|
       favoritized = @user.favorited?(recipe) ? "(Favorited Recipe)" : ""

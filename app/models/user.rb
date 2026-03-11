@@ -28,6 +28,11 @@ class User < ApplicationRecord
     favorites.exists?(recipe_id: recipe.id)
   end
 
+  def favorited_recipes
+    favorites_ids = favorites.pluck(:recipe_id)
+    return favorites_ids
+  end
+
   private
 
   def create_initial_week

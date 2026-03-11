@@ -12,12 +12,14 @@
       <div class="card mb-4">
         <div class="card-body" data-controller="shopping-list">
 
-          <div class="d-flex justify-content-between align-items-center mb-2 p-2">
-            <h4 class="card-title mb-2 mt-2">
-              <i class="fa-solid fa-cart-shopping fa-sm"></i>
-              Shopping List
-            </h4>
-
+          <div class="d-flex justify-content-between align-items-start mb-2 p-2">
+            <div>
+              <h4 class="card-title mb-2 mt-2">
+                <i class="fa-solid fa-cart-shopping fa-sm"></i>
+                Next-Week Shopping List
+              </h4>
+              <p class="sm text-muted">Find all the ingredients you need to prepare your recipes here.</p>
+            </div>
             <span class="badge <%= @items_remaining.positive? ? "bg-warning" : "bg-primary" %>" data-shopping-list-target="counter">
               <% if @items_remaining.positive? %>
                 <%= @items_remaining %> remaining
@@ -41,11 +43,11 @@
                         <%= f.check_box :purchased,
                                         class: "form-check-input me-2",
                                         data: {action: "change->shopping-list#purchased", shopping_list_target: "checkboxes"} %>
-                    <% if item.total.to_i == 0 %>
-                      <%= item.ingredient.name %>
-                    <% else %>
-                      <%= item.ingredient.name %> - <%= item.total %> <%= item.unit %>
-                    <% end %>
+                        <%= item.cleaned_ingredient_name %>
+
+                        <% if item.display_quantity.present? %>
+                          - <%= item.display_quantity %>
+                        <% end %>
                       </label>
 
                     </div>

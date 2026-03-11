@@ -5,7 +5,6 @@
   <h1 class="mt-4">Let's plan our meals for the week</h1>
   <p>Select the portions you want for each day</p>
 
-
   <div data-controller="sortable" id="calendar">
     <div>
       <label for="customRange" class="form-label" data-slider-target="sliderValue">Family Size: 1</label>
@@ -32,9 +31,3 @@
                               <%# class: "btn btn-primary mb-4", data: { action: "click->week-select#generate" } %>
   <div class="btn btn-primary mb-4" data-action="click->slider#generate"></div>
 </div>
-
-<%#= simple_form_for @week, url: weeks_path do |f| %>
-  <%#= f.submit "Generate meals",
-        class: "btn btn-primary my-3",
-        data: { turbo_submits_with: "<i class='fa-light fa-spinner fa-spin'></i>".html_safe } %>
-<%# end %>
