@@ -16,7 +16,7 @@
             <div>
               <h4 class="card-title mb-2 mt-2">
                 <i class="fa-solid fa-cart-shopping fa-sm"></i>
-                Week Shopping List
+                Next-Week Shopping List
               </h4>
               <p class="sm text-muted">Find all the ingredients you need to prepare your recipes here.</p>
             </div>
@@ -43,11 +43,11 @@
                         <%= f.check_box :purchased,
                                         class: "form-check-input me-2",
                                         data: {action: "change->shopping-list#purchased", shopping_list_target: "checkboxes"} %>
-                    <% if item.total.to_i == 0 %>
-                      <%= item.ingredient.name %>
-                    <% else %>
-                      <%= item.ingredient.name %> - <%= item.total %> <%= item.unit %>
-                    <% end %>
+                        <%= item.cleaned_ingredient_name %>
+
+                        <% if item.display_quantity.present? %>
+                          - <%= item.display_quantity %>
+                        <% end %>
                       </label>
 
                     </div>
