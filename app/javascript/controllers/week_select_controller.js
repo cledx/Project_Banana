@@ -2,9 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="week-select"
 export default class extends Controller {
-  static targets = ["meal", "value"]
+  static targets = ["meal", "value", "spinner", "overlay"]
 
   generate(event) {
+    this.spinnerTarget.classList.remove("d-none")
+    this.overlayTarget.classList.remove("d-none")
     event.preventDefault();
     const formData = {
             day_templates: {

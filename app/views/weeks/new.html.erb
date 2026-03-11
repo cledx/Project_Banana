@@ -5,8 +5,11 @@
   <h1 class="mt-4">Let's plan our meals for the week</h1>
   <p>Select the portions you want for each day</p>
 
-
-  <div data-controller="sortable" id="calendar">
+  <div data-controller="sortable" id="calendar" style="position: relative;">
+    <div class="calendar-overlay d-none" data-week-select-target="overlay"></div>
+    <div class="calendar-spinner d-none" data-week-select-target="spinner">
+      <%= image_tag "loading.gif", class: "spinning", width: 160, height: 160 %>
+    </div>
 
     <div data-controller="slider">
       <div>
@@ -16,15 +19,9 @@
 
       <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
         <div class="calendar-day">
-
           <% ["breakfast", "lunch", "dinner"].each do |category| %>
-<<<<<<< HEAD
-            <div class="meal-wrapper" data-week-select-target="meal">
-              <div class="meal-section mb-3 tiny-card btn btn-outline-primary" data-category="<%= category.capitalize %>" data-day="<%= date.strftime('%A').downcase %>" data-action="click->slider#addButton" data-slider-target="display">
-=======
             <div class="meal-wrapper">
-              <div class="meal-section mb-3 tiny-card btn btn-outline-primary" data-category="<%= category.capitalize %>"  data-day="<%= day %>" data-action="click->slider#addButton" data-slider-target="display">
->>>>>>> c6f8f447186a146bb8c912cf95b6a09af248c491
+              <div class="meal-section mb-3 tiny-card btn btn-outline-primary" data-category="<%= category.capitalize %>" data-day="<%= day %>" data-action="click->slider#addButton" data-slider-target="display">
                 <div class="meal-header m-0">
                   <span><%= category.capitalize %></span>
                 </div>
@@ -34,16 +31,11 @@
         </div>
       <% end %>
     </div>
+
   </div>
 
-  <%# <%= link_to "Generate Week", week_path(current_user.weeks[-2] ? current_user.weeks[-2] : current_user.weeks[-1]), %>
-                              <%# class: "btn btn-primary mb-4", data: { action: "click->week-select#generate" } %>
   <div class="btn btn-primary mb-4" data-action="click->week-select#generate">
+    Generate Week
   </div>
-</div>
 
-<%#= simple_form_for @week, url: weeks_path do |f| %>
-  <%#= f.submit "Generate meals",
-        class: "btn btn-primary my-3",
-        data: { turbo_submits_with: "<i class='fa-light fa-spinner fa-spin'></i>".html_safe } %>
-<%# end %>
+</div>
