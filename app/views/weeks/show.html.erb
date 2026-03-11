@@ -109,15 +109,7 @@
       <span>Shopping list</span>
       <i class="fa-solid fa-chevron-right fa-xs"></i>
     <% end %>
-    <%= link_to weeks_path,
-                class: "btn btn-primary btn-sm d-flex align-items-center gap-2",
-                data: {
-                  action: "click->week-loading#show",
-                  week_loading_target: "button",
-                  turbo_method: :post
-                } do %>
-      <span data-week-loading-target="buttonText">Plan Next Week</span>
-    <% end %>
+    <%= link_to "Plan Next Week", new_week_path, class: "btn btn-primary btn-sm d-flex align-items-center gap-2" %>
   </div>
 
 </div>
