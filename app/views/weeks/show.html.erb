@@ -85,6 +85,9 @@
                             <%= dish.recipe.name %>
                           </p>
                         <% end %>
+                        <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"fixed-btn p-1" do %>
+                          <i class="fa-solid fa-xmark fa-sm" ></i>
+                        <% end %>
                       </div>
                     <% end %>
                   <% else %>
