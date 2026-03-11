@@ -86,15 +86,13 @@
                       <h5><%= dish.recipe.name %></h5>
                       <p class="mb-0 text-muted">Ingredients:</p>
                       <ul class="list mb-0 text-muted">
-                        <% dish.recipe.ingredients.first(6).each do |ingredient| %>
+                        <% dish.recipe.ingredients.first(8).each do |ingredient| %>
                           <li><%= ingredient.name %></li>
                         <% end %>
                       </ul>
-                      <%= "..." if dish.recipe.ingredients.count > 5 %>
-                      <%= link_to dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" do %>
-                        View Recipe
-                        <i class="fa-solid fa-angle-right"></i>
-                      <% end %>
+                      <div class="ps-3">
+                      <%= "..." if dish.recipe.ingredients.count > 8 %>
+                      </div>
                     </div>
                   </div>
                 </div>
