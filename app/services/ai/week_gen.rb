@@ -6,22 +6,30 @@ class Ai::WeekGen
       @user = user
     end
 
-    def generate_week(month = (Date.today + 7).beginning_of_week.month, week_start = (Date.today + 7).beginning_of_week)
+    def generate_week(month = (Date.today + 7).beginning_of_week.month, week_start = (Date.today + 7).beginning_of_week, day_templates = nil)
         @week = Week.create(user: @user, month: month)
         @rubyllm = RubyLLM.chat
         .with_instructions(prompt_gen)
         .with_schema(Ai::Schemas::WeekSchema.new("WeekSchema"))
-        response = @rubyllm.ask("The client's previous weeks meals were: \n #{previous_week_meals_text(@user, week_start)}. Monday's date is #{week_start}. Here are the recipes you can select from: \n #{recipe_filter(week_start)}")
+        response = @rubyllm.ask("The client's previous weeks meals were: \n #{previous_week_meals_text(@user, week_start)}. Monday's date is #{week_start}. The user only needs meals for #{day_template_text(day_templates)} Here are the recipes you can select from: \n #{recipe_filter(week_start)}")
         response.content["days"].each do |day|
             new_day = Day.create(week: @week, date: day["date"])
             day["meals"][0].each do |key, value|
                 puts "Key: #{key}, Value: #{value.to_i} for day: #{new_day.date}"
-                new_dish = Dish.create(day: new_day, portions: 2, recipe_id: value, category: key)
-                puts "New dish: #{new_dish.inspect}"
+                # Find day_template for this day by weekday symbol (e.g., :monday)
+                # Then get the portion for the current category key from that day's template
+                weekday = new_day.date.to_date.strftime("%A").downcase.to_sym
+                portions = day_templates && day_templates[weekday] && day_templates[weekday][key.to_sym]
+                if portions.to_i > 0
+                  new_dish = Dish.create(day: new_day, portions: portions, recipe_id: value, category: key)
+                else
+                  new_dish = "No meal needed for #{key.capitalize} on #{new_day.date.strftime("%A")}"
+                end
+                puts "New dish: #{new_dish}"
             end
             new_day.save
         end
-        @week
+        return @week
     end
 
 
@@ -63,6 +71,13 @@ class Ai::WeekGen
         "(#{favoritized})#{recipe.name} - ID: #{recipe.id}"
       end.join("\n")
       return recipes_text
+    end
+
+    def day_template_text(day_templates)
+      return "None." if day_templates.nil?
+      day_templates.map do |day, template|
+        "#{day.capitalize}: " + template.select { |k, v| v.present? }.keys.map { |key| key.capitalize }.join(", ")
+      end.join("\n")
     end
 end
 

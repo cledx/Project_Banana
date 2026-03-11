@@ -5,11 +5,11 @@
         <tr>
           <% week.each do |day| %>
             <% if params[:id] %>
-              <th><%= link_to(day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none") %></th>
+              <th class="text-center"><%= link_to(day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none") %></th>
             <% elsif on_weeks_new? %>
               <th class="text-center"><%= day.strftime("%A") %></th>
             <% else %>
-              <th><%= day.strftime("%a %d") %></th>
+              <th class="text-center"><%= day.strftime("%a %d") %></th>
             <% end %>
           <% end %>
         </tr>

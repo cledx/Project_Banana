@@ -10,9 +10,12 @@ class DishesController < ApplicationController
   end
 
   def update
-    # This is where we would update the dish, for a given day.
     @dish = Dish.find(params[:id])
-    DishJob.perform_later(@dish.id, params[:new_id]) if params[:new_id].present?
+    if params[:new_id].present?
+      DishJob.perform_later(@dish.id, params[:new_id])
+    else
+      @dish.update(dish_params)
+    end
   end
 
   def destroy
