@@ -1,70 +1,66 @@
 <!-- Banner -->
 <div class="page-banner">
   <div class="container">
-
     <div class="banner-inner">
-      <h1 class="banner-title">
-        Week Planner
-      </h1>
+      <h1 class="banner-title">Week Planner</h1>
       <p class="banner-subtitle">Check what you need to prepare!</p>
     </div>
-
   </div>
 </div>
 
-<div class="container" data-week-id="<%= @week.id %>" data-week-generation-week-id-value="<%= @week.id %>">
+<div class="container" data-controller="week-loading" data-week-id="<%= @week.id %>" data-week-generation-week-id-value="<%= @week.id %>">
 
-<!-- Today Section -->
+  <!-- Today Section -->
   <% if @today.present? %>
     <div class="today-section my-4">
-
-      <%= link_to week_day_path(@week, @today), class:"text-decoration-none" do %>
-      <h2 class="highlight-color">
-        Today
-        <i class="fa-solid fa-chevron-right fa-xs"></i>
-      </h2>
+      <%= link_to week_day_path(@week, @today), class: "text-decoration-none" do %>
+        <h2 class="highlight-color">
+          Today
+          <i class="fa-solid fa-chevron-right fa-xs"></i>
+        </h2>
       <% end %>
-
 
       <div class="row">
         <% meals = ["breakfast", "lunch", "dinner"] %>
         <% meals.each do |name| %>
           <div class="col-md-4">
             <% meal = @today.dishes.where(category: name) %>
-              <% unless meal.empty? %>
-                <div id="<%= name %>">
-                  <%= link_to dish_path(meal[0]), class: "text-decoration-none" do %>
-                    <div class="card p-3 w-100 meal-card">
-                      <p class="meal-category"><%= meal[0].category.capitalize %></p>
-                      <h5 class="card-title"><%= meal[0].recipe.name %></h5>
-                    </div>
-                  <% end %>
-                </div>
-              <% else %>
-                <div id = "<%= name %>">
+            <% unless meal.empty? %>
+              <div id="<%= name %>">
+                <%= link_to dish_path(meal[0]), class: "text-decoration-none" do %>
                   <div class="card p-3 w-100 meal-card">
-                    <p class="meal-category"><%= name.capitalize %></p>
-                    <h5 class="card-title text-secondary">No meal for <%= name %></h5>
+                    <p class="meal-category"><%= meal[0].category.capitalize %></p>
+                    <h5 class="card-title"><%= meal[0].recipe.name %></h5>
                   </div>
+                <% end %>
+              </div>
+            <% else %>
+              <div id="<%= name %>">
+                <div class="card p-3 w-100 meal-card">
+                  <p class="meal-category"><%= name.capitalize %></p>
+                  <h5 class="card-title text-secondary">No meal for <%= name %></h5>
                 </div>
-              <% end %>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
     </div>
   <% end %>
 
-<!-- Week Section -->
-
+  <!-- Week Section -->
   <% calendar_start = Date.current.beginning_of_week %>
 
-  <div id="calendar" data-controller="week-loading">
+  <div id="calendar" style="position: relative;">
+    <div class="calendar-load d-none" data-week-loading-target="load">
+      <%= image_tag "loading.gif", width: 80, height: 80 %>
+    </div>
+
     <%= week_calendar(number_of_weeks: @number_of_weeks, events: @calendar_days, attribute: :date) do |date, day| %>
       <% second_week = date >= calendar_start + 7.days %>
       <% day = day.first %>
       <div class="calendar-day d-flex flex-column <%= 'today-highlight' if day&.date&.to_date == Date.current %>" id="<%= day.id unless day.nil? %>">
         <% if day %>
-          <!-- Meal Section -->
           <% ["breakfast", "lunch", "dinner"].each do |category| %>
             <div class="meal-section mb-3">
               <div>
@@ -90,18 +86,15 @@
                         <% end %>
                       </div>
                     <% end %>
-                  <% else %>
-                    <!-- Empty days -->
-                    <div class="empty-meal">
-                      <span>No <%= category %> planned</span>
-                    </div>
-                  <% end %>
+                <% else %>
+                  <div class="empty-meal" data-week-loading-target="empty">
+                    <span>No <%= category %> planned</span>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>
-
         <% else %>
-          <!-- Empty days -->
           <div class="calendar-day empty-day">
             <p class="text-muted small">No day created</p>
           </div>
@@ -110,7 +103,7 @@
     <% end %>
   </div>
 
-    <!-- Plan next week & Shopping list buttons -->
+  <!-- Plan next week & Shopping list buttons -->
   <div class="mt-4 mb-4 d-flex justify-content-end gap-2">
     <%= link_to week_shopping_items_path(@week),
                 class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
@@ -118,15 +111,14 @@
       <i class="fa-solid fa-chevron-right fa-xs"></i>
     <% end %>
     <%= link_to weeks_path,
-                  method: :post,
-                  class: "btn btn-primary btn-sm d-flex align-items-center gap-2",
-                  data: {
-                    action: "click->week-loading#show",
-                    week_loading_target: "button",
-                    turbo_method: :post
-                  } do %>
-
+                class: "btn btn-primary btn-sm d-flex align-items-center gap-2",
+                data: {
+                  action: "click->week-loading#show",
+                  week_loading_target: "button",
+                  turbo_method: :post
+                } do %>
       <span data-week-loading-target="buttonText">Plan Next Week</span>
     <% end %>
   </div>
+
 </div>
