@@ -23,26 +23,19 @@
       <div class="row">
         <% meals = ["breakfast", "lunch", "dinner"] %>
         <% meals.each do |name| %>
-          <div class="col-md-4">
-            <% meal = @today.dishes.where(category: name) %>
-            <% unless meal.empty? %>
+          <% meal = @today.dishes.where(category: name) %>
+          <% unless meal.empty? %>
+            <div class="col-md-4">
               <div id="<%= name %>">
                 <%= link_to dish_path(meal[0]), class: "text-decoration-none" do %>
-                  <div class="card p-3 w-100 meal-card">
+                  <div class="card p-3 w-100 meal-card" style="height: 140px">
                     <p class="meal-category"><%= meal[0].category.capitalize %></p>
                     <h5 class="card-title"><%= meal[0].recipe.name %></h5>
                   </div>
                 <% end %>
               </div>
-            <% else %>
-              <div id="<%= name %>">
-                <div class="card p-3 w-100 meal-card">
-                  <p class="meal-category"><%= name.capitalize %></p>
-                  <h5 class="card-title text-secondary">No meal for <%= name %></h5>
-                </div>
-              </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -73,12 +66,18 @@
                   data-category="<%= category %>">
                   <% if dishes.any? %>
                     <% dishes.each do |dish| %>
-                      <div class="planner-card w-100 position-relative h-100 align-content-center"
+                      <% first_day = @recipe_first_day[dish.recipe_id] %>
+                      <% is_leftover = first_day && first_day != day.date.strftime("%A") %>
+                      <div class="planner-card recipe-color-<%= dish.recipe.id % 6 %> w-100 position-relative h-100 align-content-center"
                         data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
                         <%= link_to dish_path(dish),
                                     class: "stretched-link text-decoration-none" do %>
                           <p class="m-0 card-title">
-                            <%= dish.recipe.name %>
+                            <% if is_leftover %>
+                              (<%= first_day %>) Leftovers
+                            <% else %>
+                              <%= dish.recipe.name %>
+                            <% end %>
                           </p>
                         <% end %>
                         <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"fixed-btn p-1" do %>
