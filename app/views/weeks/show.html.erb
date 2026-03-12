@@ -7,7 +7,7 @@
 
   <!-- Today Section -->
   <% if @today.present? %>
-    <div class="today-section my-4">
+    <div class="today-section mt-3 mb-2">
       <%= link_to week_day_path(@week, @today), class: "text-decoration-none" do %>
         <h2 class="highlight-color">
           Today
@@ -19,12 +19,12 @@
         <% meals.each do |name| %>
           <% meal = @today.dishes.where(category: name) %>
           <% unless meal.empty? %>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4">
               <div class="card recipe-card today-card position-relative">
                 <% recipe_image = "recipe_images/#{meal[0].recipe.name.downcase.gsub(' ', '_')}.png" %>
                 <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
                 <div class="card-body">
-                  <p class="meal-category mb-0"><%= meal[0].category.capitalize %></p>
+                  <p class="meal-category mb-1"><%= meal[0].category.capitalize %></p>
                   <h5 class="card-title"><%= meal[0].recipe.name %></h5>
                   <%= link_to "", dish_path(meal[0]), class: "stretched-link" %>
                 </div>
