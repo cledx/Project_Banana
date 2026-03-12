@@ -7,13 +7,16 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container my-4">
+  <div class="d-flex justify-content-between mb-1 p-1">
+    <%= link_to "‹ Back", request.referer, class: "btn btn-ghost" %>
+  </div>
   <% if @recipes.present? %>
-    <div class="row mt-4">
+    <div class="row">
       <% @recipes.each do |recipe| %>
 
       <div class="col-md-3 mb-4" data-controller="favorites">
-        <div class="card recipe-card recipe-card--favorites position-relative">
+        <div class="card recipe-card recipe-card--favorites position-relative parent-element">
 
           <a data-action="click->favorites#delete" data-recipe-id="<%= recipe.id %>" class="delete-dish-btn">
             <i class="fa-solid fa-xmark fa-lg text-white"></i>

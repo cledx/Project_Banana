@@ -44,7 +44,8 @@
 // highlight
 
 .today-highlight {
-  border: 2px solid $accent;
+  outline: 4px solid $primary;
+  outline-offset: -2px;
 }
 
 // day header
