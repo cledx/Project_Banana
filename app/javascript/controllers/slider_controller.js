@@ -3,10 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="slider"
 export default class extends Controller {
   static targets = ["sliderValue", "display", "value"]
-  connect(){
-    console.log("cinnect");
-
-  }
 
   updateValue(event) {
     this.sliderValueTarget.innerText = `Family Size: ${event.target.value}`
@@ -15,8 +11,6 @@ export default class extends Controller {
   addButton(event) {
     const mealWrapper = event.currentTarget.closest(".meal-wrapper")
     const category = event.currentTarget.dataset.category
-    console.log("hi");
-
     const day = event.currentTarget.dataset.day
     mealWrapper.outerHTML = `
       <div class="meal-wrapper">
