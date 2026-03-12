@@ -15,12 +15,12 @@ puts "Deleting Weeks..."
 Week.destroy_all
 puts "Deleting Day Templates..."
 DayTemplate.destroy_all
-# puts "Deleting Recipe Items..."
-# RecipeItem.destroy_all
-# puts "Deleting Recipes..."
-# Recipe.destroy_all
-# puts "Deleting Ingredients..."
-# Ingredient.destroy_all
+puts "Deleting Recipe Items..."
+RecipeItem.destroy_all
+puts "Deleting Recipes..."
+Recipe.destroy_all
+puts "Deleting Ingredients..."
+Ingredient.destroy_all
 puts "Deleting Users..."
 User.destroy_all
 
@@ -100,57 +100,58 @@ User.destroy_all
 # We've already seeded the recipes into the database.
 # Only run this if you want to recreate the recipes.
 
-# require "json"
+require "json"
 
-# puts "Creating recipes..."
-# filepath = Rails.root.join("db", "data", "recipesV3.json")
-# serialized_data = File.read(filepath)
-# recipes_data = JSON.parse(serialized_data)
-# recipes = recipes_data["data"]
+puts "Creating recipes..."
+filepath = Rails.root.join("db", "data", "recipesV3_with_images.json")
+serialized_data = File.read(filepath)
+recipes_data = JSON.parse(serialized_data)
+recipes = recipes_data["data"]
 
-# recipes.each do |recipe_hash|
-#   name         = recipe_hash["name"]
-#   cooktime     = recipe_hash["cook_time"]   # minutes
-#   preptime     = recipe_hash["prep_time"]   # minutes
-#   instructions = recipe_hash["instructions"]
-#   cuisine      = recipe_hash["cuisine"]
-#   tags         = recipe_hash["tags"] || []
+recipes.each do |recipe_hash|
+  name         = recipe_hash["name"]
+  cooktime     = recipe_hash["cook_time"]   # minutes
+  preptime     = recipe_hash["prep_time"]   # minutes
+  instructions = recipe_hash["instructions"]
+  cuisine      = recipe_hash["cuisine"]
+  tags         = recipe_hash["tags"] || []
+  image_url    = recipe_hash["image_url"]
+  
+  recipe = Recipe.create!(
+    name: name,
+    cooktime: cooktime,
+    preptime: preptime,
+    instructions: instructions,
+    cuisine: cuisine,
+    tags: tags
+  )
 
-#   recipe = Recipe.create!(
-#     name: name,
-#     cooktime: cooktime,
-#     preptime: preptime,
-#     instructions: instructions,
-#     cuisine: cuisine,
-#     tags: tags
-#   )
+  ingredients = recipe_hash["ingredients"]
 
-#   ingredients = recipe_hash["ingredients"]
+  ingredients.each do |ingredient_hash|
+    ingredient_name = ingredient_hash["name"].downcase
+    ingredient = Ingredient.find_by(name: ingredient_name)
+    ingredient ||= Ingredient.create!(name: ingredient_name)
 
-#   ingredients.each do |ingredient_hash|
-#     ingredient_name = ingredient_hash["name"].downcase
-#     ingredient = Ingredient.find_by(name: ingredient_name)
-#     ingredient ||= Ingredient.create!(name: ingredient_name)
+    raw_amount = ingredient_hash["amount"].to_s
 
-#     raw_amount = ingredient_hash["amount"].to_s
+    # Extract numeric part; default to 1 if missing
+    parsed_amount = raw_amount.gsub(/[^0-9.]+/, "").strip
+    amount = parsed_amount.empty? ? 1 : parsed_amount.to_f
 
-#     # Extract numeric part; default to 1 if missing
-#     parsed_amount = raw_amount.gsub(/[^0-9.]+/, "").strip
-#     amount = parsed_amount.empty? ? 1 : parsed_amount.to_f
+    # Extract unit part; ensure it is never blank for validation
+    unit = raw_amount.gsub(/[0-9.]+/, "").strip
+    unit = ingredient_hash["unit"] if unit.blank?
 
-#     # Extract unit part; ensure it is never blank for validation
-#     unit = raw_amount.gsub(/[0-9.]+/, "").strip
-#     unit = ingredient_hash["unit"] if unit.blank?
-
-#     RecipeItem.create!(
-#       recipe: recipe,
-#       ingredient: ingredient,
-#       amount: amount,
-#       unit: unit || "unit",
-#       modifier: ingredient_hash["modifier"] || ""
-#     )
-#   end
-# end
+    RecipeItem.create!(
+      recipe: recipe,
+      ingredient: ingredient,
+      amount: amount,
+      unit: unit || "unit",
+      modifier: ingredient_hash["modifier"] || ""
+    )
+  end
+end
 
 
 # ============================================================
@@ -179,11 +180,11 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
     email:                  "jeff@business.com",
     username:               "Jeff Business",
     password:               "123456",
-    allergies:              nil,
+    allergies:              ["peanuts"],
     preferred_ingredients:  ALL_INGREDIENTS.sample(rand(2..5)),
     undesireable_ingredients: ALL_INGREDIENTS.sample(rand(2..5)),
     preferred_cuisines:     "Italian",
-    disease:                "diabetes"
+    disease:                nil
   )
   puts "  Created user: #{user.username}"
 
@@ -201,13 +202,13 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   # end
 
   day_templates = {
-    monday: { breakfast: 0, lunch: 2, dinner: 0 },
-    tuesday: { breakfast: 2, lunch: 0, dinner: 2 },
+    monday: { breakfast: 0, lunch: 2, dinner: 2 },
+    tuesday: { breakfast: 0, lunch: 0, dinner: 2 },
     wednesday: { breakfast: 0, lunch: 0, dinner: 2 },
     thursday: { breakfast: 0, lunch: 2, dinner: 2 },
-    friday: { breakfast: 0, lunch: 0, dinner: 0 },
+    friday: { breakfast: 0, lunch: 0, dinner: 2 },
     saturday: { breakfast: 0, lunch: 2, dinner: 2 },
-    sunday: { breakfast: 2, lunch: 0, dinner: 0 }
+    sunday: { breakfast: 0, lunch: 0, dinner: 0 }
   }
   puts "Day templates: #{day_templates}"
 
