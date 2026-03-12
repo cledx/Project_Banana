@@ -34,9 +34,9 @@
 
 // Secondary action
 
-.btn-outline-primary-custom {
+.btn-outline-custom {
   background: transparent;
-  border: 2px solid $primary;
+  border: 1px solid $primary;
   color: $primary;
 
   &:hover {
@@ -53,6 +53,7 @@
   color: white;
 
   &:hover {
+    color: white;
     background-color: darken($accent, 8%);
   }
 }
