@@ -7,6 +7,10 @@ class Week < ApplicationRecord
   has_many :ingredients, through: :shopping_items
   belongs_to :user
 
+  def self.current_week_for_user(user)
+    user.weeks.joins(:days).where("DATE(days.date) = ?", Date.current).first
+  end
+
   def next_week
     user.weeks.where("id > ?", id).order(:id).first
   end
@@ -23,15 +27,15 @@ class Week < ApplicationRecord
         (Date.today + 7).beginning_of_week
       end
 
-      attributes = {
-        "month" => reference_date.month,
-        "week_start" => reference_date,
-        "day_templates" => day_templates,
-        "week_id" => id
-      }
-      puts "*" * 30
-      puts "attributes from week: #{attributes}"
-      puts "*" * 30
+    attributes = {
+      "month" => reference_date.month,
+      "week_start" => reference_date,
+      "day_templates" => day_templates,
+      "week_id" => id
+    }
+    puts "*" * 30
+    puts "attributes from week: #{attributes}"
+    puts "*" * 30
     next_week = Ai::WeekGen.new(user).generate_week(attributes)
   end
 end

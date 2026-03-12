@@ -1,6 +1,7 @@
 #calendar .simple-calendar .today {
   background: transparent;
 }
+
 #calendar .simple-calendar table {
   border: 1px solid $text-muted;
   padding: 0.2rem;
@@ -18,9 +19,6 @@
   border: none;
 }
 
-#calendar {
-  margin-top: 24px;
-}
 
 #calendar .simple-calendar tr {
   height: inherit;
@@ -117,4 +115,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.avoiding-box {
+  min-width: 420px;
+  max-height: 140px; // approximate space down to calendar
+  padding: 0.75rem 1rem;
+  border: 6px solid #333 !important;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.avoiding-box__title {
+  font-weight: 600;
+  color: #a33;
+  margin-bottom: 0.25rem;
 }

@@ -52,6 +52,7 @@
     <%= week_calendar(number_of_weeks: @number_of_weeks, events: @calendar_days, attribute: :date) do |date, day| %>
       <% day = day.first %>
       <div class="calendar-day <%= 'today-highlight' if day&.date&.to_date == Date.current %>" id="<%= day.id unless day.nil? %>">
+
         <% if day %>
           <% ["breakfast", "lunch", "dinner"].each do |category| %>
             <div class="meal-section">
@@ -86,7 +87,15 @@
                     <% end %>
                 <% else %>
                   <div class="empty-meal h-100" data-week-loading-target="empty">
-                    <span>No <%= category %> planned</span>
+                <%# TODO: need build dishes_path generation logic %>
+                    <%= link_to "#",
+                                class: "p-1 text-muted text-decoration-none",
+                                data: {
+                                  bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Add meal",
+                                  turbo: false
+                                } do %>
+                      <i class="fa-solid fa-plus fa-lg p-2"></i>
+                    <% end %>
                   </div>
                 <% end %>
               </div>

@@ -1,13 +1,53 @@
 <div class="page-banner" style="height: 160px"></div>
 
 <div class="container d-flex flex-column align-items-center" data-controller="days-template slider">
-  <h1 class="mt-4">Let's plan our meals for the week</h1>
-  <p>Select the portions you want for each day</p>
+  <div class="position-relative w-100 mt-4 mb-1">
+    <div class="text-center mx-auto" style="max-width: 600px;">
+      <h1 class="mb-1">Let's plan our meals for the week</h1>
+      <p class="mb-0">Select the portions you want for each day</p>
+    </div>
+    <div class="avoiding-box border bg-white position-absolute top-0 end-0 p-3"
+         style="width: 260px; max-height: 220px; overflow-y: auto; border: 1.5px dashed rgba(221, 221, 221, 0.6) !important; border-radius: 20px; box-shadow: none;">
+      <div class="avoiding-box__title"
+           style="font-weight: 500; color: #E76F51; font-size: 1rem; text-decoration: none; margin-bottom: 0.25rem;">
+        Avoiding:
+        <span style="font-size: 0.8rem; color: #999; font-weight: 400;">(click to remove)</span>
+      </div>
+      <% unless @user.allergies.nil? %>
+        <% @user.allergies.each do |allergy| %>
+          <span style="display: inline-block; background:#FFEFE2; color: #E76F51; border: 1.5px solid rgba(238,211,215,0.6); border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 2px 4px 2px 0; line-height: 1.5; font-weight: 500;">
+            <%= allergy %>
+          </span>
+        <% end %>
+      <% end %>
+      <% unless @user.disease.nil? %>
+        <% @user.disease.each do |disease| %>
+          <span style="display: inline-block; background:#FFEFE2; color: #E76F51; border: 1.5px solid rgba(238,211,215,0.6); border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 2px 4px 2px 0; line-height: 1.5; font-weight: 500;">
+            <%= disease %>
+          </span>
+        <% end %>
+      <% end %>
+    <span style="display: inline-block; background:#FFEFE2; color: #333; border: 1.5px solid #ddd; border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 6px 4px 2px 0; line-height: 1.5; font-weight: 500; cursor: pointer;">
+      <i class="fa-solid fa-plus fa-sm"></i>
+    </span>
+    </div>
+  </div>
 
   <div data-controller="sortable" id="calendar">
-    <div>
-      <label for="customRange" class="form-label" data-slider-target="sliderValue">Family Size: 1</label>
-      <input type="range" class="form-range" min="1" max="10" step="1" value="1" id="customRange" data-slider-target="value" data-action="input->slider#updateValue">
+    <div class = "mb-4">
+      <label for="familySizeInput" class="form-label" data-slider-target="sliderValue">Portion Size: </label>
+      <input 
+        type="number" 
+        class="form-control w-auto d-inline-block" 
+        min="1" 
+        max="10" 
+        step="1" 
+        value="1" 
+        id="familySizeInput" 
+        data-slider-target="value" 
+        data-action="input->slider#updateValue"
+        style="width: 80px;"
+      >
     </div>
 
     <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>

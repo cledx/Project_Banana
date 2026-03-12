@@ -8,7 +8,7 @@
 
       <div class="footer-links text-center w-100 my-2">
         <% if current_user && current_user.weeks.any? %>
-          <%= link_to "Home", week_path(current_user.weeks[-2] ? current_user.weeks[-2]:current_user.weeks[-1]), class: "navbar-brand" %>
+          <%= link_to "Home", week_path(Week.current_week_for_user(current_user)), class: "navbar-brand" %>
         <% end %>
         <span class="text-muted">|</span>
         <%= link_to "About", about_path, class: "footer-link ps-0 pe-3" %>

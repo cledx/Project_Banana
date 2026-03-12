@@ -199,7 +199,7 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   #     dinner:    2
   #   )
   # end
-  
+
   day_templates = {
     monday: { breakfast: 0, lunch: 2, dinner: 0 },
     tuesday: { breakfast: 2, lunch: 0, dinner: 2 },
@@ -250,6 +250,7 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   # ============================================================
   # CURRENT WEEK
   # ============================================================
+  user.weeks.first.destroy
   week_start = Date.today.beginning_of_week(:monday)
   week = Week.create!(user: user, month: week_start.month)
   # Create a new week for the user and generate dinner dishes using AI::DishGen for each day
@@ -263,6 +264,9 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
 
   puts "Attributes in seeds: #{attributes}"
   Ai::WeekGen.new(user).generate_week(attributes)
+
+  # Remove the dummy empty week created by User#create_initial_week
+
 
   # [week_start].each do |start_date|
   #   week = Week.create!(

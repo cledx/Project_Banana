@@ -40,4 +40,5 @@
 *.swp
 .DS_Store
 
-wget-log
+wget-logvenv/
+/venv/

@@ -110,7 +110,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/garlic_herb_chicken_thighs_with_roasted_vegetables_and_rice.png"
     },
     {
       "name": "Lemon Pepper Chicken with Broccoli and Potatoes",
@@ -169,7 +170,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/lemon_pepper_chicken_with_broccoli_and_potatoes.png"
     },
     {
       "name": "Smoky Paprika Chicken and Sweet Potato Bake",
@@ -233,7 +235,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/smoky_paprika_chicken_and_sweet_potato_bake.png"
     },
     {
       "name": "Italian Chicken and Green Bean Tray Bake",
@@ -297,7 +300,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/italian_chicken_and_green_bean_tray_bake.png"
     },
     {
       "name": "Cumin Lime Chicken with Brown Rice",
@@ -372,7 +376,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/cumin_lime_chicken_with_brown_rice.png"
     },
     {
       "name": "Honey Garlic Chicken and Carrots",
@@ -428,7 +433,8 @@
         "HighProtein",
         "gluten",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/honey_garlic_chicken_and_carrots.png"
     },
     {
       "name": "Greek Chicken with Peppers and Onions",
@@ -492,7 +498,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/greek_chicken_with_peppers_and_onions.png"
     },
     {
       "name": "BBQ Baked Chicken with Corn and Green Beans",
@@ -550,7 +557,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/bbq_baked_chicken_with_corn_and_green_beans.png"
     },
     {
       "name": "Turmeric Chicken and Cauliflower Rice Bowls",
@@ -621,7 +629,8 @@
         "Dinner",
         "HighProtein",
         "LowCarb"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/turmeric_chicken_and_cauliflower_rice_bowls.png"
     },
     {
       "name": "Simple Roast Chicken Breasts with Mixed Vegetables",
@@ -679,7 +688,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/simple_roast_chicken_breasts_with_mixed_vegetables.png"
     },
     {
       "name": "Herb Roasted Pork Loin with Carrots and Potatoes",
@@ -746,7 +756,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/herb_roasted_pork_loin_with_carrots_and_potatoes.png"
     },
     {
       "name": "Sheet Pan Pork Chops with Apples and Sweet Potato",
@@ -805,7 +816,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/sheet_pan_pork_chops_with_apples_and_sweet_potato.png"
     },
     {
       "name": "Cumin Lime Pork Tenderloin with Black Beans and Rice",
@@ -873,7 +885,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/cumin_lime_pork_tenderloin_with_black_beans_and_rice.png"
     },
     {
       "name": "Garlic Rosemary Pork Chops with Roasted Broccoli",
@@ -926,7 +939,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/garlic_rosemary_pork_chops_with_roasted_broccoli.png"
     },
     {
       "name": "Pork and Bell Pepper Skillet with Rice",
@@ -984,7 +998,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/pork_and_bell_pepper_skillet_with_rice.png"
     },
     {
       "name": "Baked Pork Meatballs with Marinara and Zucchini",
@@ -1047,7 +1062,8 @@
         "Dinner",
         "HighProtein",
         "eggs"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/baked_pork_meatballs_with_marinara_and_zucchini.png"
     },
     {
       "name": "Honey Mustard Pork Tenderloin with Green Beans",
@@ -1104,7 +1120,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/honey_mustard_pork_tenderloin_with_green_beans.png"
     },
     {
       "name": "Pork Stir-Fry with Vegetables and Brown Rice",
@@ -1172,7 +1189,8 @@
         "HighProtein",
         "gluten",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/pork_stir_fry_with_vegetables_and_brown_rice.png"
     },
     {
       "name": "Smoked Paprika Pork Loin with Roasted Carrots and Onions",
@@ -1228,7 +1246,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/smoked_paprika_pork_loin_with_roasted_carrots_and_onions.png"
     },
     {
       "name": "Pork and Cabbage Skillet with Potatoes",
@@ -1288,7 +1307,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/pork_and_cabbage_skillet_with_potatoes.png"
     },
     {
       "name": "Beef and Broccoli with Brown Rice",
@@ -1346,7 +1366,8 @@
         "HighProtein",
         "gluten",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/beef_and_broccoli_with_brown_rice.png"
     },
     {
       "name": "Sheet Pan Beef Fajita Bake",
@@ -1404,7 +1425,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/sheet_pan_beef_fajita_bake.png"
     },
     {
       "name": "Baked Beef Meatballs with Marinara and Green Beans",
@@ -1467,7 +1489,8 @@
         "Dinner",
         "HighProtein",
         "eggs"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/baked_beef_meatballs_with_marinara_and_green_beans.png"
     },
     {
       "name": "Herb-Crusted Beef Roast with Carrots and Potatoes",
@@ -1529,7 +1552,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/herb_crusted_beef_roast_with_carrots_and_potatoes.png"
     },
     {
       "name": "Beef and Bell Pepper Stir-Fry with Rice",
@@ -1591,7 +1615,8 @@
         "HighProtein",
         "gluten",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/beef_and_bell_pepper_stir_fry_with_rice.png"
     },
     {
       "name": "Beef Tacos with Roasted Corn and Black Beans",
@@ -1643,7 +1668,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/beef_tacos_with_roasted_corn_and_black_beans.png"
     },
     {
       "name": "Beef and Zucchini Skillet with Rice",
@@ -1695,7 +1721,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/beef_and_zucchini_skillet_with_rice.png"
     },
     {
       "name": "Pepper-Crusted Steak with Roasted Asparagus",
@@ -1737,7 +1764,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/pepper_crusted_steak_with_roasted_asparagus.png"
     },
     {
       "name": "Beef and Sweet Potato Tray Bake",
@@ -1788,7 +1816,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/beef_and_sweet_potato_tray_bake.png"
     },
     {
       "name": "Garlic Herb Beef Strips with Roasted Vegetables",
@@ -1848,7 +1877,8 @@
         "Lunch",
         "Dinner",
         "HighProtein"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/garlic_herb_beef_strips_with_roasted_vegetables.png"
     },
     {
       "name": "Lentil and Vegetable Rice Bowls",
@@ -1914,7 +1944,8 @@
         "Dinner",
         "Vegetarian",
         "Vegan"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/lentil_and_vegetable_rice_bowls.png"
     },
     {
       "name": "Chickpea and Roasted Vegetable Sheet Pan",
@@ -1977,7 +2008,8 @@
         "Dinner",
         "Vegetarian",
         "Vegan"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/chickpea_and_roasted_vegetable_sheet_pan.png"
     },
     {
       "name": "Black Bean and Corn Burrito Bowls",
@@ -2047,7 +2079,8 @@
         "Dinner",
         "Vegetarian",
         "Vegan"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/black_bean_and_corn_burrito_bowls.png"
     },
     {
       "name": "Tofu and Vegetable Stir-Fry with Rice",
@@ -2116,7 +2149,8 @@
         "Vegan",
         "gluten",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/tofu_and_vegetable_stir_fry_with_rice.png"
     },
     {
       "name": "Red Lentil and Spinach Curry with Rice",
@@ -2185,7 +2219,8 @@
         "Dinner",
         "Vegetarian",
         "Vegan"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/red_lentil_and_spinach_curry_with_rice.png"
     },
     {
       "name": "Baked Tofu with Roasted Broccoli and Rice",
@@ -2242,7 +2277,8 @@
         "Vegan",
         "gluten",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/baked_tofu_with_roasted_broccoli_and_rice.png"
     },
     {
       "name": "White Bean and Tomato Bake with Polenta",
@@ -2306,7 +2342,8 @@
         "Dinner",
         "Vegetarian",
         "Vegan"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/white_bean_and_tomato_bake_with_polenta.png"
     },
     {
       "name": "Chickpea Curry with Rice",
@@ -2370,7 +2407,8 @@
         "Dinner",
         "Vegetarian",
         "Vegan"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/chickpea_curry_with_rice.png"
     },
     {
       "name": "Tempeh and Vegetable Sheet Pan with Rice",
@@ -2431,7 +2469,8 @@
         "Vegan",
         "gluten",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/tempeh_and_vegetable_sheet_pan_with_rice.png"
     },
     {
       "name": "Lentil Bolognese with Pasta",
@@ -2501,7 +2540,8 @@
         "Vegetarian",
         "Vegan",
         "gluten"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/lentil_bolognese_with_pasta.png"
     },
     {
       "name": "Spiced Black Bean and Sweet Potato Bowls",
@@ -2570,7 +2610,8 @@
         "Dinner",
         "Vegetarian",
         "Vegan"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/spiced_black_bean_and_sweet_potato_bowls.png"
     },
     {
       "name": "Crispy Tofu and Roasted Vegetable Bowls",
@@ -2627,7 +2668,8 @@
         "Vegetarian",
         "Vegan",
         "soy"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/crispy_tofu_and_roasted_vegetable_bowls.png"
     },
     {
       "name": "Baked Salmon with Roasted Asparagus and Rice",
@@ -2692,7 +2734,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/baked_salmon_with_roasted_asparagus_and_rice.png"
     },
     {
       "name": "Lemon Herb White Fish with Green Beans and Potatoes",
@@ -2756,7 +2799,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/lemon_herb_white_fish_with_green_beans_and_potatoes.png"
     },
     {
       "name": "Sheet Pan Salmon and Broccoli",
@@ -2809,7 +2853,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/sheet_pan_salmon_and_broccoli.png"
     },
     {
       "name": "Cod with Bell Peppers and Rice",
@@ -2872,7 +2917,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/cod_with_bell_peppers_and_rice.png"
     },
     {
       "name": "Tilapia with Zucchini and Cherry Tomatoes",
@@ -2936,7 +2982,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/tilapia_with_zucchini_and_cherry_tomatoes.png"
     },
     {
       "name": "Baked Salmon with Sweet Potato and Kale",
@@ -2994,7 +3041,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/baked_salmon_with_sweet_potato_and_kale.png"
     },
     {
       "name": "Garlic Herb Cod with Roasted Carrots and Rice",
@@ -3058,7 +3106,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/garlic_herb_cod_with_roasted_carrots_and_rice.png"
     },
     {
       "name": "Salmon and Vegetable Rice Bowls",
@@ -3124,7 +3173,8 @@
         "gluten",
         "soy",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/salmon_and_vegetable_rice_bowls.png"
     },
     {
       "name": "Mediterranean Baked White Fish with Tomatoes and Olives",
@@ -3192,7 +3242,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/mediterranean_baked_white_fish_with_tomatoes_and_olives.png"
     },
     {
       "name": "Teriyaki Salmon with Rice and Broccoli",
@@ -3265,7 +3316,8 @@
         "gluten",
         "soy",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/teriyaki_salmon_with_rice_and_broccoli.png"
     },
     {
       "name": "Cajun Tilapia with Corn and Green Beans",
@@ -3322,7 +3374,8 @@
         "Dinner",
         "HighProtein",
         "fish"
-      ]
+      ],
+      "image_url": "/assets/recipe_images/cajun_tilapia_with_corn_and_green_beans.png"
     }
   ]
 }
