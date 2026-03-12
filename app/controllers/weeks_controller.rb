@@ -6,14 +6,6 @@ class WeeksController < ApplicationController
     @number_of_weeks = @week.next_week ? 2 : 1
     @calendar_days = @week.days
     @calendar_days += @week.next_week.days if @week.next_week
-<<<<<<< HEAD
-=======
-    # This is to prevent users from accessing weeks that they don't own.
-    # We can do it this way, or we can just use the current_user method in the view.
-    # I think this is a better way for us to do it, because it's simpler. But we could also have the view display the current user's week and not rely on an id param at all, which might be more elegant.
-
-    # Wouldn't we need an id either way to see which week is the current one and to be able to navigate between weeks?
->>>>>>> 33f1e16676a1b12b91da45daa56854b1db46b0a6
     @recipe_first_day = {}
     @calendar_days.each do |day|
       day.dishes.each do |dish|
