@@ -14,7 +14,7 @@ export default class extends Controller {
     const day = event.currentTarget.dataset.day
     mealWrapper.outerHTML = `
       <div class="meal-wrapper">
-        <div class="meal-section mb-3 tiny-card btn btn-primary" data-category="${category}" data-day="${day}" data-action="click->slider#deleteButton">
+        <div class="meal-section mb-3 tiny-card btn btn-primary-custom" data-category="${category}" data-day="${day}" data-action="click->slider#deleteButton">
           <div class="meal-header-white m-0">
             <span>${category}</span>
             <span>Portions: ${this.valueTarget.value} <i class="fa-solid fa-bowl-food"></i></span>
@@ -30,7 +30,7 @@ export default class extends Controller {
     const day = event.currentTarget.dataset.day
     mealWrapper.outerHTML = `
       <div class="meal-wrapper">
-        <div class="meal-section mb-3 tiny-card btn btn-outline-primary" data-category="${category}" data-day="${day}" data-action="click->slider#addButton">
+        <div class="meal-section mb-3 tiny-card btn btn-outline-custom" data-category="${category}" data-day="${day}" data-action="click->slider#addButton">
           <div class="meal-header m-0">
             <span>${event.currentTarget.dataset.category}</span>
           </div>
@@ -56,7 +56,7 @@ export default class extends Controller {
         console.log(`Looking for [data-day="${day}"][data-category="${meal}"]`, mealSection);
 
         if (mealSection) {
-          const isAdded = mealSection.classList.contains("btn-primary");
+          const isAdded = mealSection.classList.contains("btn-primary-custom");
           console.log(`${day} ${meal} - isAdded:`, isAdded, "classes:", mealSection.className);
           dayTemplates[day][meal] = isAdded ? familySize : 0;
         } else {

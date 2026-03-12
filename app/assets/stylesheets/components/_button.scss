@@ -42,7 +42,9 @@
 
   &:hover {
     background-color: $primary;
-    color: white;
+    .meal-header {
+      color: white !important;
+    }
   }
 }
 
