@@ -1,0 +1,36 @@
+<%# Renders the inner contents of a calendar cell for a given day/category %>
+<% dishes ||= [] %>
+
+<div class="sortable-list h-100"
+     data-controller="sortable"
+     data-day_id="<%= day.id %>"
+     data-category="<%= category %>">
+  <% if dishes.any? %>
+    <% dishes.each do |dish| %>
+      <div class="planner-card w-100 position-relative h-100 align-content-center"
+           data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
+        <%= link_to dish_path(dish),
+                    class: "stretched-link text-decoration-none" do %>
+          <p class="m-0 card-title">
+            <%= dish.recipe.name %>
+          </p>
+        <% end %>
+        <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"fixed-btn p-1" do %>
+          <i class="fa-solid fa-xmark fa-sm" ></i>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="empty-meal h-100" data-week-loading-target="empty">
+      <%= link_to "#",
+                  class: "p-1 text-muted text-decoration-none",
+                  data: {
+                    bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Add meal",
+                    turbo: false
+                  } do %>
+        <i class="fa-solid fa-plus fa-lg p-2"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
