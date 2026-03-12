@@ -16,7 +16,7 @@
         <div class="card recipe-card recipe-card--favorites position-relative">
 
           <a data-action="click->favorites#delete" data-recipe-id="<%= recipe.id %>" class="delete-dish-btn">
-            <i class="fa-solid fa-xmark fa-lg"></i>
+            <i class="fa-solid fa-xmark fa-lg text-white"></i>
           </a>
 
           <% recipe_image = "recipe_images/#{recipe.name.downcase.gsub(' ', '_')}.png" %>
