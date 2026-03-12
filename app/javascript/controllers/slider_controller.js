@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["sliderValue", "display", "value"]
 
   updateValue(event) {
-    this.sliderValueTarget.innerText = `Family Size: ${event.target.value}`
+    this.sliderValueTarget.innerText = `Portions: `
   }
 
   addButton(event) {
@@ -17,7 +17,7 @@ export default class extends Controller {
         <div class="meal-section mb-3 tiny-card btn btn-primary" data-category="${category}" data-day="${day}" data-action="click->slider#deleteButton">
           <div class="meal-header-white m-0">
             <span>${category}</span>
-            <span>Family Size: ${this.valueTarget.value}<i class="fa-solid fa-bowl-food"></i></span>
+            <span>Portions: <i class="fa-solid fa-bowl-food"></i></span>
           </div>
         </div>
       </div>
@@ -65,13 +65,13 @@ export default class extends Controller {
       })
     })
 
-    const formData = { day_templates: dayTemplates}
+    const formData = { day_templates: dayTemplates }
     console.log(formData);
     const url = `/weeks`
 
     fetch(url, {
       method: "POST",
-      headers:{
+      headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
       },
