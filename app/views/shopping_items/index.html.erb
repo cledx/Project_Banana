@@ -1,12 +1,13 @@
-<div class="shopping-wrapper">
+<div class="page-banner" style="height: 160px">
+</div>
 <div class="container py-2">
   <div class="row">
     <div class="col-md-6 mx-auto">
 
       <!-- Back -->
-      <div class="d-flex justify-content-between mb-1 p-1">
-        <%= link_to "‹ Back to Week", week_path(@week), class: "btn btn-ghost-white" %>
-        <%= link_to "#", class: "btn btn-ghost-white" do %>
+      <div class="d-flex justify-content-between mt-2 mb-1 p-1">
+        <%= link_to "‹ Back to Week", week_path(@week), class: "btn btn-ghost" %>
+        <%= link_to "#", class: "btn btn-ghost" do %>
         <i class="fa-solid fa-share-nodes fa-sm p-1"></i>
         <span>share list</span>
       <% end %>
@@ -74,5 +75,4 @@
 
     </div>
   </div>
-</div>
 </div>
