@@ -46,12 +46,12 @@
   <div class="d-flex justify-content-between align-items-center">
     <h2 class="highlight-color m-0">Week Plan</h2>
     <div class="mb-2 d-flex justify-content-end gap-2">
-      <%= link_to week_shopping_items_path(@week), class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
+      <%= link_to week_shopping_items_path(@week), class: "btn btn-outline-primary-custom btn-sm d-flex align-items-center gap-2" do %>
         <i class="fa-solid fa-basket-shopping p-1"></i>
         <span>Shopping List</span>
       <% end %>
       <% if @week.next_week.nil?%>
-        <%= link_to new_week_path, class: "btn btn-primary btn-sm d-flex align-items-center gap-2" do %>
+        <%= link_to new_week_path, class: "btn btn-primary-custom btn-sm d-flex align-items-center gap-2" do %>
           <i class="fa-solid fa-calendar-week p-1"></i>
           <span>Plan Next Week</span>
         <% end %>
