@@ -3,17 +3,15 @@
     <div class="d-flex flex-column align-items-center">
 
       <span class="footer-brand fw-semibold">
-        <%= image_tag 'footer_logo.png', class: "img-fluid mb-3", style: "height: 80px", alt: "forkcast logo" %>
+        <%= image_tag 'footer_logo.png', class: "img-fluid", style: "height: 160px", alt: "forkcast logo" %>
       </span>
 
-      <div class="footer-links text-center w-100 my-2">
+      <div class="footer-links text-center w-100">
         <% if current_user && current_user.weeks.any? %>
-          <%= link_to "Home", week_path(Week.current_week_for_user(current_user)), class: "navbar-brand" %>
+          <%= link_to "Home", week_path(Week.current_week_for_user(current_user)), class: "navbar-brand ms-0 me-2" %>
         <% end %>
         <span class="text-muted">|</span>
-        <%= link_to "About", about_path, class: "footer-link ps-0 pe-3" %>
-        <span class="text-muted">|</span>
-        <%= link_to "Contact", "#", class: "footer-link" %>
+        <%= link_to "About", about_path, class: "footer-link ms-2" %>
       </div>
 
       <div class="footer-meta mt-3">
