@@ -63,7 +63,7 @@ class Ai::WeekGen
     prompt = <<-PROMPT
       You are a meal cooridnator.
       The user is a busy person who need help with planning their meals to prep for the week.
-      You need to plan a few meals for them to cook in advance to feed them for the week. Select only 3 different recipes maximum for the whole week, and spread them out between the days.
+      You need to plan a few meals for them to cook in advance to feed them for the week. Select only 3 different recipes maximum for the whole week, and spread them out between the days. Do not use the same recipe more than 3 times the whole week.
       Select from the following recipes and pick the best ones for the user.
     PROMPT
     return prompt
