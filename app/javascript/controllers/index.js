@@ -36,6 +36,3 @@ application.register("sortable", SortableController)
 
 import WeekLoadingController from "./week_loading_controller"
 application.register("week-loading", WeekLoadingController)
-
-import WeekSelectController from "./week_select_controller"
-application.register("week-select", WeekSelectController)

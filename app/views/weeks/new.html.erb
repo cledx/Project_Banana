@@ -1,5 +1,4 @@
-<div class="page-banner" style="height: 160px">
-</div>
+<div class="page-banner" style="height: 160px"></div>
 
 <div class="container d-flex flex-column align-items-center" data-controller="days-template slider">
   <h1 class="mt-4">Let's plan our meals for the week</h1>
@@ -13,7 +12,6 @@
 
     <%= week_calendar(number_of_weeks: 1, events: [], attribute: :date) do |date, day| %>
       <div class="calendar-day">
-
         <% ["breakfast", "lunch", "dinner"].each do |category| %>
           <div class="meal-wrapper">
             <div class="meal-section mb-3 tiny-card btn btn-outline-primary" data-category="<%= category.capitalize %>" data-day="<%= date.strftime('%A').downcase %>" data-action="click->slider#addButton" data-slider-target="display">
@@ -26,8 +24,5 @@
       </div>
     <% end %>
   </div>
-
-  <%# <%= link_to "Generate Week", week_path(current_user.weeks[-2] ? current_user.weeks[-2] : current_user.weeks[-1]), %>
-                              <%# class: "btn btn-primary mb-4", data: { action: "click->week-select#generate" } %>
   <div class="btn btn-primary mb-4" data-action="click->slider#generate">Generate Week</div>
 </div>
