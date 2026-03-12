@@ -64,7 +64,8 @@ class WeeksController < ApplicationController
     @week = Week.new(user: current_user)
     @week.month = (Date.today + 7).beginning_of_week.month
     @week.save!
-    puts "day templates: #{day_templates}"
+
+    puts "Day templates from controller: #{day_templates}"
     WeekJob.perform_later(@week.id, day_templates)
     redirect_to week_path(current_user.weeks[-2].id)
   end
