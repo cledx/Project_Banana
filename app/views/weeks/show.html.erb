@@ -40,14 +40,19 @@
     </div>
   <% end %>
 
+  <hr class="mt-0 mb-3">
+
   <!-- Week Section -->
-  <div class="mt-4 mb-4 d-flex justify-content-end gap-2">
-    <%= link_to week_shopping_items_path(@week),
-                class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
-      <span>Shopping list</span>
-      <i class="fa-solid fa-chevron-right fa-xs"></i>
-    <% end %>
-    <%= link_to "Plan Next Week", new_week_path, class: "btn btn-primary btn-sm d-flex align-items-center gap-2" %>
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 class="highlight-color m-0">Week Plan</h2>
+    <div class="mb-2 d-flex justify-content-end gap-2">
+      <%= link_to week_shopping_items_path(@week),
+                  class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
+        <span>Shopping list</span>
+        <i class="fa-solid fa-chevron-right fa-xs"></i>
+      <% end %>
+      <%= link_to "Plan Next Week", new_week_path, class: "btn btn-primary btn-sm d-flex align-items-center gap-2" %>
+    </div>
   </div>
 
   <% calendar_start = Date.current.beginning_of_week %>
