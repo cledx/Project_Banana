@@ -16,7 +16,6 @@
       <%= link_to week_day_path(@week, @today), class: "text-decoration-none" do %>
         <h2 class="highlight-color">
           Today
-          <i class="fa-solid fa-chevron-right fa-xs"></i>
         </h2>
       <% end %>
 
@@ -42,6 +41,15 @@
   <% end %>
 
   <!-- Week Section -->
+  <div class="mt-4 mb-4 d-flex justify-content-end gap-2">
+    <%= link_to week_shopping_items_path(@week),
+                class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
+      <span>Shopping list</span>
+      <i class="fa-solid fa-chevron-right fa-xs"></i>
+    <% end %>
+    <%= link_to "Plan Next Week", new_week_path, class: "btn btn-primary btn-sm d-flex align-items-center gap-2" %>
+  </div>
+
   <% calendar_start = Date.current.beginning_of_week %>
 
   <div id="calendar" style="position: relative;">
@@ -68,13 +76,13 @@
                     <% dishes.each do |dish| %>
                       <% first_day = @recipe_first_day[dish.recipe_id] %>
                       <% is_leftover = first_day && first_day != day.date.strftime("%A") %>
-                      <div class="planner-card recipe-color-<%= dish.recipe.id % 6 %> w-100 position-relative h-100 align-content-center"
+                      <div class="planner-card recipe-color-<%= dish.recipe.id % 6 %> w-100 position-relative h-100 align-content-center parent-element"
                         data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
                         <%= link_to dish_path(dish),
                                     class: "stretched-link text-decoration-none" do %>
                           <p class="m-0 card-title">
                             <% if is_leftover %>
-                              (<%= first_day %>) Leftovers
+                              <%= first_day %> Leftovers
                             <% else %>
                               <%= dish.recipe.name.include?("with") ? dish.recipe.name.split("with")[0].strip : dish.recipe.name.split("and")[0].strip %>
                             <% end %>
@@ -111,13 +119,5 @@
   </div>
 
   <!-- Plan next week & Shopping list buttons -->
-  <div class="mt-4 mb-4 d-flex justify-content-end gap-2">
-    <%= link_to week_shopping_items_path(@week),
-                class: "btn btn-outline-primary btn-sm d-flex align-items-center gap-2" do %>
-      <span>Shopping list</span>
-      <i class="fa-solid fa-chevron-right fa-xs"></i>
-    <% end %>
-    <%= link_to "Plan Next Week", new_week_path, class: "btn btn-primary btn-sm d-flex align-items-center gap-2" %>
-  </div>
 
 </div>
