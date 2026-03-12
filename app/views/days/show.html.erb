@@ -1,21 +1,6 @@
 <!-- banner -->
 <div class="page-banner">
-  <div class="container">
 
-    <div class="banner-inner">
-      <h1 class="banner-title">
-        <%= @day.date.strftime("%A, %d %B") %>
-      </h1>
-      <p class="banner-subtitle">Check what you need to prepare!</p>
-      <%= link_to "‹ Previous day",
-          week_day_path(@day.week, @day.previous_day),
-          class: "text-decoration-none btn-ghost-white ms-2" if @day.previous_day %>
-
-      <%= link_to "Next day ›",
-          week_day_path(@day.week, @day.next_day),
-          class: "text-decoration-none btn-ghost-white ms-2" if @day.next_day %>
-    </div>
-  </div>
 </div>
 
 <% breakfasts = {
@@ -32,12 +17,26 @@
   } %>
 <% all_meals = [breakfasts, lunches, dinners] %>
 
-<div class="container my-4" data-day-id="<%= params[:id] %>">
+<div class="container mb-2" data-day-id="<%= params[:id] %>">
   <div class="row" data-controller="favorites">
-
       <!-- Back -->
     <div class="d-flex justify-content-between mb-1 p-1">
-      <%= link_to "‹ Back", week_path(Week.current_week_for_user(current_user)), class: "btn btn-ghost ms-2" %>
+      <%= link_to "‹ Back", week_path(Week.current_week_for_user(current_user)), class: "btn btn-ghost" %>
+    </div>
+    <div class="day-nav mb-3">
+      <div>
+        <%= link_to week_day_path(@day.week, @day.previous_day), class: "text-decoration-none btn-ghost" do %>
+          <i class="fa-solid fa-angle-left fw-bold fs-3 text-primary"></i>
+        <% end if @day.previous_day %>
+      </div>
+      <h5 class="banner-title mb-0">
+        <%= @day.date.strftime("%A, %d %B") %>
+      </h5>
+      <div>
+        <%= link_to week_day_path(@day.week, @day.next_day), class: "text-decoration-none btn-ghost" do %>
+          <i class="fa-solid fa-angle-right fw-bold fs-3 text-primary"></i>
+        <% end if @day.next_day %>
+      </div>
     </div>
 
     <% ["breakfast", "lunch", "dinner"].each do |category| %>
