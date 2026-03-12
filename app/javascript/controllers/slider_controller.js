@@ -17,7 +17,7 @@ export default class extends Controller {
         <div class="meal-section mb-3 tiny-card btn btn-primary" data-category="${category}" data-day="${day}" data-action="click->slider#deleteButton">
           <div class="meal-header-white m-0">
             <span>${category}</span>
-            <span>Portions: <i class="fa-solid fa-bowl-food"></i></span>
+            <span>Portions: ${this.valueTarget.value} <i class="fa-solid fa-bowl-food"></i></span>
           </div>
         </div>
       </div>

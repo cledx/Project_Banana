@@ -59,9 +59,13 @@ export default class extends Controller {
           }
 
           if (previousCategory.children.length === 0) {
-            previousCategory.innerHTML = `<div class="empty-meal h-100">
-              <span>No ${previousCategory.dataset.category} planned</span>
-            </div>`
+            previousCategory.innerHTML = `
+            <div class="empty-meal h-100" data-week-loading-target="empty">
+              <a class="p-1 text-muted text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add meal" data-turbo="false" href="#">
+                <i class="fa-solid fa-plus fa-lg p-2 transparent"></i>
+              </a>
+            </div>
+            `
           }
           newCategory.querySelector(".empty-meal")?.remove()
 
