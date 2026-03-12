@@ -13,44 +13,27 @@
 
       <div class="d-flex w-100 justify-content-between align-items-center">
         <div class="tag-box">
-      <div class="tag-box-title">
-        Preferences and Allergies:
-      <% unless @user.allergies.nil? %>
-        <% @user.allergies.each do |allergy| %>
-          <span style="display: inline-block; background:#FFEFE2; color: #E76F51; border: 1.5px solid #ffebe6; border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 2px 4px 2px 0; line-height: 1.5; font-weight: 500;">
-            <%= allergy %>
-          </span>
-        <% end %>
-      <% end %>
-      <% unless @user.disease.nil? %>
-        <% @user.disease.each do |disease| %>
-          <span style="display: inline-block; background:#FFEFE2; color: #E76F51; border: 1.5px solid #ffebe6; border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 2px 4px 2px 0; line-height: 1.5; font-weight: 500;">
-            <%= disease %>
-          </span>
-        <% end %>
-      <% end %>
-    <span style="display: inline-block; background:#FFEFE2; color: #333; border: 1.5px solid #ffebe6; border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 6px 4px 2px 0; line-height: 1.5; font-weight: 500; cursor: pointer;">
-      <i class="fa-solid fa-plus fa-sm"></i>
-    </span>
-    </div>
-  </div>
-
-  <div data-controller="sortable" id="calendar">
-    <div class = "mb-4">
-      <label for="familySizeInput" class="form-label" data-slider-target="sliderValue">Portions: </label>
-      <input
-        type="number"
-        class="form-control w-auto d-inline-block"
-        min="1"
-        max="10"
-        step="1"
-        value="1"
-        id="familySizeInput"
-        data-slider-target="value"
-        data-action="input->slider#updateValue"
-        style="width: 80px;"
-      >
-    </div>
+          <div class="tag-box-title">
+              Preferences and Allergies:
+              <% unless @user.allergies.nil? %>
+                <% @user.allergies.each do |allergy| %>
+                  <span style="display: inline-block; background:#FFEFE2; color: #E76F51; border: 1.5px solid #ffebe6; border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 2px 4px 2px 0; line-height: 1.5; font-weight: 500;">
+                    <%= allergy %>
+                  </span>
+                <% end %>
+              <% end %>
+              <% unless @user.disease.nil? %>
+                <% @user.disease.each do |disease| %>
+                  <span style="display: inline-block; background:#FFEFE2; color: #E76F51; border: 1.5px solid #ffebe6; border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 2px 4px 2px 0; line-height: 1.5; font-weight: 500;">
+                    <%= disease %>
+                  </span>
+                <% end %>
+              <% end %>
+            <span style="display: inline-block; background:#FFEFE2; color: #333; border: 1.5px solid #ffebe6; border-radius: 18px; font-size: 0.82rem; padding: 2.5px 14px; margin: 6px 4px 2px 0; line-height: 1.5; font-weight: 500; cursor: pointer;">
+              <i class="fa-solid fa-plus fa-sm"></i>
+            </span>
+          </div>
+      </div>
         <div>
           <label for="familySizeInput" class="form-label" data-slider-target="sliderValue">
             <i class="fa-solid fa-utensils"></i>
