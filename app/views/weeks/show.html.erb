@@ -87,7 +87,14 @@
                     <% end %>
                 <% else %>
                   <div class="empty-meal h-100" data-week-loading-target="empty">
-                    <span>No <%= category %> planned</span>
+                <%# TODO: need build dishes_path generation logic %>
+                    <%= link_to "#",
+                                class: "p-1 text-muted text-decoration-none",
+                                data: {
+                                  turbo: false
+                                } do %>
+                      <i class="fa-solid fa-plus fa-lg p-2"></i>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
