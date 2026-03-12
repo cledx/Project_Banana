@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_10_120000) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_12_130000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -72,6 +72,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_10_120000) do
   end
 
   create_table "recipes", force: :cascade do |t|
+    t.string "cloudinary_public_id"
     t.integer "cooktime"
     t.datetime "created_at", null: false
     t.string "cuisine"
@@ -81,6 +82,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_10_120000) do
     t.integer "preptime"
     t.string "tags", array: true
     t.datetime "updated_at", null: false
+    t.index ["cloudinary_public_id"], name: "index_recipes_on_cloudinary_public_id"
   end
 
   create_table "shopping_items", force: :cascade do |t|

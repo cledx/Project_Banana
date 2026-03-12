@@ -70,8 +70,15 @@
                       <i class="fa-regular fa-trash-can fa-lg" ></i>
                     <% end %>
                   </div>
-                  <% recipe_image = "recipe_images/#{dish.recipe.name.downcase.gsub(' ', '_')}.png" %>
-                  <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
+                  <% if dish.recipe.cloudinary_public_id.present? %>
+                    <%= cl_image_tag(
+                          dish.recipe.cloudinary_public_id,
+                          class: "img-fluid card-img-top",
+                          transformation: [{ width: 600, height: 400, crop: :fill }]
+                        ) %>
+                  <% else %>
+                    <%= image_tag "flipcard_placeholder.jpg", class: "img-fluid card-img-top" %>
+                  <% end %>
                   <div class="front-title">
                     <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
                       <h2><%= dish.recipe.name %></h2>
