@@ -5,7 +5,13 @@
         <tr>
           <% week.each do |day| %>
             <% if params[:id] %>
-              <th class="text-center <%= 'today' if day == Date.current %>"><%= link_to(day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none") %></th>
+              <th class="text-center <%= 'today' if day == Date.current %>">
+                <% if day >= @week.days.first.date.to_date && day <= @week.days.last.date.to_date %>
+                  <%= link_to(day.strftime("%a %d"), week_day_path(@week, day), class: "text-decoration-none") %>
+                <% else %>
+                  <%= link_to(day.strftime("%a %d"), week_day_path(@week.next_week, day), class: "text-decoration-none") %>
+                <% end %>
+              </th>
             <% elsif on_weeks_new? %>
               <th class="text-center <%= 'today' if day == Date.current %>"><%= day.strftime("%A") %></th>
             <% else %>

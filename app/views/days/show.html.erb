@@ -37,7 +37,7 @@
 
       <!-- Back -->
     <div class="d-flex justify-content-between mb-1 p-1">
-      <%= link_to "‹ Back", week_path(@day.week), class: "btn btn-ghost ms-2" %>
+      <%= link_to "‹ Back", week_path(Week.current_week_for_user(current_user)), class: "btn btn-ghost ms-2" %>
     </div>
 
     <% ["breakfast", "lunch", "dinner"].each do |category| %>
