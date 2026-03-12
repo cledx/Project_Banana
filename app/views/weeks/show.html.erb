@@ -76,7 +76,7 @@
                             <% if is_leftover %>
                               (<%= first_day %>) Leftovers
                             <% else %>
-                              <%= dish.recipe.name %>
+                              <%= dish.recipe.name.include?("with") ? dish.recipe.name.split("with")[0].strip : dish.recipe.name.split("and")[0].strip %>
                             <% end %>
                           </p>
                         <% end %>
