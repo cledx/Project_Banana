@@ -37,5 +37,29 @@ class Week < ApplicationRecord
     puts "attributes from week: #{attributes}"
     puts "*" * 30
     next_week = Ai::WeekGen.new(user).generate_week(attributes)
+
+    # After the next week has been generated, broadcast an update for each day/category
+    # so the *current* week (the one that contains today) can update via WeekChannel.
+    current_week_for_user = Week.current_week_for_user(user) || self
+    next_week.days.includes(:dishes).each do |day|
+      %w[breakfast lunch dinner].each do |category|
+        category_dishes = day.dishes.where(category: category)
+        html = ApplicationController.render(
+          partial: "weeks/day_meal_list",
+          locals: { day: day, dishes: category_dishes, category: category, current_user: next_week.user }
+        )
+
+        ActionCable.server.broadcast(
+          "week_#{current_week_for_user.id}",
+          {
+            day_id: day.id,
+            category: category,
+            html: html
+          }
+        )
+      end
+    end
+
+    next_week
   end
 end

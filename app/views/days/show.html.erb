@@ -32,7 +32,7 @@
   } %>
 <% all_meals = [breakfasts, lunches, dinners] %>
 
-<div class="container mt-4" data-day-id="<%= @day.id %>">
+<div class="container my-4" data-day-id="<%= params[:id] %>">
   <div class="row" data-controller="favorites">
 
       <!-- Back -->
@@ -70,11 +70,8 @@
                       <i class="fa-regular fa-trash-can fa-lg" ></i>
                     <% end %>
                   </div>
-                  <% if dish.recipe.image_url.present? %>
-                    <%= image_tag dish.recipe.image_url %>
-                  <% else %>
-                    <%= image_tag 'flipcard_placeholder.jpg' %>
-                  <% end %>
+                  <% recipe_image = "recipe_images/#{dish.recipe.name.downcase.gsub(' ', '_')}.png" %>
+                  <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
                   <div class="front-title">
                     <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
                       <h2><%= dish.recipe.name %></h2>

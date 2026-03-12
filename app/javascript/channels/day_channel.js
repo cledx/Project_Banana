@@ -4,10 +4,8 @@ import consumer from "channels/consumer"
 const element = document.querySelector("[data-day-id]")
 
 if (element) {
-  const dayId = element.dataset.dayId
-
   consumer.subscriptions.create(
-    { channel: "DayChannel", day_id: dayId },
+    { channel: "DayChannel" },
     {
       received(data) {
         // data: { day_id, category, html }

@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   def create_initial_week
     week = weeks.create!(month: Date.current.month)
-    start_date = Date.current.beginning_of_week
+    start_date = Date.current.beginning_of_week - 7.days
     7.times do |i|
       week.days.create!(date: start_date + i.days)
     end
