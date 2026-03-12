@@ -24,10 +24,10 @@ class Week < ApplicationRecord
       end
 
       attributes = {
-        month: reference_date.month,
-        week_start: reference_date,
-        day_templates: day_templates,
-        week: self
+        "month" => reference_date.month,
+        "week_start" => reference_date,
+        "day_templates" => day_templates,
+        "week_id" => id
       }
       puts "*" * 30
       puts "attributes from week: #{attributes}"

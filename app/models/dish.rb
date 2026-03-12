@@ -20,7 +20,7 @@ class Dish < ApplicationRecord
     end
 
     ingredients_hash.each do |(ingredient, unit), total|
-      p ingredient
+      # p ingredient
       existing_item = week.shopping_items.find { |item| item.ingredient == ingredient && item.unit = unit }
       if existing_item
         existing_item.update(total: total, unit: unit)
