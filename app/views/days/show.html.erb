@@ -82,7 +82,11 @@
                     <% end %>
                   </div>
                   <% recipe_image = "recipe_images/#{dish.recipe.name.downcase.gsub(' ', '_')}.png" %>
-                  <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
+                  <% if Rails.application.assets.find_asset(recipe_image) || Rails.application.assets.find_asset("/assets/#{recipe_image}") %>
+                    <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
+                  <% else %>
+                    <%= image_tag "flipcard_placeholder.jpg", class: "img-fluid card-img-top" %>
+                  <% end %>
                   <div class="front-title">
                     <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
                       <h2><%= dish.recipe.name %></h2>
