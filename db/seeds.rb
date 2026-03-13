@@ -123,7 +123,7 @@ recipes.each do |recipe_hash|
   cuisine      = recipe_hash["cuisine"]
   tags         = recipe_hash["tags"] || []
   image_url    = recipe_hash["image_url"]
-  
+
   recipe = Recipe.create!(
     name: name,
     cooktime: cooktime,
@@ -210,12 +210,12 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
 
   day_templates = {
     monday: { breakfast: 0, lunch: 2, dinner: 2 },
-    tuesday: { breakfast: 0, lunch: 0, dinner: 2 },
-    wednesday: { breakfast: 0, lunch: 0, dinner: 2 },
+    tuesday: { breakfast: 0, lunch: 2, dinner: 2 },
+    wednesday: { breakfast: 0, lunch: 2, dinner: 2 },
     thursday: { breakfast: 0, lunch: 2, dinner: 2 },
-    friday: { breakfast: 0, lunch: 0, dinner: 2 },
+    friday: { breakfast: 0, lunch: 2, dinner: 2 },
     saturday: { breakfast: 0, lunch: 2, dinner: 2 },
-    sunday: { breakfast: 0, lunch: 0, dinner: 0 }
+    sunday: { breakfast: 0, lunch: 2, dinner: 2 }
   }
   puts "Day templates: #{day_templates}"
 
@@ -259,7 +259,7 @@ ALL_CUISINES = Recipe.all.pluck(:cuisine).map(&:capitalize)
   # CURRENT WEEK
   # ============================================================
   user.weeks.first.destroy
-  
+
   week_start = Date.today.beginning_of_week(:monday)
   week = Week.create!(user: user, month: week_start.month)
   7.times do |i|
