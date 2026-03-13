@@ -36,8 +36,13 @@ class Ai::WeekGen
         portions = day_templates && day_templates[weekday] && day_templates[weekday][key.to_sym]
         puts "portions #{portions}"
         if portions.to_i > 0
-          new_dish = Dish.create(day: new_day, portions: portions, recipe_id: value, category: key)
-          puts "New dish: #{new_dish.inspect} for #{new_dish.day.date} for week_id: #{new_dish.day.week.id}"
+          if value.to_i == 0
+            new_dish = Dish.create(day: new_day, portions: portions, recipe_id: Recipe.all.sample.id, category: key)
+            puts "New dish: #{new_dish.inspect} for #{new_dish.day.date} for week_id: #{new_dish.day.week.id}"
+          else
+            new_dish = Dish.create(day: new_day, portions: portions, recipe_id: value, category: key)
+            puts "New dish: #{new_dish.inspect} for #{new_dish.day.date} for week_id: #{new_dish.day.week.id}"
+          end
         else
           puts "No meal needed for #{key.capitalize} on #{new_day.date.strftime('%A')}"
         end
