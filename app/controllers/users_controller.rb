@@ -31,7 +31,6 @@ class UsersController < ApplicationController
     %i[preferred_cuisines preferred_ingredients undesireable_ingredients allergies disease].each do |field|
       permitted[field] = permitted[field].reject(&:blank?) if permitted[field]
     end
-    puts "CLEANED PARAMS: #{permitted.inspect}" # check this in your server logs
     permitted
   end
 end

@@ -8,7 +8,6 @@ class Dish < ApplicationRecord
   after_commit :update_items
 
   def update_items
-    puts "Updating items for dish: #{id}"
     ingredients_hash = {}
     week.dishes.each do |dish|
       portions = dish.portions

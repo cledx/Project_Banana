@@ -86,7 +86,6 @@ class WeeksController < ApplicationController
     end
     @week.save!
 
-    puts "Day templates from controller: #{day_templates}"
     WeekJob.perform_later(@week.id, day_templates)
     redirect_to week_path(current_user.weeks[-2].id)
   end
