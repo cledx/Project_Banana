@@ -84,7 +84,7 @@
                     <% dishes.each do |dish| %>
                       <% first_day = @recipe_first_day[dish.recipe_id] %>
                       <% is_leftover = first_day && first_day != day.date.strftime("%A") %>
-                      <div class="planner-card recipe-color-<%= dish.recipe.id % 6 %> w-100 position-relative h-100 align-content-center parent-element"
+                      <div class="planner-card recipe-color-<%= @dish_colours[dish.recipe_id] %> w-100 position-relative h-100 align-content-center parent-element"
                         data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
                         <%= link_to dish_path(dish),
                                     class: "stretched-link text-decoration-none" do %>

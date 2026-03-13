@@ -7,6 +7,19 @@ class WeeksController < ApplicationController
     @calendar_days = @week.days
     @calendar_days += @week.next_week.days if @week.next_week
     @recipe_first_day = {}
+    @dish_colours = {}
+    [@week, @week.next_week].each do |week|
+      week.days.each do |day|
+        day.dishes.each do |dish|
+          next if @dish_colours.key?(dish.recipe_id)
+
+          color = 0
+          color += 1 while @dish_colours.value?(color)
+          @dish_colours[dish.recipe_id] = color
+        end
+      end
+    end
+
     @calendar_days.each do |day|
       day.dishes.each do |dish|
         @recipe_first_day[dish.recipe_id] ||= day.date.strftime("%A")
