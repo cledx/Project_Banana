@@ -39,12 +39,12 @@ export default class extends Controller {
       buttonsStyling: false
     });
     swalWithBootstrapButtons.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
+      title: "Do you want new recipe?",
+      text: "We will regenarate a new dish to you.",
+      icon: "question",
       showCancelButton: true,
-      confirmButtonText: "Yes, change it!",
-      cancelButtonText: "No, cancel!",
+      confirmButtonText: "Change Recipe",
+      cancelButtonText: "No, cancel",
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
@@ -70,7 +70,6 @@ export default class extends Controller {
       ) {
         swalWithBootstrapButtons.fire({
           title: "Cancelled",
-          text: "Your imaginary file is safe :)",
           icon: "error"
         });
       }

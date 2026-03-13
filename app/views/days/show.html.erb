@@ -42,85 +42,80 @@
     <% ["breakfast", "lunch", "dinner"].each do |category| %>
       <div class="col-md-4" data-day-id="<%= @day.id %>" data-category="<%= category %>">
         <div data-day-replaceable>
-        <div class="meal-column">
-          <h4><%= category.capitalize %></h4>
-        </div>
+          <div class="meal-column">
+            <h4><%= category.capitalize %></h4>
+          </div>
 
-        <% category_dishes = @dishes.select {|dish| dish.category == category} %>
+          <% category_dishes = @dishes.select {|dish| dish.category == category} %>
 
-        <div data-controller="flipcard">
-          <% category_dishes.each do |dish| %>
-          <div data-controller="loading">
-            <div data-loading-target="content">
+          <div data-controller="flipcard">
+            <% category_dishes.each do |dish| %>
+              <div data-controller="loading">
+                <div data-loading-target="content">
 
-              <div class="position-relative flipcard mb-2 parent-element" data-action="click->flipcard#flip">
-              <div id="flipcard">
-                <div class="front">
-                  <div class="delete-dish-btn">
-                    <a data-action="click->favorites#toggle" data-recipe-id="<%= dish.recipe.id %>" data-favorites-target="btns" class="icon-color-white p-1">
-                      <i class="<%= current_user.favorited?(dish.recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
-                    </a>
+                  <div class="position-relative flipcard mb-2 parent-element" data-action="click->flipcard#flip">
+                    <div id="flipcard">
+                      <div class="front">
+                        <div class="delete-dish-btn">
+                          <a data-action="click->favorites#toggle" data-recipe-id="<%= dish.recipe.id %>" data-favorites-target="btns" class="icon-color-white p-1">
+                            <i class="<%= current_user.favorited?(dish.recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
+                          </a>
 
-                    <%#= link_to dish_path(dish, new_id: "regenerate"),
-                    class: "icon-color-white p-1",
-                    data: { bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Generate new recipe", action: "click->loading#show", turbo_method: :patch, turbo_confirm: "Do you want to generate a new dish?" } do %>
-                      <%# <i class="fa-solid fa-arrows-rotate fa-lg"></i> %>
-                    <%# end %>
+                          <%#= link_to dish_path(dish, new_id: "regenerate"),
+                          class: "icon-color-white p-1",
+                          data: { bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Generate new recipe", action: "click->loading#show", turbo_method: :patch, turbo_confirm: "Do you want to generate a new dish?" } do %>
+                            <%# <i class="fa-solid fa-arrows-rotate fa-lg"></i> %>
+                          <%# end %>
 
-                    <a class="icon-color-white p-1"
-                        href="/dishes/<%= dish.id %>?new_id=regenerate"
-                        data-action="click->loading#trigger"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="bottom"
-                        data-bs-title="Generate new recipe"
-                    >
-                        <i class="fa-solid fa-arrows-rotate fa-lg"></i>
-                    </a>
+                          <a class="icon-color-white p-1"
+                              href="/dishes/<%= dish.id %>?new_id=regenerate"
+                              data-action="click->loading#trigger"
+                              data-bs-toggle="tooltip"
+                              data-bs-placement="bottom"
+                              data-bs-title="Generate new recipe"
+                          >
+                            <i class="fa-solid fa-arrows-rotate fa-lg"></i>
+                          </a>
 
-                    <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"icon-color-white p-1" do %>
-                      <i class="fa-regular fa-trash-can fa-lg" ></i>
-                    <% end %>
-                  </div>
-                  <% recipe_image = "recipe_images/#{dish.recipe.name.downcase.gsub(' ', '_')}.png" %>
-                  <% if Rails.application.assets.find_asset(recipe_image) || Rails.application.assets.find_asset("/assets/#{recipe_image}") %>
-                    <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
-                  <% else %>
-                    <%= image_tag "flipcard_placeholder.jpg", class: "img-fluid card-img-top" %>
-                  <% end %>
-                  <div class="front-title">
-                    <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
-                      <h2><%= dish.recipe.name %></h2>
-                    <% end %>
+                          <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"icon-color-white p-1" do %>
+                            <i class="fa-regular fa-trash-can fa-lg" ></i>
+                          <% end %>
+                        </div>
+                        <% recipe_image = "recipe_images/#{dish.recipe.name.downcase.gsub(' ', '_')}.png" %>
+                        <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
+                        <div class="front-title">
+                          <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
+                            <h2><%= dish.recipe.name %></h2>
+                          <% end %>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="card p-3 mb-3 back d-flex flex-column">
-                      <h5><%= dish.recipe.name %></h5>
-                      <p class="mb-0 text-muted">Ingredients:</p>
-                      <ul class="list mb-0 text-muted">
-                        <% dish.recipe.ingredients.first(8).each do |ingredient| %>
-                          <li><%= ingredient.name %></li>
-                        <% end %>
-                      </ul>
-                      <div class="ps-3">
-                      <%= "..." if dish.recipe.ingredients.count > 8 %>
+                      <div class="card p-3 mb-3 back d-flex flex-column">
+                        <h5><%= dish.recipe.name %></h5>
+                        <p class="mb-0 text-muted">Ingredients:</p>
+                        <ul class="list mb-0 text-muted">
+                          <% dish.recipe.ingredients.first(8).each do |ingredient| %>
+                            <li><%= ingredient.name %></li>
+                          <% end %>
+                        </ul>
+                        <div class="ps-3">
+                          <%= "..." if dish.recipe.ingredients.count > 8 %>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
+                <!-- loading -->
+                <div class="d-none card p-4 flex-column align-items-center justify-content-center" data-loading-target="loading">
+                  <%= image_tag "loading.gif", alt: "text", class: "loading-img" %>
+                  <p class="text-muted mt-3" data-loading-target="message">
+                    Checking cookbook...
+                  </p>
+                </div>
               </div>
-
-              <!-- loading -->
-              <div class="d-none card p-4 flex-column align-items-center justify-content-center" data-loading-target="loading">
-                <div class="spinner-border"></div>
-                <p class="text-muted mt-3" data-loading-target="message">
-                  Checking cookbook...
-                </p>
-              </div>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

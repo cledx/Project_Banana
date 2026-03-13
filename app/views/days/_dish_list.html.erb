@@ -6,76 +6,75 @@
   <% dishes.each do |dish| %>
     <div data-controller="loading">
       <div data-loading-target="content">
-
         <div class="position-relative flipcard mb-2 parent-element" data-action="click->flipcard#flip">
-        <div id="flipcard">
-          <div class="front">
-            <div class="delete-dish-btn">
+          <div id="flipcard">
+            <div class="front">
+              <div class="delete-dish-btn">
+                <a data-action="click->favorites#toggle" data-recipe-id="<%= dish.recipe.id %>" data-favorites-target="btns" class="icon-color-white p-1">
+                  <i class="<%= current_user.favorited?(dish.recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
+                </a>
 
-              <%= link_to toggle_favorites_path(recipe_id: dish.recipe.id),
-                          data: { turbo_method: :post },
-                          class: "icon-color-white p-1" do %>
-
-                <i class="<%= current_user.favorited?(dish.recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
-
+              <%# <%= link_to(
+                    dish_path(dish, new_id: "regenerate"),
+                    class: "icon-color-white p-1",
+                    data: {
+                      bs_toggle: "tooltip",
+                      bs_placement: "bottom",
+                      bs_title: "Generate new recipe",
+                      action: "click->loading#show",
+                      turbo_method: :patch,
+                      turbo_confirm: "Do you want to generate a new dish?"
+                    }
+                  ) do %>
+                <%# <i class="fa-solid fa-arrows-rotate fa-lg"></i> %>
+              <%# end %>
+                <a class="icon-color-white p-1"
+                  href="/dishes/<%= dish.id %>?new_id=regenerate"
+                  data-action="click->loading#trigger"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="bottom"
+                  data-bs-title="Generate new recipe"
+                >
+                  <i class="fa-solid fa-arrows-rotate fa-lg"></i>
+                </a>
+              <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"icon-color-white p-1" do %>
+                <i class="fa-regular fa-trash-can fa-lg" ></i>
               <% end %>
-
-            <%= link_to(
-                  dish_path(dish, new_id: "regenerate"),
-                  class: "icon-color-white p-1",
-                  data: {
-                    bs_toggle: "tooltip",
-                    bs_placement: "bottom",
-                    bs_title: "Generate new recipe",
-                    action: "click->loading#show",
-                    turbo_method: :patch,
-                    turbo_confirm: "Do you want to generate a new dish?"
-                  }
-                ) do %>
-              <i class="fa-solid fa-arrows-rotate fa-lg"></i>
-            <% end %>
-            <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"icon-color-white p-1" do %>
-              <i class="fa-regular fa-trash-can fa-lg" ></i>
-            <% end %>
+              </div>
+              <% if dish.recipe.image_url.present? %>
+                <%= image_tag dish.recipe.image_url %>
+              <% else %>
+                <%= image_tag 'flipcard_placeholder.jpg' %>
+              <% end %>
+              <div class="front-title">
+                <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
+                  <h2><%= dish.recipe.name %></h2>
+                <% end %>
+              </div>
             </div>
-            <% if dish.recipe.image_url.present? %>
-              <%= image_tag dish.recipe.image_url %>
-            <% else %>
-              <%= image_tag 'flipcard_placeholder.jpg' %>
-            <% end %>
-            <div class="front-title">
-              <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
-                <h2><%= dish.recipe.name %></h2>
-              <% end %>
+            <div class="card p-3 mb-3 back d-flex flex-column">
+              <h5><%= dish.recipe.name %></h5>
+              <p class="mb-0 text-muted">Ingredients:</p>
+              <ul class="list mb-0 text-muted">
+                <% dish.recipe.ingredients.first(3).each do |ingredient| %>
+                  <li><%= ingredient.name %></li>
+                <% end %>
+              </ul>
+              <%= "..." if dish.recipe.ingredients.count > 5 %>
+                <%= link_to dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" do %>
+                  View Recipe
+                  <i class="fa-solid fa-angle-right"></i>
+                <% end %>
             </div>
           </div>
-          <div class="card p-3 mb-3 back d-flex flex-column">
-            <h5><%= dish.recipe.name %></h5>
-            <p class="mb-0 text-muted">Ingredients:</p>
-            <ul class="list mb-0 text-muted">
-              <% dish.recipe.ingredients.first(3).each do |ingredient| %>
-                <li><%= ingredient.name %></li>
-              <% end %>
-            </ul>
-            <%= "..." if dish.recipe.ingredients.count > 5 %>
-              <%= link_to dish_path(dish), class: "btn btn-primary text-decoration-none mt-auto" do %>
-                View Recipe
-                <i class="fa-solid fa-angle-right"></i>
-              <% end %>
-          </div>
-        </div>
         </div>
       </div>
-    </div>
-
-    <!-- loading -->
+       <!-- loading -->
       <div class="d-none card p-4 flex-column align-items-center justify-content-center" data-loading-target="loading">
-        <div class="spinner-border">
-        </div>
+        <%= image_tag "loading.gif", alt: "text", class: "loading-img" %>
         <p class="text-muted mt-3" data-loading-target="message">
           Checking cookbook...
         </p>
       </div>
-  </div>
   <% end %>
 </div>
