@@ -6,3 +6,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.loading-img {
+  height: 100%;
+}
+
+.card:has(.loading-img) {
+  height: 320px;
+  filter: hue-rotate(-60deg);
+}

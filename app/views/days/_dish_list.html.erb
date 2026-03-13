@@ -12,15 +12,11 @@
           <div class="front">
             <div class="delete-dish-btn">
 
-              <%= link_to toggle_favorites_path(recipe_id: dish.recipe.id),
-                          data: { turbo_method: :post },
-                          class: "icon-color-white p-1" do %>
+               <a data-action="click->favorites#toggle" data-recipe-id="<%= dish.recipe.id %>" data-favorites-target="btns" class="icon-color-white p-1">
+                      <i class="<%= current_user.favorited?(dish.recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
+                    </a>
 
-                <i class="<%= current_user.favorited?(dish.recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %> fa-lg"></i>
-
-              <% end %>
-
-            <%= link_to(
+            <%# <%= link_to(
                   dish_path(dish, new_id: "regenerate"),
                   class: "icon-color-white p-1",
                   data: {
@@ -32,8 +28,17 @@
                     turbo_confirm: "Do you want to generate a new dish?"
                   }
                 ) do %>
-              <i class="fa-solid fa-arrows-rotate fa-lg"></i>
-            <% end %>
+              <%# <i class="fa-solid fa-arrows-rotate fa-lg"></i> %>
+            <%# end %>
+              <a class="icon-color-white p-1"
+                        href="/dishes/<%= dish.id %>?new_id=regenerate"
+                        data-action="click->loading#trigger"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-title="Generate new recipe"
+                    >
+                        <i class="fa-solid fa-arrows-rotate fa-lg"></i>
+                    </a>
             <%= link_to dish_path(dish), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"icon-color-white p-1" do %>
               <i class="fa-regular fa-trash-can fa-lg" ></i>
             <% end %>
@@ -70,8 +75,7 @@
 
     <!-- loading -->
       <div class="d-none card p-4 flex-column align-items-center justify-content-center" data-loading-target="loading">
-        <div class="spinner-border">
-        </div>
+        <%= image_tag "loading.gif", alt: "text", class: "loading-img" %>
         <p class="text-muted mt-3" data-loading-target="message">
           Checking cookbook...
         </p>
