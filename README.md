@@ -34,7 +34,7 @@ How to Use the App
 
 2. Build a Weekly Meal Plan
 
-**First time users- choose the meals you'd like Forkcast to generate a recipe for and specify the number of portions you'd like to make and click   Generate Week
+*First time users- choose the meals you'd like Forkcast to generate a recipe for and specify the number of portions you'd like to make and click   Generate Week
 -Check out the recipes Forkcast has planned for you and make any changes you'd like
   1. reassign recipes to other meals or days by clicking and dragging,
   2. click on the day to see each meal
@@ -63,7 +63,7 @@ Use your favorites as a quick reference when building future meal plans.
 
 | Landing Page | Week Planner | Shopping List |
 |---|---|---|
-| ![Landing Page](assets/images/screenshot_1.jpeg) | ![Week Planner](assets/images/screenshot_2.jpeg) | ![Shopping List](assets/images/screenshot_3.jpeg) |
+| ![Landing Page](app/assets/images/screenshot_1.jpeg) | ![Week Planner](app/assets/images/screenshot_2.jpeg) | ![Shopping List](app/assets/images/screenshot_3.jpeg) |
 
 
 ---
