@@ -16,7 +16,7 @@ With the overwhelming amount of recipes available on the web and on social media
 
 ---
 
-### ✅ Current Features
+## ✅ Current Features
 - Generate recipes based on preferences
 - Save recipes to a personal favorites collection
 - Build weekly meal plans
@@ -24,7 +24,7 @@ With the overwhelming amount of recipes available on the web and on social media
   
 ---
 
-How to Use the App
+## How to Use the App
 1. Create an Account
 
 -Visit reciplan.org and click Sign Up
