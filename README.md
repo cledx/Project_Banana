@@ -1,16 +1,14 @@
 # 🍽️ Forkcast
 
-🌐 [reciplan.org](https://reciplan.org)
+[Go to Forkcast](https://reciplan.org)
 
 ---
 
 ## About
 
-Originally Reciplan; we felt that Forkcast matches our identity better (fork, as in "what's for dinner?" meets forecast, as in planning your week ahead). 
-
 Forkcast is a meal planning web app designed to make weekly cooking simple and stress-free. Users save their ingredient preferences and dietary restrictions, create weekly meals based on portions, and generate shopping lists automatically. Whether you're cooking for one or feeding a family, Forkcast helps you spend less time deciding what to eat and more time enjoying it. 
 
-Built with Ruby on Rails, it's a fast, modern, and easy-to-use tool for everyday meal prep.
+Built with Ruby on Rails using Hotwire, AJAX, SweetAlert modals, and Sortable. It's a fast, modern, and easy-to-use tool for everyday meal prep.
 
 ---
 
@@ -20,21 +18,22 @@ With the overwhelming amount of recipes available on the web and on social media
 
 ---
 
-## ✅ Current Features
-- Generate recipes based on preferences
+## ✅ Features
+- Populates weekly meal plans with recipes based on your preferences
+  
 - Save recipes to a personal favorites collection
-- Build weekly meal plans
+  
 - Auto-generate shopping lists from combined ingredients of meal plans
   
 ---
 
 ## How to Use the App
-1. Create an Account
+### Create an Account
 
--Visit reciplan.org and click Sign Up
--Enter your name, email, and password to create your account
--Already have an account? Click Log In to get started
--Enter your dietary restrictions
+1. Visit reciplan.org and click Sign Up
+2. Enter your name, email, and password to create your account
+3. Already have an account? Click Log In to get started
+4. Enter your dietary restrictions
 
 2. Build a Weekly Meal Plan
 
