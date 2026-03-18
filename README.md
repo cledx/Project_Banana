@@ -1,4 +1,4 @@
-# 🍽️ Forkcast
+<img src="app/assets/images/navbar_logo.png" alt="Forkcast Logo" width="160">
 
 [Go to Forkcast](https://reciplan.org)
 
@@ -71,7 +71,11 @@ Use your favorites as a quick reference when building future meal plans.
 |---|---|---|
 | ![Landing Page](app/assets/images/screenshot_1.jpeg) | ![Week Planner](app/assets/images/screenshot_2.jpeg) | ![Shopping List](app/assets/images/screenshot_3.jpeg) |
 
-
 ---
+## Team Members
+- [Carlos Ledoux](https://www.linkedin.com/in/carlos-ledoux/)
+- [Koji Juan Kaga](https://www.linkedin.com/in/koji-juan-kaga-53a65823b/)
+- [Glaucia Grossi](https://www.linkedin.com/in/glau-grossi/)
+- [Katherine Rush](https://www.linkedin.com/in/katherine-rush-070448392/)
 
 This project is private and maintained by the Forkcast team. All rights reserved.
