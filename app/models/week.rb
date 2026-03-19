@@ -16,8 +16,6 @@ class Week < ApplicationRecord
   end
 
   def generate_next_week(day_templates = nil)
-    puts "day templates from week model #{day_templates}"
-
     # Use the first day of this week as a reference when available,
     # otherwise fall back to the upcoming week based on today's date.
     reference_date =
@@ -33,9 +31,6 @@ class Week < ApplicationRecord
       "day_templates" => day_templates,
       "week_id" => id
     }
-    puts "*" * 30
-    puts "attributes from week: #{attributes}"
-    puts "*" * 30
     next_week = Ai::WeekGen.new(user).generate_week(attributes)
 
     # After the next week has been generated, broadcast an update for each day/category
