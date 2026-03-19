@@ -11,7 +11,7 @@
       </div>
 
       <div class="d-flex recipe-card mb-4">
-        <% recipe_image = "recipe_images/#{@recipe.name.downcase.gsub(' ', '_')}.png" %>
+        <% recipe_image = "recipe_images/#{@recipe.name.downcase.gsub(/[ \-]/, '_')}.png" %>
         <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
 
         <div class="card-body position-relative" data-controller="favorites">

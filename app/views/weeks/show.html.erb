@@ -21,7 +21,7 @@
           <% unless meal.empty? %>
             <div class="col-md-4 mb-4">
               <div class="card recipe-card today-card position-relative">
-                <% recipe_image = "recipe_images/#{meal[0].recipe.name.downcase.gsub(' ', '_')}.png" %>
+                <% recipe_image = "recipe_images/#{meal[0].recipe.name.downcase.gsub(/[ \-]/, '_')}.png" %>
                 <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
                 <div class="card-body">
                   <p class="meal-category mb-1"><%= meal[0].category.capitalize %></p>

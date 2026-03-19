@@ -81,7 +81,7 @@
                             <i class="fa-regular fa-trash-can fa-lg" ></i>
                           <% end %>
                         </div>
-                        <% recipe_image = "recipe_images/#{dish.recipe.name.downcase.gsub(' ', '_')}.png" %>
+                        <% recipe_image = "recipe_images/#{dish.recipe.name.downcase.gsub(/[ \-]/, '_')}.png" %>
                         <%= image_tag recipe_image, class: "img-fluid card-img-top", onerror: "this.src='/assets/flipcard_placeholder.jpg'" %>
                         <div class="front-title">
                           <%= link_to dish_path(dish), class:"text-decoration-none card-day-h2" do %>
