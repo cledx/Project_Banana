@@ -1,9 +1,13 @@
 <nav class="navbar navbar-expand-sm navbar-lewagon <%= yield :navbar_class %>">
   <div class="container-fluid">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && !Week.current_week_for_user(current_user).nil? %>
       <%= link_to week_path(Week.current_week_for_user(current_user)), class: "navbar-brand" do %>
         <%= image_tag "navbar_logo.png" %>
       <% end %>
+    <% else %>
+    <div class="navbar-brand">
+      <%= image_tag "navbar_logo.png" %>
+    </div>
     <% end %>
 
 
@@ -15,15 +19,29 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to week_path(Week.current_week_for_user(current_user)), class: "nav-link" do %>
-              <i class="fa-solid fa-calendar-week p-1"></i>
-              Week Planner
+            <% if Week.current_week_for_user(current_user).nil? %>
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fa-solid fa-calendar-week p-1"></i>
+                Week Planner
+              <% end %>
+            <% else %>
+              <%= link_to week_path(Week.current_week_for_user(current_user)), class: "nav-link" do %>
+                <i class="fa-solid fa-calendar-week p-1"></i>
+                Week Planner
+              <% end %>
             <% end %>
           </li>
           <li class="nav-item">
+           <% if current_user.last_week?%>
             <%= link_to week_shopping_items_path(current_user.weeks.last), class: "nav-link" do %>
               <i class="fa-solid fa-basket-shopping p-1"></i>
               Shopping list
+            <% end %>
+            <% else %>
+              <%= link_to "#", class: "nav-link" do %>
+                <i class="fa-solid fa-basket-shopping p-1"></i>
+                No shopping list available
+              <% end %>
             <% end %>
           </li>
           <li class="nav-item">
