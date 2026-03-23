@@ -84,7 +84,16 @@
                   <% if dishes.any? %>
                     <% dishes.each do |dish| %>
                       <% first_day = @recipe_first_day[dish.recipe_id] %>
-                      <% is_leftover = first_day && first_day != day.date.strftime("%A") %>
+                      <% 
+                        is_leftover = false
+                        if first_day
+                          first_date = Date.parse(day.date.beginning_of_week.strftime("%Y-%m-%d"))
+                          first_day_index = Date::DAYNAMES.index(first_day)
+                          first_day_date = first_date + first_day_index
+                          # Only leftover if NOT actual first_day for the recipe, and not before first_day
+                          is_leftover = (day.date.strftime("%A") != first_day) && (day.date >= first_day_date)
+                        end
+                      %>
                       <div class="planner-card recipe-color-<%= @dish_colours[dish.recipe_id] %> w-100 position-relative h-100 align-content-center parent-element"
                         data-dish_id="<%= dish.id %>" data-recipe_name="<%= dish.recipe.name %>">
                         <%= link_to dish_path(dish),
