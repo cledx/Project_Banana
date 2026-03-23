@@ -7,10 +7,11 @@
       </span>
 
       <div class="footer-links text-center w-100">
-        <% if current_user && current_user.weeks.any? %>
+        <% if current_user && current_user.weeks.any?  && !Week.current_week_for_user(current_user).nil? %>
           <%= link_to "Home", week_path(Week.current_week_for_user(current_user)), class: "navbar-brand ms-0 me-2" %>
+          <span class="text-muted">|</span>
         <% end %>
-        <span class="text-muted">|</span>
+        
         <%= link_to "About", about_path, class: "footer-link ms-2" %>
       </div>
 

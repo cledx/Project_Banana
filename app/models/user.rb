@@ -22,6 +22,15 @@ class User < ApplicationRecord
     weeks.joins(:days).where(days: { date: prev_week_start..prev_week_end }).exists?
   end
 
+  # True if this user has a Week with at least one Day in the next calendar week
+  # (relative to reference_date). reference_date can be a Date or Time; defaults to today.
+  def next_week?(reference_date = Date.current)
+    ref = reference_date.to_date
+    next_week_start = ref.beginning_of_week + 7.days
+    next_week_end   = next_week_start + 6.days
+    weeks.joins(:days).where(days: { date: next_week_start..next_week_end }).exists?
+  end
+
   # Returns dishes from the week before the given date (by calendar week).
   # reference_date can be a Date or Time; defaults to today.
   def previous_week_dishes(reference_date = Date.current)
