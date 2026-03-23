@@ -6,7 +6,24 @@ class DishesController < ApplicationController
   end
 
   def create
-    @dish = Dish.create(dish_params)
+    if params[:new_id] == "generate"
+      @dish = Dish.create!(
+        recipe: Recipe.all.sample,
+        day_id: params["dish"]["day_id"],
+        category: params["dish"]["category"],
+        portions: 2
+      )
+
+      DishJob.perform_later(@dish.id, "regenerate")
+
+      redirect_back fallback_location: root_path,
+                    notice: "Generating your meal... It will be ready in a few moments 🍳"
+    else
+      @dish = Dish.create(dish_params)
+
+      redirect_back fallback_location: root_path,
+                    notice: "Dish added successfully!"
+    end
   end
 
   def update

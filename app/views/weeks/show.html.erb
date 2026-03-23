@@ -114,14 +114,18 @@
                 <% else %>
                   <div class="empty-meal h-100" data-week-loading-target="empty">
                 <%# TODO: need build dishes_path generation logic %>
-                    <%= link_to "#",
-                                class: "p-1 text-muted text-decoration-none",
-                                data: {
-                                  bs_toggle: "tooltip", bs_placement: "bottom", bs_title: "Add meal",
-                                  turbo: false
-                                } do %>
-                      <i class="fa-solid fa-plus fa-lg p-2 transparent"></i>
-                    <% end %>
+                  <%= button_to dishes_path,
+                                method: :post,
+                                params: {
+                                  dish: {
+                                    day_id: day.id,
+                                    category: category,
+                                  },
+                                  new_id: "generate"
+                                },
+                                class: "p-1 text-muted text-decoration-none border-0 bg-transparent" do %>
+                    <i class="fa-solid fa-plus fa-lg p-2"></i>
+                  <% end %>
                   </div>
                 <% end %>
               </div>
