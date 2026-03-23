@@ -13,6 +13,15 @@ class User < ApplicationRecord
 
   ALL_ALLERGIES = ["peanuts", "tree nuts", "shellfish", "dairy", "gluten", "soy", "eggs", "fish"]
 
+  # True if this user has a Week with at least one Day in the previous calendar week
+  # (relative to reference_date). reference_date can be a Date or Time; defaults to today.
+  def last_week?(reference_date = Date.current)
+    ref = reference_date.to_date
+    prev_week_start = ref.beginning_of_week - 7.days
+    prev_week_end   = prev_week_start + 6.days
+    weeks.joins(:days).where(days: { date: prev_week_start..prev_week_end }).exists?
+  end
+
   # Returns dishes from the week before the given date (by calendar week).
   # reference_date can be a Date or Time; defaults to today.
   def previous_week_dishes(reference_date = Date.current)
