@@ -1,6 +1,6 @@
 <img src="app/assets/images/navbar_logo.png" alt="Forkcast Logo" width="160">
 
-[Go to Forkcast](https://reciplan.org)
+[Go to Forkcast](https://www.reciplan.org)
 
 ---
 
